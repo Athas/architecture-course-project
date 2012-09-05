@@ -1,0 +1,1146 @@
+% 
+% Template file for software architecture design description in the 
+% DIKU course Software Architecture and Software Design. Please do
+% not distribute outside the course
+% 
+% Based on a template (c) by Woods and Rozanski (2011) available at
+% 
+%    http://www.viewpoints-and-perspectives.info
+% 
+% Instructions:
+%
+% 1) change the metadata commands below (\groupname) etc. to fit your
+%     project
+% 2) uncomment the overwriting of the \instructions command to remove 
+%     instructions
+% 3) write your architectural description...
+%
+% Contact: klausmh@diku.dk
+% 
+\documentclass[a4paper,11pt]{report}
+\usepackage{natbib}
+\usepackage[pdftex]{graphicx}
+\usepackage{color}
+\usepackage[table]{xcolor}
+\usepackage{hyperref}
+\usepackage{lastpage} 
+
+% Meta-data for report
+\newcommand{\systemname}{[System name]}
+\newcommand{\groupname}{[Group name]}
+\newcommand{\contactdetails}{[Contact details]}
+
+% Typesetting of instructions for using the template,
+% remove by renewing command 
+\newcommand{\instructions}[1]{
+  \noindent\colorbox{lightgray}{%
+    \parbox{\linewidth}{%
+      #1
+    }%
+  }%
+ \vspace{0.1cm}
+}
+% \renewcommand{\instructions}[1]{} % Uncomment to remove instructions
+
+% We use the below command for figure captions since
+% the figure environment does not play nicely with 
+% \colorbox. The "real" way to create figures is like this:
+%   \begin{figure}[ht!]
+%     \centering
+%     \includegraphics[width=0.8\textwidth]{figures/systemcontext}
+%    \caption{System context}
+%     \label{fig:systemcontext}
+%   \end{figure}
+\newcommand{\mycaption}[1]{
+  \addtocounter{figures}{1}
+  Figure \arabic{figures}. #1
+}
+
+% Change font family to Helvetica
+\renewcommand{\rmdefault}{phv}
+\renewcommand{\sfdefault}{phv}
+
+% Set headers and footers
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{Software Architecture of \systemname\ }
+\fancyfoot[C]{\footnotesize Page \thepage\ of \pageref{LastPage}}
+
+
+\begin{document}
+% 
+% Title page
+% 
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\begin{titlepage}
+
+  \begin{center}
+
+    % Title
+    \vspace*{4cm}
+    \HRule \\[0.4cm]
+    { \huge \bfseries \systemname}\\[0.4cm]
+    \HRule \\[1.5cm]
+
+    {\Large Software Architecture Description}
+
+    \vfill
+  \end{center}
+
+  % Author, version, date
+  \begin{flushleft}
+    {\large \groupname}\\[0.2cm]
+    {\large \contactdetails}\\[0.2cm]
+   {\large \today}
+  \end{flushleft}
+\end{titlepage}
+
+% 
+% Version table
+% 
+\newpage
+\chapter*{Version history}
+
+\begin{center}
+  \begin{tabular}[h!]{| l | l | l | p{8 cm} |}
+    \hline
+    \rowcolor{gray}
+    Version & Date & Author & Comments \\
+    \hline
+    \hline
+    1 & 2012-08-17 & KMH & Initial template based on
+    \citep{rozanski2011software} \\
+    \hline
+    & & & \\
+    \hline
+    & & & \\
+    \hline
+  \end{tabular}
+\end{center}
+
+% 
+% Table of contents
+% 
+\setcounter{tocdepth}{1}
+\tableofcontents
+
+% 
+% Main text
+% 
+\chapter{Introduction}
+\label{cha:introduction}
+\thispagestyle{fancy}
+
+\instructions{Text typeset like this in an instruction on how to use
+  the template. They should (of course) be removed in an architectural
+  description. 
+
+  In the LaTeX file for the template, this can be done by renewing the
+  \texttt{{\textbackslash}instructions} command to output the empty string.
+}
+
+\section{Purpose and scope}
+\label{sec:purpose-scope}
+
+\instructions{ Primarily this is to document the architecture for the stakeholders, to ensure that it meets their goals and concerns and that the proposed architecture is correct, complete and fit for purpose.
+
+  While you should avoid presenting a lot of material available elsewhere, it may also be useful to do some or all of the following in the AD:
+  \begin{itemize}
+  \item summarise the project context, goals and objectives
+  \item confirm scope and exclusions
+  \item present an overview of goals and drivers, requirements etc
+  \item record important decisions made and their rationale
+  \item present alternatives considered and their reasons for rejection
+  \item bring together other important information not captured elsewhere
+  \end{itemize}
+}
+
+\section{Audience}
+\label{sec:audience}
+
+\instructions{ 
+  Define the audience of the document.
+
+  Probably the most important audience are the developers who will be
+  designing and building the system, along with the sponsor who will be
+  paying for it. However there are a number of other stakeholders who
+  have an interest in the AD, as listed in the System Stakeholders and
+  Requirements chapter. And of course the architect is a stakeholder as
+  well.  
+}
+
+\section{Status}
+\label{sec:status}
+
+\instructions{  
+
+  Explain the current status of the architecture and of this
+  architectural description.
+
+  Is it still in progress? Being implemented? In production? You may
+  also want to describe future plans for the document (eg will be
+  reissued as Definitive after comments received by stakeholders).
+}
+
+\section{Architectural design approach}
+\label{sec:arch-design-appr}
+
+\instructions{
+  Explain the overall architectural approach used to describe and
+  develop the content of the document (e.g. explain viewpoints, views
+  and perspectives). If necessary explain the architectural views that
+  you’re using and why each is used.
+}
+
+\chapter{Glossary}
+\label{cha:glossary}
+\thispagestyle{fancy}
+\instructions{
+  Define any terms, acronyms or abbreviations that might be unfamiliar
+  to the target audience. This should include both business terms and
+  technology / architectural terms.
+
+  If the glossary is long, create a separate document and reference it here.
+
+\begin{center}
+  \begin{tabular}[h!]{| p{0.2\textwidth} | p{0.7\textwidth} |}
+    \hline
+    \rowcolor{gray}
+    Term & Definition \\
+    \hline
+    \hline
+    & \\
+    \hline
+    & \\
+    \hline
+  \end{tabular}
+\end{center}
+}
+
+\chapter{System stakeholders and requirements}
+\label{cha:syst-stak-requ}
+\thispagestyle{fancy}
+
+\section{Stakeholders}
+\label{sec:stakeholders}
+
+\instructions{
+  Define each of the key stakeholders and stakeholder groups, explaining
+  their interest, needs and concerns for the system.
+
+  A stakeholder is anyone who has an interest in or concern about in the
+  system documented in the AD. Consider the following stakeholder
+  groups.
+
+  \begin{itemize}
+  \item Acquirers, who pay for the system.
+  \item Assessors, who check for
+    compliance.
+  \item Communicators, who create documents and training.
+  \item Developers, who create the system.
+  \item Maintainers, who evolve and
+    fix the system.
+  \item Production Engineers, who are responsible for the
+    deployment environment.
+  \item Suppliers, who provide parts of the
+    system.
+  \item Support Staff, who help people to use the system.
+  \item System Administrators, who keep it running.
+  \item Testers, who verify
+    that it works.
+  \item Users, who have to use the system directly.
+  \end{itemize}
+  And of course the architect is also a stakeholder in the AD.
+}
+
+
+\section{Overview of requirements}
+\label{sec:overv-requ}
+
+\instructions{
+  Summarise the key functional and quality property (non-functional)
+  requirements for the system.
+
+  Functional requirements define what the system is required to do (for
+  example, update customer name and address details). Quality properties
+  (aka non-functional requirements) define how the system must behave at
+  run-time or design time (for example, it must respond to requests
+  within three seconds under a given load; it must be available 99.99\%
+  of the time; it must be possible to extend the system to meet certain
+  types of new requirement without having to undertake a major
+  redesign).
+
+  Avoid going into too much detail which is presented elsewhere; refer
+  to external sources, such as requirements documents, SLAs, existing
+  systems and so on, wherever possible. Requirements should be numbered
+  so that you can refer to them unambiguously elsewhere.
+
+
+\begin{center}
+  \begin{tabular}[h!]{| p{0.2\textwidth} | p{0.7\textwidth} |}
+    \hline
+    \rowcolor{gray}
+    Reference & Requirement description \\
+    \hline
+    \hline
+    R1 & \\
+    \hline
+    & \\
+    \hline
+  \end{tabular}
+\end{center}
+
+}
+
+\section{System scenarios}
+\label{sec:system-scenarios}
+
+\instructions{
+  List, and briefly outline the most important scenarios that matter to
+  the key stakeholders and/or can be used to illustrate the system’s
+  ability to meet its most important requirements.
+
+  A scenario describes a situation that the system is likely to face in
+  its production environment, along with the responses required of the
+  system. You should consider both functional scenarios (things that the
+  system must do usually in response to an external event or input) and
+  system quality scenarios (how the system should react to a change in
+  its environment, such as an increase in workload).
+
+  In most cases the scenarios take a significant amount of space and it
+  is often appropriate to record them in a separate document to avoid
+  the AD getting too large.
+
+}
+
+\subsection{Functional scenarios}
+\label{sec:functional-scenarios}
+
+\instructions{
+  Functional scenarios model things that the system must do response to
+  an external stimulus (eg an event or input).
+
+\begin{center}
+  \begin{tabular}[h!]{| >{\columncolor{gray}}p{0.28\textwidth} | p{0.65\textwidth} |}
+    \hline
+    Scenario reference & FS1. \\
+    \hline
+    Overview & \\
+    \hline
+    System state & \\
+    \hline
+    System environment & \\
+    \hline
+    External stimulus & \\
+    \hline
+    Required system response & \\
+    \hline
+  \end{tabular}
+\end{center}
+}
+
+\subsection{System quality scenarios}
+\label{sec:syst-qual-scen}
+
+\instructions{
+  System quality scenarios model how the system should react to a change
+  in its environment (such as an increase in workload or a security
+  breach).
+
+\begin{center}
+  \begin{tabular}[h!]{| >{\columncolor{gray}}p{0.28\textwidth} | p{0.65\textwidth} |}
+    \hline
+    Scenario reference & QS1. \\
+    \hline
+    Overview & \\
+    \hline
+    System environment & \\
+    \hline
+    Environment changes & \\
+    \hline
+    Required system behavior & \\
+    \hline
+  \end{tabular}
+\end{center}
+}
+
+\chapter{Architectural forces}
+\label{cha:architectural-forces}
+\thispagestyle{fancy}
+
+\section{Goals}
+\label{sec:goals}
+
+\section{Constraints}
+\label{sec:constraints}
+
+\section{Architectural principles}
+\label{sec:arch-princ}
+
+\chapter{Architectural views}
+\label{cha:architectural-views}
+\thispagestyle{fancy}
+
+\section{Context view}
+\label{sec:context-view}
+
+\instructions{
+The context view of the system describes the relationships,
+dependencies and interactions between the system and its environment
+(the people, systems and external entities that it interacts with).
+}
+
+
+\newcounter{figures}
+\subsection{Context diagram}
+\label{sec:context-diagram}
+
+\instructions{
+Use a context diagram (and supporting explanation) to explain the
+environment in which the system operates and the external entities it
+interacts with. Briefly define here each of the external entities and
+the important interactions that the system has with them.
+
+The context diagram is usually presented as a simple, high-level
+picture which shows the system’s boundaries and its adjacent external
+entities. The external entities are typically other systems, but may
+also be physical devices, “black box” external organisations, or more
+granular software components. Interactions may be data flows
+(interfaces) or control flows (eg invoking a service or exposed
+function).
+
+You normally present the system itself in the diagram as a single box
+or component. External entities are also normally presented as single
+boxes or components, since you often don’t know (or care) about their
+internal implementations.
+
+An example context diagram is given below. This uses a “neutral”
+boxes-and-lines notation; you may want to use a more formal modelling
+language such as UML instead.
+
+\begin{center}
+  \includegraphics[width=\textwidth]{figures/systemcontext}\\
+  \mycaption{System context}
+\end{center}
+
+}
+
+
+
+\subsection{Interaction scenarios}
+\label{sec:inter-scen}
+
+\instructions{
+Where you have complicated interactions between your system and
+external entities, consider modelling some of the expected interaction
+sequences using interaction scenarios. These can help to uncover
+implicit requirements and constraints (such as ordering, volume or
+timing constraints) and helps to provide a further, more detailed
+level of validation.
+
+You can capture interaction sequences using UML sequence diagrams or
+bulleted lists of interactions.
+
+}
+
+\section{Functional view}
+\label{sec:functional-view}
+
+\instructions{
+The functional view of the system defines the system’s architecturally
+significant functional elements, the responsibilities of each, the
+interfaces they offer and the dependencies between elements.
+
+Place a functional model here (e.g. a UML component diagram) and
+explain its content in the subsections below. A functional element is
+a well-defined part of the runtime system that has particular
+functional responsibilities and exposes interfaces that connect it to
+other functional elements.
+
+
+Focus on the important functional elements in your architecture. In
+general you should not model the underlying infrastructure here unless
+it performs a functionally significant purpose (for example a message
+bus that links system elements and transforms data exchanged between
+them).
+
+If your architecture is functionally complex you may choose to model
+it at a high level and then decompose some elements in further
+sub-models (functional decomposition).
+
+\begin{center}
+  \includegraphics[width=\textwidth]{figures/functionalmodel}\\
+  \mycaption{Functional model}
+\end{center}
+
+}
+
+\subsection{Functional elements}
+\label{sec:functional-elements}
+
+\instructions{
+Define the responsibilities and interfaces offered and/or required by
+each functional element. Alternatively, if you are using a modelling
+approach like UML you might choose to keep the main descriptions in
+the UML model repository and summarise the information here,
+referencing the model(s).
+
+If you have used functional decomposition in the previous section, you
+can structure this section to align with your functional hierarchy.
+
+\begin{center}
+  \begin{tabular}[h!]{| >{\columncolor{gray}}p{0.28\textwidth} | p{0.65\textwidth} |}
+    \hline
+    Element name & \\
+    \hline
+    Responsibilities & \\
+    \hline
+    Interfaces -- inbound & \\
+    \hline
+    Interfaces -- outbound & \\
+   \hline
+  \end{tabular}
+\end{center}
+}
+
+\subsection{Functional scenarios}
+\label{sec:functional-scenarios-1}
+
+\instructions{
+Use one or more interaction diagrams to explain how the functional
+elements interact, via their interfaces, in order to meet some of the
+key system functional scenarios.
+}
+
+\subsection{System-wide processing}
+\label{sec:syst-wide-proc}
+
+\instructions{
+Define how any system-wide processing will be handled (for example, if
+you have a message-oriented system, how will you deal with message
+delivery errors across the system).
+}
+
+\section{Information view}
+\label{cha:information-view}
+
+\instructions{
+The Information view of the system defines the structure of the
+system’s stored and transient information (e.g. databases and message
+schemas) and how related aspects such as information ownership, flow,
+currency, latency and retention will be addressed.
+}
+
+\subsection{Data structure}
+\label{sec:data-structure}
+
+\instructions{
+Define or reference any architecturally significant data structures
+for stored and transient data, such as overview data models or message
+schemas.
+
+At this level you should keep the number of entities small – no more
+than 20 or so if possible. It is not necessary to be 100\% normalised
+– for the sake of clarity it is acceptable to have some many-to-many
+relationships for example. Don’t try and illustrate every entity and
+relationship here or your readers will get lost in the detail.
+
+It may also be useful to logically group entities together that are
+semantically related in some way – for example, all data related to
+customer name and address. This may help your readers to understand
+the data items and the relationships between them.
+
+Here is an example data structure model which uses classic ERD
+notation. You can also use class diagrams here although that may be
+too granular a level of detail for an AD. An alternative, should you
+wish to use UML, is to illustrate the information structure at the
+package, rather than the class, level.
+
+\begin{center}
+  \includegraphics[width=\textwidth]{figures/systemdatastructure}\\
+  \mycaption{System data structure}
+\end{center}
+
+}
+
+\subsection{Data flow}
+\label{sec:data-flow}
+
+\instructions{
+If it is not clear from the functional view’s interaction diagrams,
+define how data flows through the system from one component to another
+and to external components.
+
+As with the data structure diagram, keep this simple and focus on no
+more than about 10-15 key functional elements. Don’t try and
+illustrate every data flow here or your readers will get lost in the
+detail.
+
+An example is shown below using a data flow diagram.
+
+\begin{center}
+  \includegraphics[width=\textwidth]{figures/systemdataflow}\\
+  \mycaption{System data flow}
+\end{center}
+}
+
+\subsection{Data ownership}
+\label{sec:data-ownership}
+
+\instructions{
+If data is owned by more than one entity or part of the system, define
+who owns which pieces of the data and explain how any resulting
+problems will be handled.
+
+In the example below, it can be seen that there are issues with entity
+4 which can be updated by System D which is not the owner. The AD
+should explain how this inconsistency will be managed.
+
+\begin{center}
+  \begin{tabular}[h!]{| p{0.1\textwidth} | p{0.15\textwidth} | p{0.15\textwidth} | p{0.15\textwidth} | p{0.15\textwidth} |}
+    \hline
+    \rowcolor{gray}
+    Entity & System A & System B & System C & System D \\
+    \hline
+    \hline
+    entity 1 & MASTER & r/o copy & reader  & reader \\
+   \hline
+    entity 2 &reader & MASTER & none & reader\\
+   \hline
+    entity 3 &none & reader & MASTER & reader \\
+   \hline
+    entity 4 &MASTER &none & none & reader, updater, deleter\\
+   \hline
+ \end{tabular}
+\end{center}
+
+}
+
+\subsection{Information lifecycles}
+\label{sec:inform-lifecycl}
+
+\instructions{
+If key entities have complicated lifecycles then model the way that
+their state changes over time.
+
+Focus on a few key entities whose transitions help to illuminate key
+features of the architecture, rather than just
+created / updated / updated / updated / destroyed.
+
+There are two common techniques for modelling information lifecycles,
+entity life histories and state transition diagrams. Both are useful;
+choose one style and stick to it throughout the AD.
+
+\begin{center}
+  \includegraphics[width=0.7\textwidth]{figures/entitylifehistory}\\
+  \mycaption{Entity life history}
+\end{center}
+
+\begin{center}
+  \includegraphics[width=0.7\textwidth]{figures/statetransition}\\
+  \mycaption{State transition}
+\end{center}
+
+}
+
+\subsection{Timeliness and latency}
+\label{sec:timeliness-latency}
+
+\instructions{
+If information needs to be copied around the system or is updated
+regularly, explain how timeliness and latency requirements will be
+addressed.
+}
+
+\subsection{Archive and retention}
+\label{sec:archive-retention}
+
+\instructions{
+Explain how will archive and retention requirements will be met by the
+system.
+}
+
+\section{Concurrency view}
+\label{sec:concurrency-view}
+
+\instructions{
+The Concurrency view of the system defines the set of runtime system
+elements (such as operating system processes) into which the system’s
+functional elements are packaged.
+
+If the concurrency structure is complicated or it isn’t obvious from
+the information in the other views, define how functional elements
+will be packaged into processes and threads and explain how they
+interact safely and reliably using suitable inter-process
+communication mechanisms. This can be achieved via a UML model (using
+stereotypes), by using a special purpose concurrency modelling
+language, or by creating an informal notation for the situation at
+hand.
+}
+
+\subsection{Concurrency model}
+\label{sec:concurrency-model}
+
+\instructions{
+Model the processes, process groups and threads, and the interprocess
+communication channels between them.
+
+You may also choose to model the mechanisms used to protect the
+integrity of data and other resources shared between concurrent
+execution units, such as mutexes or semaphores.
+
+You can use a UML component model to represent the information
+graphically, stereotyping the components appropriately.
+
+\begin{center}
+  \includegraphics[width=\textwidth]{figures/concurrencymodel}\\
+  \mycaption{Concurrency model}
+\end{center}
+
+}
+
+\subsection{State model}
+\label{sec:state-model}
+
+\instructions{
+Model the states that the systems runtime elements can be in, the
+transitions between those states and the events which drive those
+transitions.
+
+A state is an identified, named stable condition which occurs during
+the system’s runtime. An event is something that happens which causes
+an element to undergo a transition from one state to another. Actions
+may also be associated with transitions, so that while the element
+changes state, the action is performed.
+
+Focus on a few key elements whose states and transitions help to illuminate
+key features of the architecture.
+
+\begin{center}
+  \includegraphics[width=0.8\textwidth]{figures/statemodel}\\
+  \mycaption{State model}
+\end{center}
+
+}
+
+\section{Deployment view}
+\label{sec:deployment-view}
+
+\instructions{
+The Deployment view of the system defines the important
+characteristics of the system’s operational deployment
+environment. This view includes the details of the processing nodes
+that the system requires for its installation (i.e. its runtime
+platform), the software dependencies on each node (such as required
+libraries) and details of the underlying network that the system will
+require.
+}
+
+\subsection{Runtime platform model}
+\label{sec:runt-platf-model}
+
+\instructions{
+Show the system’s runtime platform (defining nodes, links and the
+mapping of functional elements or processes to nodes).
+
+You can use a UML deployment diagram here, or a simpler
+boxes-and-lines diagram.
+
+\begin{center}
+  \includegraphics[width=\textwidth]{figures/deploymentmodel}\\
+  \mycaption{Deployment model}
+\end{center}
+
+}
+
+\instructions{
+It is often useful to explicitly map the functional elements onto the
+nodes that they will be running on, particularly if the deployment
+model is complex or the mappings aren’t obvious.
+
+\begin{center}
+  \begin{tabular}[h!]{| p{0.4\textwidth} | p{0.5\textwidth} |}
+    \hline
+    \rowcolor{gray}
+    Functional element & Deployment node(s) \\
+    \hline
+    \hline
+    & \\
+    \hline
+    & \\
+    \hline
+  \end{tabular}
+\end{center}
+
+}
+
+\subsection{Software dependencies}
+\label{sec:softw-depend}
+
+\instructions{
+Define the software that will be required on the various types of node
+in the runtime platform model, in order to support the system (such as
+operating system , system software or library requirements). Where
+versions are known you should state these.
+
+Clearly state any known version dependencies (eg component A requires
+at least version X of component B).
+
+This can usually be presented in tabular form.
+}
+
+\subsection{Network model}
+\label{sec:network-model}
+
+\instructions{
+If network requirements are complex, include a network model that
+illustrates the nodes, links and network hardware that the system
+requires, making quality of service requirements clear.
+}
+
+\section{Development view}
+\label{sec:development-view}
+
+\instructions{
+The Development view of the system defines any constraints on the
+software development process that are required by the
+architecture. This includes the system’s module organisation, common
+processing that all modules must implement, any required
+standardisation of design, coding and testing and the organisation of
+the system’s codeline.
+
+Much of the information in this view is normally presented at a
+summary level, with more detail being available in other developer
+focused documents such as a development standards document. However
+you may still need to record some architecturally significant
+decisions at this stage, for example around choice of libraries or
+frameworks, or approach and tools for software deployment or
+configuration management.
+}
+
+\subsection{Module structure}
+\label{sec:module-structure}
+
+\instructions{
+Use a model that defines the code modules that will be created and the
+dependencies between them. A UML package diagram is often an effective
+way to achieve this.
+
+\begin{center}
+  \includegraphics[width=0.9\textwidth]{figures/modulestructurediagram}\\
+  \mycaption{Module structure diagram}
+\end{center}
+
+}
+
+\subsection{Common design}
+\label{sec:common-design}
+
+\instructions{
+Define the common design (such as logging, security, tracing and so
+on) that must be performed in a standard way across the system and how
+it should be performed (e.g. via a design pattern or reference to a
+code library or sample).
+}
+
+\subsection{Standards for design, code, and test}
+\label{sec:stand-design-code}
+
+\instructions{
+Define any standards that must be followed for design, code and unit
+testing, probably by reference to an external document.
+}
+
+\subsection{Codeline organization}
+\label{sec:codel-organ}
+
+\instructions{
+Define the codeline structure (i.e. how the source code will be held
+as a directory hierarchy and how it will be built into deliverable
+software). Define the directory hierarchy, build tools and delivery
+tools (such as testing or continual integration tools) that will be
+used to deliver the software for testing and production.
+}
+
+\section{Operational view}
+\label{sec:operational-view}
+
+\instructions{
+The Operational view defines how the system will be installed into its
+production environment, how data and users will be migrated to it and
+how it will be configured, managed, monitored, controlled and
+supported once this is achieved. The aim of the information in this
+view is to show how the operational environment is to be created and
+maintained, rather than to define detailed instructions or procedures.
+}
+\subsection{Installation and migration}
+\label{sec:inst-migr}
+
+\instructions{
+Define the high-level steps required to install the system and any
+specific or unusual requirements for it.
+
+If parallel running of old and new systems is required, explain how
+this will be done without disrupting existing systems, and the
+transition states required.
+}
+
+\subsection{Operational configuration management}
+\label{sec:oper-conf-manag}
+
+\instructions{
+Define the main groups of operational configuration items and common
+sets of values for them (e.g. batch and overnight sets) and explain
+how these groups will be managed in the production environment.
+}
+
+\subsection{System administration}
+\label{sec:syst-admin}
+
+\instructions{
+Explain the requirements the system places on the systems
+administrators (in both routine and exceptional situations) and the
+facilities that the system will provide or rely on in the operational
+environment.
+}
+
+\subsection{Provision of support}
+\label{sec:provision-support}
+
+\instructions{
+Define the groups involved in providing support for the system and the
+roles and responsibilities of each (including escalation procedures if
+relevant).
+}
+
+\chapter{System qualities}
+\label{cha:system-qualities}
+\thispagestyle{fancy}
+
+\instructions{
+This section explains how the architecture presented
+  meets its each of its required system quality properties.
+
+While much of this information will be intrinsic to the views
+documented in the previous chapter, it is often useful to bring out
+some of it separately. In particular, if a quality property such as
+security or performance depends on features documented in several
+different views, then you should explain this here. For example,
+scalability may depend on optimisations in the data model (documented
+in the Information View) along with load balancing components
+(documented in the Deployment View).
+}
+
+\section{Performance and scalability}
+\label{sec:perf-scal}
+
+\instructions{
+For each of the main performance and scalability requirements, explain
+how the system will meet the requirement. Refer to practical testing
+and performance modelling work that has been performed as part of
+applying this perspective.
+
+\begin{center}
+  \begin{tabular}[h!]{| p{0.4\textwidth} | p{0.5\textwidth} |}
+    \hline
+    \rowcolor{gray}
+    Requirement & How met \\
+    \hline
+    \hline
+    1. average user response time should be XX under load YY & refer
+    to performance modelling spreadsheet\\
+
+    \hline
+ \end{tabular}
+\end{center}
+
+}
+
+\section{Security}
+\label{sec:security}
+
+\instructions{
+For each of the main, security requirements, explain how the system
+will meet the requirement. Define (or reference) the threat model,
+security policy and security design that have been used as part of
+applying this perspective.
+
+\begin{center}
+  \begin{tabular}[h!]{| p{0.4\textwidth} | p{0.5\textwidth} |}
+    \hline
+    \rowcolor{gray}
+    Requirement & How met \\
+    \hline
+    \hline
+    1. all users must be authenticated before being allowed to access
+    the system & access to all screens is via standard login screen
+    with passwords synchronised overnight to central LDAP service\\
+
+    \hline
+ \end{tabular}
+\end{center}
+
+}
+
+
+\section{Availability and resilience}
+\label{sec:avail-resil}
+
+\instructions{
+Explain the A\&R requirements.
+
+Define the availability schedule(s) for the system.
+
+Explain how the system will meet the requirements, referring to
+practical testing, modelling and design work that has been performed
+as part of applying this perspective.
+
+\begin{center}
+  \begin{tabular}[h!]{| p{0.4\textwidth} | p{0.5\textwidth} |}
+    \hline
+    \rowcolor{gray}
+    Requirement & How met \\
+    \hline
+    \hline
+    1. There should be no single point of failure & all deployment
+    nodes are clustered or load-balanced; where nodes are clustered,
+    component failure is detected automatically and the passive node
+    is brought up automatically\\
+
+    \hline
+ \end{tabular}
+\end{center}
+
+}
+
+
+\section{Evolution}
+\label{sec:evolution}
+
+\instructions{
+Explain the evolution requirements.
+
+Define the evolutionary dimensions that are relevant to the system.
+
+Explain  how the system will meet the requirements, taking into
+account the likelihood of each type of evolution occurring (explaining
+how the probabilities were arrived at) and referring to the design
+work performed as part of applying his perspective.
+
+\begin{center}
+  \begin{tabular}[h!]{| p{0.4\textwidth} | p{0.5\textwidth} |}
+    \hline
+    \rowcolor{gray}
+    Requirement & How met \\
+    \hline
+    \hline
+    1. it must be possible to add extra input channels without having
+    to redesign the core system & input channel components are loosely
+    coupled to central processing modules via standardises abstract
+    interfacey\\
+
+    \hline
+ \end{tabular}
+\end{center}
+}
+
+\section{Other qualities}
+\label{sec:other-qualities}
+
+\subsection{Accessibility}
+\label{sec:accessibility}
+
+\instructions{
+Explain how the system meets any accessibility requirements (if any).
+}
+
+\subsection{Internationalisation}
+\label{sec:internationalisation}
+
+\instructions{
+Explain how the system meets any internationalisation (or
+localisation) requirements (if any).
+}
+
+\subsection{Location}
+\label{sec:location}
+
+\instructions{
+Explain how the system meets any requirements for the geographical
+location(s) it is to be installed in (if any).
+}
+
+\subsection{Regulation}
+\label{sec:regulation}
+
+\instructions{
+Explain how the system meets any regulatory requirements (if any).
+}
+
+\subsection{Usability}
+\label{sec:usability}
+
+\instructions{
+Explain how the system meets any usability requirements (if any).
+}
+
+\appendix
+
+\chapter{Architecture backlog}
+\label{cha:architecture-backlog}
+\thispagestyle{fancy}
+
+\instructions{ Maintain a \emph{backlog} listing needs you have,
+  issues and problems you have to solve, ideas for future design
+  decisions etc. Note actions that you need to take and update the
+  backlog as actions are completed:
+
+\bigskip
+Actions
+
+\begin{itemize}
+\item Decide on which Android version to target
+\item ...
+\end{itemize}
+
+Done
+
+\begin{itemize}
+\item Create an architectural prototype using java.nio for increased
+  scalability
+
+\end{itemize}
+
+
+}
+
+\chapter{Architecture evaluation}
+\label{cha:arch-eval}
+\thispagestyle{fancy}
+
+\instructions{
+Describe the architectural evaluation that you performed, cf. Chapter
+14 of~\citet{rozanski2011software} including what you learned about
+your architecture design.
+}
+
+\chapter{Architecture skeleton}
+\label{cha:arch-prot}
+\thispagestyle{fancy}
+\instructions{ 
+Describe the architecture skeleton that you developed
+  including how to download and run it.
+}
+
+
+
+
+
+% 
+% Bibliography
+% 
+\bibliography{architectural_design}
+\bibliographystyle{apalike}
+
+\end{document}
