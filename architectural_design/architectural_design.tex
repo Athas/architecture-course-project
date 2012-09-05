@@ -143,6 +143,29 @@
 \section{Purpose and scope}
 \label{sec:purpose-scope}
 
+Russia, as the worlds largest country by land area, has an extensive
+raw materials industry.  Since the fall of the Soviet Union, the
+Russian trucking industry has undergone a dramatic growth, and
+government initiatives aim to maintain this growth into the future.
+Since many of the industrial installations are located in remote
+areas, logistics companies face great difficulties in managing their
+truck fleets, particularly as transportation times are often
+unpredictable due to weather, accidents and the generally poor
+condition of the Russian road network.
+
+We propose the creation of a system, the Siberian Tracking System
+(STS), for tracking a large fleet of trucks operating in far-flung
+regions of Russia, owned by the (fictive) Siberian Trucking Company
+(STC).  A central system will be informed of the location and state of
+every truck in the fleet, permitting decision making systems to have
+complete knowledge of the state of the company assets.
+
+The STS is solely concerned with the state of the trucking fleet, and
+does not do freight tracking or make any kind of business logic
+decisions on its own.  While it provides information allowing such
+decisions to be made, it is purely a data collection and dissemination
+infrastructure.
+
 \instructions{ Primarily this is to document the architecture for the stakeholders, to ensure that it meets their goals and concerns and that the proposed architecture is correct, complete and fit for purpose.
 
   While you should avoid presenting a lot of material available elsewhere, it may also be useful to do some or all of the following in the AD:
@@ -159,6 +182,18 @@
 \section{Audience}
 \label{sec:audience}
 
+The intended audience of this document, and the reason for their
+inclusion, are as follows.
+
+\begin{itemize}
+  \item Business logic decision makers of STC, who must determine
+    whether the information provided by STS is sufficient.
+  \item Truck maintenance department representatives, to determine
+    whether the additional equipment needed on trucks is realistic.
+  \item The developers who have to implement the entire mess.
+  \item Finally, whoever approves the financing of the project.
+\end{itemize}
+
 \instructions{ 
   Define the audience of the document.
 
@@ -172,6 +207,9 @@
 
 \section{Status}
 \label{sec:status}
+
+The architecture of the STS is still very early in its development.
+Not even all requirements have been collected yet.
 
 \instructions{  
 
@@ -202,6 +240,7 @@
   technology / architectural terms.
 
   If the glossary is long, create a separate document and reference it here.
+}
 
 \begin{center}
   \begin{tabular}[h!]{| p{0.2\textwidth} | p{0.7\textwidth} |}
@@ -210,13 +249,10 @@
     Term & Definition \\
     \hline
     \hline
-    & \\
-    \hline
-    & \\
-    \hline
+    STS & Siberian Tracking System \\\hline
+    STC & Siberian Tracking Company \\\hline
   \end{tabular}
 \end{center}
-}
 
 \chapter{System stakeholders and requirements}
 \label{cha:syst-stak-requ}
