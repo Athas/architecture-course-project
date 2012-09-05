@@ -151,33 +151,32 @@ Since many of the industrial installations are located in remote
 areas, logistics companies face great difficulties in managing their
 truck fleets, particularly as transportation times are often
 unpredictable due to weather, accidents and the generally poor
-condition of the Russian road network.
+condition of the Russian road network.  As an additional complication,
+the distant locations and low population densities prevents the use of
+many common communication technologies (eg. no cell phone network).
 
 We propose the creation of a system, the Siberian Tracking System
 (STS), for tracking a large fleet of trucks operating in far-flung
 regions of Russia, owned by the (fictive) Siberian Trucking Company
-(STC).  A central system will be informed of the location and state of
-every truck in the fleet, permitting decision making systems to have
-complete knowledge of the state of the company assets.
+(STC).  A central server installation will be informed of the location
+and state of every truck in the fleet, permitting decision making
+systems to have complete knowledge of the state of the company assets.
+Each truck is responsible for tracking its own progress, then
+periodically relaying it back to the main servers.  The project does
+not involve creation of any new ground stations; trucks will use
+standard wireless communication methods whenever in range of
+appropriate networks.
 
 The STS is solely concerned with the state of the trucking fleet, and
 does not do freight tracking or make any kind of business logic
 decisions on its own.  While it provides information allowing such
 decisions to be made, it is purely a data collection and dissemination
-infrastructure.
-
-\instructions{ Primarily this is to document the architecture for the stakeholders, to ensure that it meets their goals and concerns and that the proposed architecture is correct, complete and fit for purpose.
-
-  While you should avoid presenting a lot of material available elsewhere, it may also be useful to do some or all of the following in the AD:
-  \begin{itemize}
-  \item summarise the project context, goals and objectives
-  \item confirm scope and exclusions
-  \item present an overview of goals and drivers, requirements etc
-  \item record important decisions made and their rationale
-  \item present alternatives considered and their reasons for rejection
-  \item bring together other important information not captured elsewhere
-  \end{itemize}
-}
+infrastructure.  In particular, it is a one-way communication system.
+Other means must be employed to contact the trucks on the road.  Also,
+STS is by itself not concerned with doing data mining or presenting a
+sophisticated user interface to its data.  Instead, a data interchange
+mechanism will be defined that allows other systems to receive
+information from STS.
 
 \section{Audience}
 \label{sec:audience}
@@ -194,32 +193,11 @@ inclusion, are as follows.
   \item Finally, whoever approves the financing of the project.
 \end{itemize}
 
-\instructions{ 
-  Define the audience of the document.
-
-  Probably the most important audience are the developers who will be
-  designing and building the system, along with the sponsor who will be
-  paying for it. However there are a number of other stakeholders who
-  have an interest in the AD, as listed in the System Stakeholders and
-  Requirements chapter. And of course the architect is a stakeholder as
-  well.  
-}
-
 \section{Status}
 \label{sec:status}
 
-The architecture of the STS is still very early in its development.
-Not even all requirements have been collected yet.
-
-\instructions{  
-
-  Explain the current status of the architecture and of this
-  architectural description.
-
-  Is it still in progress? Being implemented? In production? You may
-  also want to describe future plans for the document (eg will be
-  reissued as Definitive after comments received by stakeholders).
-}
+The basic requirements of STS have been determined, but the actual
+design and implementation is not yet begun.
 
 \section{Architectural design approach}
 \label{sec:arch-design-appr}
@@ -421,47 +399,14 @@ Not even all requirements have been collected yet.
 \section{Context view}
 \label{sec:context-view}
 
-\instructions{
-The context view of the system describes the relationships,
-dependencies and interactions between the system and its environment
-(the people, systems and external entities that it interacts with).
-}
-
-
 \newcounter{figures}
 \subsection{Context diagram}
 \label{sec:context-diagram}
 
-\instructions{
-Use a context diagram (and supporting explanation) to explain the
-environment in which the system operates and the external entities it
-interacts with. Briefly define here each of the external entities and
-the important interactions that the system has with them.
-
-The context diagram is usually presented as a simple, high-level
-picture which shows the system’s boundaries and its adjacent external
-entities. The external entities are typically other systems, but may
-also be physical devices, “black box” external organisations, or more
-granular software components. Interactions may be data flows
-(interfaces) or control flows (eg invoking a service or exposed
-function).
-
-You normally present the system itself in the diagram as a single box
-or component. External entities are also normally presented as single
-boxes or components, since you often don’t know (or care) about their
-internal implementations.
-
-An example context diagram is given below. This uses a “neutral”
-boxes-and-lines notation; you may want to use a more formal modelling
-language such as UML instead.
-
 \begin{center}
-  \includegraphics[width=\textwidth]{figures/systemcontext}\\
+  \includegraphics[width=\textwidth]{figures/sts_context_view}\\
   \mycaption{System context}
 \end{center}
-
-}
-
 
 
 \subsection{Interaction scenarios}
