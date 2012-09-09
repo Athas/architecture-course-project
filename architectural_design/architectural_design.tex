@@ -165,7 +165,7 @@ Each truck is responsible for tracking its own progress, then
 periodically relaying it back to the main servers.  The project does
 not involve creation of any new ground stations; trucks will use
 standard wireless communication methods whenever in range of
-appropriate networks.
+appropriate networks. The transmitters on the trucks will only use one way communication to the server, with data of the trucks current position and the speed of the truck. The transmitters are supposed to be low-cost hardware, so communication from the server to the trucks and additional measuring equipment, for instance of oil and gasoline levels have been deselected. 
 
 The STS is solely concerned with the state of the trucking fleet, and
 does not do freight tracking or make any kind of business logic
@@ -412,18 +412,11 @@ design and implementation is not yet begun.
 \subsection{Interaction scenarios}
 \label{sec:inter-scen}
 
-\instructions{
-Where you have complicated interactions between your system and
-external entities, consider modelling some of the expected interaction
-sequences using interaction scenarios. These can help to uncover
-implicit requirements and constraints (such as ordering, volume or
-timing constraints) and helps to provide a further, more detailed
-level of validation.
+\begin{center}
+  \includegraphics[width=\textwidth]{figures/interaction_scenario_1}\\
+  \mycaption{System context}
+\end{center}
 
-You can capture interaction sequences using UML sequence diagrams or
-bulleted lists of interactions.
-
-}
 
 \section{Functional view}
 \label{sec:functional-view}
