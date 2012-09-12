@@ -304,6 +304,14 @@ design and implementation is not yet begun.
 \label{sec:system-scenarios}
 
 \begin{itemize}
+  \item At least once every 5 seconds, every truck in the STC fleet must record its
+    GPS coordinates (latitude and longitude) and the current time in the UTC
+    time zone.
+  \item After every data point is collected, every truck in the STC fleet will
+    attempt to send the data point to the central STS server for permanent
+    storage using one of the following wireless protocols: the cellular
+    network, a BelAir mesh network between the trucks, or a private line on
+    the built-in radio system used for general communication on a private line.
   \item A user must be able to query and sort the data stored in the STS
     database based on the following parameters: time, truck ID, latitude,
     longitude, and location radius.
