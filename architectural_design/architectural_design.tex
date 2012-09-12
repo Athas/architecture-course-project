@@ -356,23 +356,6 @@ design and implementation is not yet begun.
 \subsection{System quality scenarios}
 \label{sec:syst-qual-scen}
 
-\begin{itemize}
-  \item If the number of trucks in the fleet increases, or if the business
-    administrators need to collect data at a greater interval, the capabilities
-    of the system ought to be appropriately scalable. When a tracking device in
-    a truck sends data to the STS server, the data will be placed in a queue.
-    Based on the size of the queue, an appropriate number of EC2 instances will
-    be started or shut down to process the queue. This process will be handled
-    by Amazon's Elastic Load Balancing service. For example, if 10 small EC2
-    instances can receive and process 1,000 data points per second, the system will
-    allocate the equivalent of 50 small EC2 instances to process an increased
-    workload of 5,000 data points per second.
-  \item When network coverage is not available, trucks will temporarily store
-    data on up to 16 megabytes of onboard flash memory. As soon as the truck is
-    able to communicate with the server, the system will appropriately
-    syncronize the data stored in the truck with the server's database.
-\end{itemize}
-
 \instructions{
   System quality scenarios model how the system should react to a change
   in its environment (such as an increase in workload or a security
@@ -383,13 +366,22 @@ design and implementation is not yet begun.
     \hline
     Scenario reference & QS1. \\
     \hline
-    Overview & \\
+    Overview & If the number of trucks in the fleet increases, or if the business
+    administrators need to collect data at a greater interval, the capabilities
+    of the system ought to be appropriately scalable.\\
     \hline
-    System environment & \\
+    System environment & This process will be handled
+    by Amazon's Elastic Load Balancing service in conjunction with Amazon EC2.\\
     \hline
-    Environment changes & \\
+    Environment changes & For example, if 10 small EC2
+    instances can receive and process 1,000 data points per second, the system will
+    allocate the equivalent of 50 small EC2 instances to process an increased
+    workload of 5,000 data points per second.\\
     \hline
-    Required system behavior & \\
+    Required system behavior & When a tracking device in
+    a truck sends data to the STS server, the data will be placed in a queue.
+    Based on the size of the queue, an appropriate number of EC2 instances will
+    be started or shut down to process the queue.\\
     \hline
   \end{tabular}
 \end{center}
