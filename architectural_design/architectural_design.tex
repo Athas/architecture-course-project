@@ -270,57 +270,8 @@ design and implementation is not yet begun.
     and analyze data provided by the STS to make informed business decisions.
 \end{itemize}
 
-\instructions{
-  Define each of the key stakeholders and stakeholder groups, explaining
-  their interest, needs and concerns for the system.
-
-  A stakeholder is anyone who has an interest in or concern about in the
-  system documented in the AD. Consider the following stakeholder
-  groups.
-
-  \begin{itemize}
-  \item Acquirers, who pay for the system.
-  \item Assessors, who check for
-    compliance.
-  \item Communicators, who create documents and training.
-  \item Developers, who create the system.
-  \item Maintainers, who evolve and
-    fix the system.
-  \item Production Engineers, who are responsible for the
-    deployment environment.
-  \item Suppliers, who provide parts of the
-    system.
-  \item Support Staff, who help people to use the system.
-  \item System Administrators, who keep it running.
-  \item Testers, who verify
-    that it works.
-  \item Users, who have to use the system directly.
-  \end{itemize}
-  And of course the architect is also a stakeholder in the AD.
-}
-
-
 \section{Overview of requirements}
 \label{sec:overv-requ}
-
-\instructions{
-  Summarise the key functional and quality property (non-functional)
-  requirements for the system.
-
-  Functional requirements define what the system is required to do (for
-  example, update customer name and address details). Quality properties
-  (aka non-functional requirements) define how the system must behave at
-  run-time or design time (for example, it must respond to requests
-  within three seconds under a given load; it must be available 99.99\%
-  of the time; it must be possible to extend the system to meet certain
-  types of new requirement without having to undertake a major
-  redesign).
-
-  Avoid going into too much detail which is presented elsewhere; refer
-  to external sources, such as requirements documents, SLAs, existing
-  systems and so on, wherever possible. Requirements should be numbered
-  so that you can refer to them unambiguously elsewhere.
-
 
 \begin{center}
   \begin{tabular}[h!]{| p{0.2\textwidth} | p{0.7\textwidth} |}
@@ -329,17 +280,34 @@ design and implementation is not yet begun.
     Reference & Requirement description \\
     \hline
     \hline
-    R1 & \\
+    R1 & The system must provide business administrators with a detailed
+    history of the location of every truck in the STC fleet. \\
     \hline
-    & \\
+    R2 & The system must be able to receive and store 1,000 GPS datapoints per
+    second. \\
+    \hline
+    \hline
+    R3 & The server interface for storing the trucks' location data musst have
+    an availability of at least 99 percent uptime.
+    \hline
+    R4 & The tracking units present on each of the trucks must have a fallback
+    when data cannot be sent in real-time due to bad network coverage.
+    \hline
+    R5 & The server interface must be capable of receiving an individual data
+    point (the truck's location) or a series of data points (the truck's
+    location history over a period of time).
     \hline
   \end{tabular}
 \end{center}
 
-}
-
 \section{System scenarios}
 \label{sec:system-scenarios}
+
+\begin{itemize}
+  \item A user must be able to query and sort the data stored in the STS
+    database based on the following parameters: time, truck ID, latitude,
+    longitude, and location radius.
+\end{itemize}
 
 \instructions{
   List, and briefly outline the most important scenarios that matter to
@@ -387,6 +355,23 @@ design and implementation is not yet begun.
 
 \subsection{System quality scenarios}
 \label{sec:syst-qual-scen}
+
+\begin{itemize}
+  \item If the number of trucks in the fleet increases, or if the business
+    administrators need to collect data at a greater interval, the capabilities
+    of the system ought to be appropriately scalable. When a tracking device in
+    a truck sends data to the STS server, the data will be placed in a queue.
+    Based on the size of the queue, an appropriate number of EC2 instances will
+    be started or shut down to process the queue. This process will be handled
+    by Amazon's Elastic Load Balancing service. For example, if 10 small EC2
+    instances can receive and process 1,000 data points per second, the system will
+    allocate the equivalent of 50 small EC2 instances to process an increased
+    workload of 5,000 data points per second.
+  \item When network coverage is not available, trucks will temporarily store
+    data on up to 16 megabytes of onboard flash memory. As soon as the truck is
+    able to communicate with the server, the system will appropriately
+    syncronize the data stored in the truck with the server's database.
+\end{itemize}
 
 \instructions{
   System quality scenarios model how the system should react to a change
