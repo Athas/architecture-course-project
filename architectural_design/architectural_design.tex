@@ -386,11 +386,6 @@ design and implementation is not yet begun.
 \subsection{System quality scenarios}
 \label{sec:syst-qual-scen}
 
-\instructions{
-  System quality scenarios model how the system should react to a change
-  in its environment (such as an increase in workload or a security
-  breach).
-
 \begin{center}
   \begin{tabular}[h!]{| >{\columncolor{gray}}p{0.28\textwidth} | p{0.65\textwidth} |}
     \hline
@@ -415,7 +410,30 @@ design and implementation is not yet begun.
     \hline
   \end{tabular}
 \end{center}
-}
+\begin{center}
+  \begin{tabular}[h!]{| >{\columncolor{gray}}p{0.28\textwidth} | p{0.65\textwidth} |}
+    \hline
+    Scenario reference & QS2. \\
+    \hline
+    Overview & If the cellular network is not available, the transmitter on the
+    truck will fall back to using a long-distance mesh network established
+    between the trucks. \\
+    \hline
+    System environment & This process will be handled
+    by the transmitters that are installed on every truck in the STC fleet.\\
+    \hline
+    Environment changes & For example, if a truck leaves cell network range, it
+    will attempt to connect to a nearby truck, which will also be connected to
+    other trucks. As long as a single truck in the mesh has cell coverage, all
+    of the trucks will be able to transmit their data.\\
+    \hline
+    Required system behavior & The trucks' transmitters will have a queue for
+    sending data to the STS server, and will process this queue using the
+    fastest available connection.\\
+    \hline
+  \end{tabular}
+\end{center}
+
 
 \chapter{Architectural forces}
 \label{cha:architectural-forces}
