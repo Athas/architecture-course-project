@@ -337,28 +337,59 @@ design and implementation is not yet begun.
 \subsection{Functional scenarios}
 \label{sec:functional-scenarios}
 
-\instructions{
-  Functional scenarios model things that the system must do response to
-  an external stimulus (eg an event or input).
-
 \begin{center}
   \begin{tabular}[h!]{| >{\columncolor{gray}}p{0.28\textwidth} | p{0.65\textwidth} |}
     \hline
     Scenario reference & FS1. \\
     \hline
-    Overview & \\
+    Overview & How truck imformations are sent to the server \\
     \hline
-    System state & \\
+    System state & The truck is fitted with a truck transmitter and is currently driving\\
     \hline
-    System environment & \\
+    System environment & The system is operating normally\\
     \hline
-    External stimulus & \\
+    External stimulus & The truck transmitter has a position that should be sent to the server\\
     \hline
-    Required system response & \\
+    Required system response & If the truck is in range of a network, the position is sent to the server and a confirmation is received. If the truck is out of range, the position is stored in the truck transmitter and will be sent when the truck is in range of a network again \\
     \hline
   \end{tabular}
 \end{center}
-}
+
+\begin{center}
+  \begin{tabular}[h!]{| >{\columncolor{gray}}p{0.28\textwidth} | p{0.65\textwidth} |}
+    \hline
+    Scenario reference & FS2. \\
+    \hline
+    Overview & How truck positions are queried by a user \\
+    \hline
+    System state & Positions from many different trucks have been sent to the server with timestamps\\
+    \hline
+    System environment & The system is operating normally\\
+    \hline
+    External stimulus & The user queries a specific truck, trucks within an area, and trucks that have not yet reached their deignated targets on time\\
+    \hline
+    Required system response & The system shows the requested data as a list in the users GUI \\
+    \hline
+  \end{tabular}
+\end{center}
+
+\begin{center}
+  \begin{tabular}[h!]{| >{\columncolor{gray}}p{0.28\textwidth} | p{0.65\textwidth} |}
+    \hline
+    Scenario reference & FS3. \\
+    \hline
+    Overview & New trucks are imported to the system \\
+    \hline
+    System state & New trucks are listed in the truck registry and a transmitter have been fitted into the new truck\\
+    \hline
+    System environment & STS, the truck transmitter and the truck registry is operating normally\\
+    \hline
+    External stimulus & An employee from the support staff have registered the truckID with the trucks transmitterID \\
+    \hline
+    Required system response & STS can now be queried for the new trucks ID \\
+    \hline
+  \end{tabular}
+\end{center}
 
 \subsection{System quality scenarios}
 \label{sec:syst-qual-scen}
