@@ -286,16 +286,15 @@ design and implementation is not yet begun.
     R2 & The system must be able to receive and store 1,000 GPS datapoints per
     second. \\
     \hline
-    \hline
     R3 & The server interface for storing the trucks' location data musst have
-    an availability of at least 99 percent uptime.
+    an availability of at least 99 percent uptime. \\
     \hline
     R4 & The tracking units present on each of the trucks must have a fallback
-    when data cannot be sent in real-time due to bad network coverage.
+    when data cannot be sent in real-time due to bad network coverage. \\
     \hline
     R5 & The server interface must be capable of receiving an individual data
     point (the truck's location) or a series of data points (the truck's
-    location history over a period of time).
+    location history over a period of time). \\
     \hline
   \end{tabular}
 \end{center}
@@ -416,13 +415,19 @@ design and implementation is not yet begun.
 \label{sec:context-view}
 
 \newcounter{figures}
-\subsection{Context diagram}
-\label{sec:context-diagram}
 
 \begin{center}
   \includegraphics[width=\textwidth]{figures/sts_context_view}\\
 \end{center}
   \mycaption{Context diagram of the Siberian Transport System (STS) }
+
+\subsection{Context diagram}
+\label{sec:context-diagram}
+
+\begin{center}
+  \includegraphics[width=\textwidth]{figures/sts_formal_context_diagram}\\
+\end{center}
+  \mycaption{Context diagram with information of externat and internal parts }
 
 \begin{itemize}
 \item The truck transmitters consists of a GPS unit, that gathers the trucks coordinates, and a sender unit, which will send the coordinates to our servers through a mesh-network. This is an external system.
