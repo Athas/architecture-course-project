@@ -451,6 +451,22 @@ design and implementation is not yet begun.
   \end{tabular}
 \end{center}
 
+\begin{center}
+  \begin{tabular}[h!]{| >{\columncolor{gray}}p{0.28\textwidth} | p{0.65\textwidth} |}
+    \hline
+    Scenario reference & QS4. \\
+    \hline
+    Overview & If the transmitter on a truck fails, this failure must be noticed and rectified. \\
+    \hline
+    System environment & The system must have logic to detect when a truck ``should'' have transmitted information, but has not.  We assume that the fabrication and installation of new transmitters is done externally of our system. \\
+    \hline
+    Environment changes & If a truck fails to report back, the maintenance department must be notified that a truck has a faulty transmitter, and that it must be replaced. \\
+    \hline
+    Required system behavior & It is necessary for some destinations (such as central truck garages) to manually send information that a given truck is there.  If the truck itself does not send the same information, its transmitter will be assumed defective, and called in for repair.  As long as every truck is guaranteed to eventually stop at such a destination, any failure will eventually be discovered. \\
+    \hline
+  \end{tabular}
+\end{center}
+
 \chapter{Architectural forces}
 \label{cha:architectural-forces}
 \thispagestyle{fancy}
