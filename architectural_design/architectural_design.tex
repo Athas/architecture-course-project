@@ -383,6 +383,24 @@ design and implementation is not yet begun.
   \end{tabular}
 \end{center}
 
+\begin{center}
+  \begin{tabular}[h!]{| >{\columncolor{gray}}p{0.28\textwidth} | p{0.65\textwidth} |}
+    \hline
+    Scenario reference & FS4. \\
+    \hline
+    Overview & How transmittion network are chosen \\
+    \hline
+    System state & The truck is fitted with a truck transmitter and is currently driving\\
+    \hline
+    System environment & The truck transmitter and the truck registry is operating normally, the truck is driving in an area without any connection\\
+    \hline
+    External stimulus & The truck transmitter has a new position that should be sent to the server \\
+    \hline
+    Required system response & The truck transmitter first tries to send via GSM mobile network, after this the long range mesh-network is tried. If neither of these worked, the position is stored to be sent at a later point. \\
+    \hline
+  \end{tabular}
+\end{center}
+
 \subsection{System quality scenarios}
 \label{sec:syst-qual-scen}
 
