@@ -410,6 +410,7 @@ design and implementation is not yet begun.
     \hline
   \end{tabular}
 \end{center}
+
 \begin{center}
   \begin{tabular}[h!]{| >{\columncolor{gray}}p{0.28\textwidth} | p{0.65\textwidth} |}
     \hline
@@ -434,6 +435,21 @@ design and implementation is not yet begun.
   \end{tabular}
 \end{center}
 
+\begin{center}
+  \begin{tabular}[h!]{| >{\columncolor{gray}}p{0.28\textwidth} | p{0.65\textwidth} |}
+    \hline
+    Scenario reference & QS3. \\
+    \hline
+    Overview & If part of the Amazon EC2 cluster fails, the error must not propagate to the entire system.\\
+    \hline
+    System environment & This robustness must be built into the software running on the EC2 cluster.  Additionally, the truck transmitters must still be able to transmit data. \\
+    \hline
+    Environment changes & If a node in the cluster loses contact with another node, it must ensure that the overall system still has redundant data, such that further node failures can be handled.  The trucks must be able to connect to another node if the usual recipient for their data fails to respond.  If the system is sufficiently heavily damaged that data integrity is lost, it must still be possible for trucks to transmit data, but any queries in the data should have their result marked as incomplete.  \\
+    \hline
+    Required system behavior & Heavy data redundancy must be built into the system.  Trucks must have a dynamically updated list of geographically redundant servers.  Whenever a truck reports back, it may also receive an updated list of communication endpoints. \\
+    \hline
+  \end{tabular}
+\end{center}
 
 \chapter{Architectural forces}
 \label{cha:architectural-forces}
