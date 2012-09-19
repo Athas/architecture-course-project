@@ -227,8 +227,9 @@ design and implementation is not yet begun.
     Term & Definition \\
     \hline
     \hline
-    STS & Siberian Tracking System \\\hline
+    STS & Siberian Tracking System.  Refers both to the project as a whole, and to the software running on stationary servers (ie. excluding the software on truck transmitters). \\\hline
     STC & Siberian Tracking Company \\\hline
+    Truck transmitter & The hardware unit on a truck.  Consists of a GPS receiver and an antenna for communications. \\\hline
   \end{tabular}
 \end{center}
 
@@ -486,19 +487,140 @@ design and implementation is not yet begun.
 \item The company has very little in-house IT capacity, and does not
   wish to expand it much.  In particular, it does not want to maintain
   its own servers.
-\item Since the backend servers must consequently be outsourced, the
-  server software has to run in a generic, non-customised environment
-  (such as a standard Linux server).
+\item Since the servers must consequently be outsourced, the STS has
+  to run in a generic, non-customised environment (such as a standard
+  Linux server).
 \item The truck transmitters are very restricted, embedded hardware,
   that cannot run large and complicated software.
 \item Trucking in Russia is at an unusually high risk of hijacking.
   In order to not leak information about the locations of trucks, all
-  communications has to be encrypted, and all queries in the database
-  must be authorised.
+  communications has to be protected from eavesdropping, and all
+  queries in the database must be authorised.
+\item As another safety-related concern, it must not be possible for a
+  third party to falsify truck information.
 \end{itemize}
 
 \section{Architectural principles}
 \label{sec:arch-princ}
+
+\begin{center}
+  \begin{tabular}[h!]{| >{\columncolor{gray}}p{0.28\textwidth} | p{0.65\textwidth} |}
+    \hline
+    Principle reference & P1. \\
+    \hline
+    Principle statement & Redundancy of components \\
+    \hline
+    Rationale & The STS will be of critical importance in making real-time business decisions, so it is important that it is always available. \\
+    \hline
+    Implications & \begin{itemize}
+      \item System distributed across multiple nodes (for example, using multiple different Amazon EC2 instances across multiple availability zones).
+      \item Comprehensive error handling in all levels of the system.
+      \item Load balancing to handle node failures.
+      \item Redundancy at the data level, for example through replication.
+      \end{itemize}
+        \\
+    \hline
+  \end{tabular}
+
+  \begin{tabular}[h!]{| >{\columncolor{gray}}p{0.28\textwidth} | p{0.65\textwidth} |}
+    \hline
+    Principle reference & P2. \\
+    \hline
+    Principle statement & Use of open source components \\
+    \hline
+    Rationale & Open source components will be used where available, in order to reduce development effort and cost. \\
+    \hline
+    Implications & \begin{itemize}
+      \item Able to modify external components, if necessary.
+      \end{itemize}
+        \\
+    \hline
+  \end{tabular}
+
+\begin{tabular}[h!]{| >{\columncolor{gray}}p{0.28\textwidth} | p{0.65\textwidth} |}
+    \hline
+    Principle reference & P3. \\
+    \hline
+    Principle statement & Encryption of communications \\
+    \hline
+    Rationale & To prevent outsiders from gaining knowledge about truck locations, all communications across external networks must be encrypted \\
+    \hline
+    Implications & \begin{itemize}
+      \item An encryption scheme must be decided upon.
+      \item We don't have to worry about security of the link layers.
+      \end{itemize}
+        \\
+    \hline
+  \end{tabular}
+
+\begin{tabular}[h!]{| >{\columncolor{gray}}p{0.28\textwidth} | p{0.65\textwidth} |}
+    \hline
+    Principle reference & P4. \\
+    \hline
+    Principle statement & Cryptographic signing of truck communications \\
+    \hline
+    Rationale & To prevent third parties from impersonating truck transmitters, all communications from trucks must be signed using assymetric cryptography. \\
+    \hline
+    Implications & \begin{itemize}
+    \item The cryptographic keys must be managed.
+    \item If a key is leaked, there must be a procedure for changing them.
+    \end{itemize}
+        \\
+    \hline
+  \end{tabular}
+
+\begin{tabular}[h!]{| >{\columncolor{gray}}p{0.28\textwidth} | p{0.65\textwidth} |}
+    \hline
+    Principle reference & P5. \\
+    \hline
+    Principle statement & The information retrieval API is REST-oriented \\
+    \hline
+    Rationale & REST APIs are easy to interface with existing HTTP protocol stacks. \\
+    \hline
+    Implications & \begin{itemize}
+    \item We need visible HTTP servers.
+    \item A protocol for how to represent the data in textual form
+      must be decided.
+    \end{itemize}
+        \\
+    \hline
+  \end{tabular}
+
+
+\begin{tabular}[h!]{| >{\columncolor{gray}}p{0.28\textwidth} | p{0.65\textwidth} |}
+    \hline
+    Principle reference & P6. \\
+    \hline
+    Principle statement & Communication from trucks to STS is one-way only \\
+    \hline
+    Rationale & The trucks may often not communicate directly, but relay their information via a mesh network \\
+    \hline
+    Implications & \begin{itemize}
+    \item Trucks cannot adapt their behavior in response to actions taken by the system.
+    \item We can use batched, asynchronous communications.
+    \end{itemize}
+        \\
+    \hline
+  \end{tabular}
+
+\begin{tabular}[h!]{| >{\columncolor{gray}}p{0.28\textwidth} | p{0.65\textwidth} |}
+  \hline
+  Principle reference & P7. \\
+  \hline
+  Principle statement & Mesh networking by trucks \\
+  \hline
+  Rationale & In order to extend range beyond cell phone networks, short-range mesh networks between truck transmitters is used to indirectly transmit to STS. \\
+  \hline
+  Implications & \begin{itemize}
+  \item A truck can relay information about any number of other trucks.
+  \item Every piece of truck communication must be identified by the
+    original sender, not the truck that managed to contact the STS.
+    \end{itemize}
+        \\
+    \hline
+  \end{tabular}
+
+\end{center}
 
 \chapter{Architectural views}
 \label{cha:architectural-views}
