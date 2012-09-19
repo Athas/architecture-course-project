@@ -470,9 +470,10 @@ design and implementation is not yet begun.
   trucks with bad road conditions.  It is not feasible to replace the
   vehicles or the road system, so in order to remain competetive, the
   STC must optimise its logistics intead.
-\item[Project goal:] The STC wishes to optimise its logistics by keeping a detailed
-  log of truck movement.  By analysing the information the log, more
-  efficient transportation routes may be designed.
+\item[Project goal:] The STC wishes to optimise its logistics by
+  keeping a detailed log of truck movement.  By analysing the
+  information the log, more efficient transportation routes may be
+  designed.
 \item[Project goal:] In order to minimise truck idle time, the STC
   desires real-time information on truck locations, such that
   availability for further use can be easily predicted.
@@ -483,13 +484,17 @@ design and implementation is not yet begun.
 
 \begin{itemize}
 \item The company has very little in-house IT capacity, and does not
-  wish to expand it much.  In particular, it does not want to run its
-  own servers.
-\item Since the backend servers will be outsourced, the server
-  software has to run in a generic, non-customised environment (such
-  as a standard Linux server).
+  wish to expand it much.  In particular, it does not want to maintain
+  its own servers.
+\item Since the backend servers must consequently be outsourced, the
+  server software has to run in a generic, non-customised environment
+  (such as a standard Linux server).
 \item The truck transmitters are very restricted, embedded hardware,
-  which cannot run large and complicated software.
+  that cannot run large and complicated software.
+\item Trucking in Russia is at an unusually high risk of hijacking.
+  In order to not leak information about the locations of trucks, all
+  communications has to be encrypted, and all queries in the database
+  must be authorised.
 \end{itemize}
 
 \section{Architectural principles}
