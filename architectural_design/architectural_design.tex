@@ -112,10 +112,12 @@
     1 & 2012-08-17 & KMH & Initial template based on
     \citep{rozanski2011software} \\
     \hline
-    2 & 2012-09-10 & JTM & added 1.1, 1.2, 1.3 and 5.1 \\
+    2 & 2012-09-10 & TRH, SHB and JTM & added 1.1, 1.2, 1.3 and 5.1 \\
     \hline
-    & & & \\
+    3 & 2012-09-17 & SHB and JTM & added chapter 3\\
     \hline
+    4 & 2012-09-24 & TRH, SHB and JTM & added chapter 4 and 5.2\\
+   \hline
   \end{tabular}
 \end{center}
 
@@ -584,27 +586,11 @@ design and implementation is not yet begun.
     \hline
   \end{tabular}
 \end{center}
-\begin{center}
-\begin{tabular}[h!]{| >{\columncolor{gray}}p{0.28\textwidth} | p{0.65\textwidth} |}
-    \hline
-    Principle reference & P6. \\
-    \hline
-    Principle statement & Communication from trucks to STS is one-way only \\
-    \hline
-    Rationale & The trucks may often not communicate directly, but relay their information via a mesh network \\
-    \hline
-    Implications & \begin{itemize}
-    \item Trucks cannot adapt their behavior in response to actions taken by the system.
-    \item We can use batched, asynchronous communications.
-    \end{itemize}
-        \\
-    \hline
-  \end{tabular}
-\end{center}
+
 \begin{center}
 \begin{tabular}[h!]{| >{\columncolor{gray}}p{0.28\textwidth} | p{0.65\textwidth} |}
   \hline
-  Principle reference & P7. \\
+  Principle reference & P6. \\
   \hline
   Principle statement & Mesh networking by trucks \\
   \hline
@@ -668,62 +654,107 @@ design and implementation is not yet begun.
 \end{center}
 
 
-\instructions{
-The functional view of the system defines the system’s architecturally
-significant functional elements, the responsibilities of each, the
-interfaces they offer and the dependencies between elements.
-
-Place a functional model here (e.g. a UML component diagram) and
-explain its content in the subsections below. A functional element is
-a well-defined part of the runtime system that has particular
-functional responsibilities and exposes interfaces that connect it to
-other functional elements.
-
-
-Focus on the important functional elements in your architecture. In
-general you should not model the underlying infrastructure here unless
-it performs a functionally significant purpose (for example a message
-bus that links system elements and transforms data exchanged between
-them).
-
-If your architecture is functionally complex you may choose to model
-it at a high level and then decompose some elements in further
-sub-models (functional decomposition).
-
-\begin{center}
-  \includegraphics[width=\textwidth]{figures/functionalmodel}\\
-  \mycaption{Functional model}
-\end{center}
-
-}
-
 \subsection{Functional elements}
 \label{sec:functional-elements}
-
-\instructions{
-Define the responsibilities and interfaces offered and/or required by
-each functional element. Alternatively, if you are using a modelling
-approach like UML you might choose to keep the main descriptions in
-the UML model repository and summarise the information here,
-referencing the model(s).
-
-If you have used functional decomposition in the previous section, you
-can structure this section to align with your functional hierarchy.
 
 \begin{center}
   \begin{tabular}[h!]{| >{\columncolor{gray}}p{0.28\textwidth} | p{0.65\textwidth} |}
     \hline
-    Element name & \\
+    Element name & GPS receiver\\
     \hline
-    Responsibilities & \\
+    Responsibilities & acquire the current position of the truck \\
     \hline
-    Interfaces -- inbound & \\
+    Interfaces -- inbound & none\\
     \hline
-    Interfaces -- outbound & \\
+    Interfaces -- outbound & Data collector\\
    \hline
   \end{tabular}
 \end{center}
-}
+
+\begin{center}
+  \begin{tabular}[h!]{| >{\columncolor{gray}}p{0.28\textwidth} | p{0.65\textwidth} |}
+    \hline
+    Element name & Data collector\\
+    \hline
+    Responsibilities & Gather those positions that should be sent to the server\\
+    \hline
+    Interfaces -- inbound & GPS receiver\\
+    \hline
+    Interfaces -- outbound & Data sender\\
+   \hline
+  \end{tabular}
+\end{center}
+
+\begin{center}
+  \begin{tabular}[h!]{| >{\columncolor{gray}}p{0.28\textwidth} | p{0.65\textwidth} |}
+    \hline
+    Element name & Data sender\\
+    \hline
+    Responsibilities & send truck positions via SMS to the server and get confirmation from the data receiver\\
+    \hline
+    Interfaces -- inbound & Data collector, Data receiver\\
+    \hline
+    Interfaces -- outbound & Data receiver\\
+   \hline
+  \end{tabular}
+\end{center}
+
+\begin{center}
+  \begin{tabular}[h!]{| >{\columncolor{gray}}p{0.28\textwidth} | p{0.65\textwidth} |}
+    \hline
+    Element name & Data receiver\\
+    \hline
+    Responsibilities & Gather the positions from all the trucks and send confirmations to the trucks, when the data is received\\
+    \hline
+    Interfaces -- inbound & Data sender\\
+    \hline
+    Interfaces -- outbound & Data sender and Data processing instance\\
+   \hline
+  \end{tabular}
+\end{center}
+
+\begin{center}
+  \begin{tabular}[h!]{| >{\columncolor{gray}}p{0.28\textwidth} | p{0.65\textwidth} |}
+    \hline
+    Element name & Data processing instance\\
+    \hline
+    Responsibilities & Send data to the datastore\\
+    \hline
+    Interfaces -- inbound & Data receiver\\
+    \hline
+    Interfaces -- outbound & Datastore and Truck store\\
+   \hline
+  \end{tabular}
+\end{center}
+
+\begin{center}
+  \begin{tabular}[h!]{| >{\columncolor{gray}}p{0.28\textwidth} | p{0.65\textwidth} |}
+    \hline
+    Element name & Datastore\\
+    \hline
+    Responsibilities & Store all relevant data from the trucks\\
+    \hline
+    Interfaces -- inbound & Data processing interface, Truck register\\
+    \hline
+    Interfaces -- outbound & API instance\\
+   \hline
+  \end{tabular}
+\end{center}
+
+\begin{center}
+  \begin{tabular}[h!]{| >{\columncolor{gray}}p{0.28\textwidth} | p{0.65\textwidth} |}
+    \hline
+    Element name & API instance\\
+    \hline
+    Responsibilities & Make data accessible for other external applications\\
+    \hline
+    Interfaces -- inbound & Datastore\\
+    \hline
+    Interfaces -- outbound & External client\\
+   \hline
+  \end{tabular}
+\end{center}
+
 
 \subsection{Functional scenarios}
 \label{sec:functional-scenarios-1}
