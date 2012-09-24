@@ -690,7 +690,7 @@ design and implementation is not yet begun.
     \hline
     Element name & Data sender\\
     \hline
-    Responsibilities & send truck positions via SMS to the server and get confirmation from the data receiver\\
+    Responsibilities & send truck positions encrypted via SMS to the server and get confirmation from the data receiver\\
     \hline
     Interfaces -- inbound & Data collector, Data receiver\\
     \hline
@@ -704,7 +704,7 @@ design and implementation is not yet begun.
     \hline
     Element name & Data receiver\\
     \hline
-    Responsibilities & Gather the positions from all the trucks and send confirmations to the trucks, when the data is received\\
+    Responsibilities & Gather the positions from all the trucks, decrypt the messages and send confirmations to the trucks, when the data is received\\
     \hline
     Interfaces -- inbound & Data sender\\
     \hline
@@ -759,20 +759,16 @@ design and implementation is not yet begun.
 \subsection{Functional scenarios}
 \label{sec:functional-scenarios-1}
 
-\instructions{
-Use one or more interaction diagrams to explain how the functional
-elements interact, via their interfaces, in order to meet some of the
-key system functional scenarios.
-}
+\begin{center}
+  \includegraphics[width=\textwidth]{figures/functional_scenario}\\
+  \mycaption{Truck transmitters send positions to the server end gets a confirmation when the data is received}
+\end{center}
 
 \subsection{System-wide processing}
 \label{sec:syst-wide-proc}
 
-\instructions{
-Define how any system-wide processing will be handled (for example, if
-you have a message-oriented system, how will you deal with message
-delivery errors across the system).
-}
+The transmitters will often be out of reach for some network, therefore it is essential to be able to store and send the gathered data at a later point, when the truck again is within range of a network. When the transmitter sends data, it awaits a confirmation from the server before the data is registered as sent in the truck transmitter. If a transmitter hasn't sent a position in a considerable amount of time, when the truck is expected to be at a depot within transmission range, then a notification is raised in the system, to make a technician aware of a possible problem with the trucks transmitter. 
+
 
 \section{Information view}
 \label{cha:information-view}
