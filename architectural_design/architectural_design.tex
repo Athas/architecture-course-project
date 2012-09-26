@@ -780,6 +780,45 @@ schemas) and how related aspects such as information ownership, flow,
 currency, latency and retention will be addressed.
 }
 
+The GPS receiver transmits GPS coordinates along with a timestamp.
+This information is transmitted to the data collector, which filters
+and aggregates the information, as well as tagging it with a truck ID.
+These aggregations are sent to other truck transmitters in range, or
+to the STS via the data sender if possible.  When the data has been
+successfully transmitted to the STS, it is deleted from the truck
+transmitter.
+
+When truck position data is received by the STS, it becomes the
+property of the system.  If it is to be saved (that is, if
+cryptographic checks affirm its validity and the truck ID is of a
+known truck), it will be stored in the data store component.  Data is
+never deleted once stored.
+
+When a truck is added or removed via the truck register, the truck ID
+is stored or deleted from the truck store.  This data is always
+accessible to the data processor and must be up to date.  Data never
+flows from the data processor to the truck store.
+
+The user-facing API uses data from the data store and provides an
+aggregated view to its callers.  That is, data flows from the data
+store to the API, never the other way.  Hence, the API does not allow
+modification of data, it is read-only.
+
+The data store is an unstructured NoSQL database (SimpleDB) provided
+by the Amazon S3 platform.  The truck store is a relational database
+using Amazon RDS.
+
+Every HTTP request to the API is logged by the API provider.  Every
+component failure is logged by the redundancy infrastructure
+mechanism.
+
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\textbf{System} & \textbf{Truck transmitter} & \textbf{Data processor} & \textbf{API} & \textbf{Truck register} & \textbf{Data store} & \textbf{Truck store} \\\hline
+Raw truck data & writer & updater & reader & none & master & none \\\hline
+Truck location & none & creator & reader & none & master & none \\\hline
+Currently known trucks & none & reader & none & writer & none & master \\\hline
+\end{tabular}
+
 \subsection{Data structure}
 \label{sec:data-structure}
 
@@ -926,6 +965,22 @@ stereotypes), by using a special purpose concurrency modelling
 language, or by creating an informal notation for the situation at
 hand.
 }
+
+Each physical truck runs a single truck transmitter instance, which
+contains three tasks: GPS reader, data collector and data sender.
+
+The data and truck stores is distributed across several different
+processes in order to provide redundancy and scability.
+
+There is a 1:1 relationship between trucks and data processor tasks.
+Each data processor is responsible for processing data from a single
+truck.
+
+The data receiver consists of a small (fixed) number of processes that
+merely route truck data to the proper data processors.
+
+Each API request results in a logical task responsible for carrying
+out the request.
 
 \subsection{Concurrency model}
 \label{sec:concurrency-model}
