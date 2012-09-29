@@ -24,6 +24,7 @@
 \usepackage[table]{xcolor}
 \usepackage{hyperref}
 \usepackage{lastpage} 
+\usepackage{rotating}
 
 % Meta-data for report
 \newcommand{\systemname}{Siberian Trucking System}
@@ -812,13 +813,6 @@ Every HTTP request to the API is logged by the API provider.  Every
 component failure is logged by the redundancy infrastructure
 mechanism.
 
-\begin{tabular}{|c|c|c|c|c|c|c|}
-\textbf{System} & \textbf{Truck transmitter} & \textbf{Data processor} & \textbf{API} & \textbf{Truck register} & \textbf{Data store} & \textbf{Truck store} \\\hline
-Raw truck data & writer & updater & reader & none & master & none \\\hline
-Truck location & none & creator & reader & none & master & none \\\hline
-Currently known trucks & none & reader & none & writer & none & master \\\hline
-\end{tabular}
-
 \subsection{Data structure}
 \label{sec:data-structure}
 
@@ -851,6 +845,10 @@ package, rather than the class, level.
 
 }
 
+The data store contains an unorganised set of tuples.  Each tuple
+consists of a truck ID along with a timestamp and the trucks location
+at that time.
+
 \subsection{Data flow}
 \label{sec:data-flow}
 
@@ -875,34 +873,12 @@ An example is shown below using a data flow diagram.
 \subsection{Data ownership}
 \label{sec:data-ownership}
 
-\instructions{
-If data is owned by more than one entity or part of the system, define
-who owns which pieces of the data and explain how any resulting
-problems will be handled.
-
-In the example below, it can be seen that there are issues with entity
-4 which can be updated by System D which is not the owner. The AD
-should explain how this inconsistency will be managed.
-
-\begin{center}
-  \begin{tabular}[h!]{| p{0.1\textwidth} | p{0.15\textwidth} | p{0.15\textwidth} | p{0.15\textwidth} | p{0.15\textwidth} |}
-    \hline
-    \rowcolor{gray}
-    Entity & System A & System B & System C & System D \\
-    \hline
-    \hline
-    entity 1 & MASTER & r/o copy & reader  & reader \\
-   \hline
-    entity 2 &reader & MASTER & none & reader\\
-   \hline
-    entity 3 &none & reader & MASTER & reader \\
-   \hline
-    entity 4 &MASTER &none & none & reader, updater, deleter\\
-   \hline
- \end{tabular}
-\end{center}
-
-}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\begin{sideways}\textbf{System}\end{sideways} & \begin{sideways}\textbf{Truck transmitter}\end{sideways} & \begin{sideways}\textbf{Data processor}\end{sideways} & \begin{sideways}\textbf{API}\end{sideways} & \begin{sideways}\textbf{Truck register}\end{sideways} & \begin{sideways}\textbf{Data store}\end{sideways} & \begin{sideways}\textbf{Truck store}\end{sideways} \\\hline
+Raw truck data & writer & updater & reader & none & master & none \\\hline
+Truck location & none & creator & reader & none & master & none \\\hline
+Currently known trucks & none & reader & none & writer & none & master \\\hline
+\end{tabular}
 
 \subsection{Information lifecycles}
 \label{sec:inform-lifecycl}
