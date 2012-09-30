@@ -1016,6 +1016,19 @@ libraries) and details of the underlying network that the system will
 require.
 }
 
+The STS will utilize Amazon EC2 for its data aggregation and processing, and
+the datastore will be implemented using Amazon's SimpleDB nonrelational
+database technology. The truck register in the system will utilize the Amazon
+RDS service to access its database. To simplify deployment, the STS will
+leverage the Amazon Elastic Beanstalk, an automated deployment utility that
+leverages Amazon's AWS services to provide an automatically load-balanced and
+scalable platform for development. The deployment will occur using a
+centralized Git repository hosted by Amazon, and new versions of the software
+will be automatically deployed when changes are pushed to this repository.
+Amazon's software and hardware infrastructure will ensure the correct
+deployment and scalability of the STS, as long as the code does not contain
+critical errors or bugs.
+
 \subsection{Runtime platform model}
 \label{sec:runt-platf-model}
 
