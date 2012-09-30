@@ -1094,6 +1094,23 @@ requires, making quality of service requirements clear.
 \section{Development view}
 \label{sec:development-view}
 
+The STS will be developed using the Python programming language, and each of
+the functionalities contained within the system will be separated into separate
+Python modules. The code will follow the guidelines set in PEP-8, the coding
+style recommended by the Python developer community. Every public API contained
+within a module of the STS must contained an appropriate unit test either
+embedded within its documentation using the doctest framework, or in a separate
+Python file using the unittest module provided with the Python programming
+language.
+
+Dependencies on third-party modules and libraries will be monitored using PIP,
+the Python package manager, and each discrete module in the STS must have a
+file named "requirements.txt" with an appropriately formatted list of modules
+and the minimum version number required for the proper functioning of the STS
+software. Deployment and version control will be managed through Git, and the
+deployment to Amazon EC2 will be handled through a centralized Git repository
+managed using Amazon Elastic Beanstalk.
+
 \instructions{
 The Development view of the system defines any constraints on the
 software development process that are required by the
