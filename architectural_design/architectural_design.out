@@ -1,0 +1,31 @@
+\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.1.1}{Purpose and scope}{chapter.1}% 2
+\BOOKMARK [1][-]{section.1.2}{Audience}{chapter.1}% 3
+\BOOKMARK [1][-]{section.1.3}{Status}{chapter.1}% 4
+\BOOKMARK [1][-]{section.1.4}{Architectural design approach}{chapter.1}% 5
+\BOOKMARK [0][-]{chapter.2}{Glossary}{}% 6
+\BOOKMARK [0][-]{chapter.3}{System stakeholders and requirements}{}% 7
+\BOOKMARK [1][-]{section.3.1}{Stakeholders}{chapter.3}% 8
+\BOOKMARK [1][-]{section.3.2}{Overview of requirements}{chapter.3}% 9
+\BOOKMARK [1][-]{section.3.3}{System scenarios}{chapter.3}% 10
+\BOOKMARK [0][-]{chapter.4}{Architectural forces}{}% 11
+\BOOKMARK [1][-]{section.4.1}{Goals}{chapter.4}% 12
+\BOOKMARK [1][-]{section.4.2}{Constraints}{chapter.4}% 13
+\BOOKMARK [1][-]{section.4.3}{Architectural principles}{chapter.4}% 14
+\BOOKMARK [0][-]{chapter.5}{Architectural views}{}% 15
+\BOOKMARK [1][-]{section.5.1}{Context view}{chapter.5}% 16
+\BOOKMARK [1][-]{section.5.2}{Functional view}{chapter.5}% 17
+\BOOKMARK [1][-]{section.5.3}{Information view}{chapter.5}% 18
+\BOOKMARK [1][-]{section.5.4}{Concurrency view}{chapter.5}% 19
+\BOOKMARK [1][-]{section.5.5}{Deployment view}{chapter.5}% 20
+\BOOKMARK [1][-]{section.5.6}{Development view}{chapter.5}% 21
+\BOOKMARK [1][-]{section.5.7}{Operational view}{chapter.5}% 22
+\BOOKMARK [0][-]{chapter.6}{System qualities}{}% 23
+\BOOKMARK [1][-]{section.6.1}{Performance and scalability}{chapter.6}% 24
+\BOOKMARK [1][-]{section.6.2}{Security}{chapter.6}% 25
+\BOOKMARK [1][-]{section.6.3}{Availability and resilience}{chapter.6}% 26
+\BOOKMARK [1][-]{section.6.4}{Evolution}{chapter.6}% 27
+\BOOKMARK [1][-]{section.6.5}{Other qualities}{chapter.6}% 28
+\BOOKMARK [0][-]{appendix.A}{Architecture backlog}{}% 29
+\BOOKMARK [0][-]{appendix.B}{Architecture evaluation}{}% 30
+\BOOKMARK [0][-]{appendix.C}{Architecture skeleton}{}% 31
