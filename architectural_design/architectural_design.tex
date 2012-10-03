@@ -1222,7 +1222,9 @@ Amazon will provide all hardware-related systems administration, and EC2
 provides a 99.95 percent uptime guarantee. Although hardware failure alone is
 unlikely, programmatic errors are possible, so systems administrators must
 maintain at minimum a daily backup of the STS data in the event of accidental
-data deletion or corruption. 
+data deletion or corruption. To ensure the optimal functioning of the STS,
+systems administrators must also regularly monitor the health of the system by
+using automated monitoring tools, such as New Relic.
 
 \subsection{Provision of support}
 \label{sec:provision-support}
@@ -1232,6 +1234,14 @@ Define the groups involved in providing support for the system and the
 roles and responsibilities of each (including escalation procedures if
 relevant).
 }
+
+The STC will have a team of IT professionals responsible for providing basic
+support for the STS. Any problems related to the general use of the system will
+be handled by this IT department. If the problem is found to be an issue with 
+the STS itself, the issue will be escalated to the in-house development team of
+the STC, which is in charge of maintaining and administering the STS system. If
+the problem is then found to be related to the infrastructure of the system, 
+the development team will contact Amazon AWS support staff.
 
 \chapter{System qualities}
 \label{cha:system-qualities}
