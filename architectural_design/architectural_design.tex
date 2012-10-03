@@ -816,59 +816,24 @@ mechanism.
 \subsection{Data structure}
 \label{sec:data-structure}
 
-\instructions{
-Define or reference any architecturally significant data structures
-for stored and transient data, such as overview data models or message
-schemas.
-
-At this level you should keep the number of entities small – no more
-than 20 or so if possible. It is not necessary to be 100\% normalised
-– for the sake of clarity it is acceptable to have some many-to-many
-relationships for example. Don’t try and illustrate every entity and
-relationship here or your readers will get lost in the detail.
-
-It may also be useful to logically group entities together that are
-semantically related in some way – for example, all data related to
-customer name and address. This may help your readers to understand
-the data items and the relationships between them.
-
-Here is an example data structure model which uses classic ERD
-notation. You can also use class diagrams here although that may be
-too granular a level of detail for an AD. An alternative, should you
-wish to use UML, is to illustrate the information structure at the
-package, rather than the class, level.
-
 \begin{center}
-  \includegraphics[width=\textwidth]{figures/systemdatastructure}\\
+  \includegraphics[width=\textwidth]{figures/data_structure}\\
   \mycaption{System data structure}
 \end{center}
 
-}
 
 The data store contains an unorganised set of tuples.  Each tuple
 consists of a truck ID along with a timestamp and the trucks location
-at that time.
+at that time. The truck store contains the truck data the system uses, which is gathered from the truck registry
 
 \subsection{Data flow}
 \label{sec:data-flow}
 
-\instructions{
-If it is not clear from the functional view’s interaction diagrams,
-define how data flows through the system from one component to another
-and to external components.
-
-As with the data structure diagram, keep this simple and focus on no
-more than about 10-15 key functional elements. Don’t try and
-illustrate every data flow here or your readers will get lost in the
-detail.
-
-An example is shown below using a data flow diagram.
-
 \begin{center}
-  \includegraphics[width=\textwidth]{figures/systemdataflow}\\
+  \includegraphics[width=0.5\textwidth]{figures/data_flow}\\
   \mycaption{System data flow}
 \end{center}
-}
+We import data from the truck registry to the truck store whenever a truck is updated. Transmitted positions are kept in the datastore, and a  client can access both via the API.
 
 \subsection{Data ownership}
 \label{sec:data-ownership}
@@ -883,29 +848,12 @@ Currently known trucks & none & reader & none & writer & none & master \\\hline
 \subsection{Information lifecycles}
 \label{sec:inform-lifecycl}
 
-\instructions{
-If key entities have complicated lifecycles then model the way that
-their state changes over time.
-
-Focus on a few key entities whose transitions help to illuminate key
-features of the architecture, rather than just
-created / updated / updated / updated / destroyed.
-
-There are two common techniques for modelling information lifecycles,
-entity life histories and state transition diagrams. Both are useful;
-choose one style and stick to it throughout the AD.
-
 \begin{center}
-  \includegraphics[width=0.7\textwidth]{figures/entitylifehistory}\\
-  \mycaption{Entity life history}
+  \includegraphics[width=\textwidth]{figures/information_lifecycle}\\
+  \mycaption{State diagram for a truck in the system}
 \end{center}
 
-\begin{center}
-  \includegraphics[width=0.7\textwidth]{figures/statetransition}\\
-  \mycaption{State transition}
-\end{center}
-
-}
+Truck information is gathered from the truck registry, which means that this diagram isn't directly a part of our system, but a part of the external "truck registry". These state transitions will however impact on our system too, as changes to the truck in the truck registry will propagate to the "truck store" 
 
 \subsection{Timeliness and latency}
 \label{sec:timeliness-latency}
