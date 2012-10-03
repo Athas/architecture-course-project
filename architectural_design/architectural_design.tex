@@ -977,6 +977,13 @@ Amazon's software and hardware infrastructure will ensure the correct
 deployment and scalability of the STS, as long as the code does not contain
 critical errors or bugs.
 
+The STS will use Ubuntu Server 12.04 images on Amazon EC2, and all server-side
+code will be written in Python. The standard CPython Python interpreter will be
+used to run the STS, and all HTTP-based communications will be handled using the
+Apache webserver. Since the STS will leverage Amazon's SimpleDB and RDS database
+platforms, no additional database software will be required on the EC2
+instances.
+
 \subsection{Runtime platform model}
 \label{sec:runt-platf-model}
 
@@ -1042,23 +1049,6 @@ requires, making quality of service requirements clear.
 \section{Development view}
 \label{sec:development-view}
 
-The STS will be developed using the Python programming language, and each of
-the functionalities contained within the system will be separated into separate
-Python modules. The code will follow the guidelines set in PEP-8, the coding
-style recommended by the Python developer community. Every public API contained
-within a module of the STS must contained an appropriate unit test either
-embedded within its documentation using the doctest framework, or in a separate
-Python file using the unittest module provided with the Python programming
-language.
-
-Dependencies on third-party modules and libraries will be monitored using PIP,
-the Python package manager, and each discrete module in the STS must have a
-file named "requirements.txt" with an appropriately formatted list of modules
-and the minimum version number required for the proper functioning of the STS
-software. Deployment and version control will be managed through Git, and the
-deployment to Amazon EC2 will be handled through a centralized Git repository
-managed using Amazon Elastic Beanstalk.
-
 \instructions{
 The Development view of the system defines any constraints on the
 software development process that are required by the
@@ -1094,31 +1084,36 @@ way to achieve this.
 \subsection{Common design}
 \label{sec:common-design}
 
-\instructions{
-Define the common design (such as logging, security, tracing and so
-on) that must be performed in a standard way across the system and how
-it should be performed (e.g. via a design pattern or reference to a
-code library or sample).
-}
+Logging and error-handling will be tracked using the standard Python logging 
+module. The logging module on EC2 will be configured such that error logs from
+the STS will be saved to the Amazon SimpleDB service for review. Similarly,
+traces in the event of an exception will also be logged to SimpleDB. All 
+data encryption within the STS will be handled through the PyCrypto library.
 
 \subsection{Standards for design, code, and test}
 \label{sec:stand-design-code}
 
-\instructions{
-Define any standards that must be followed for design, code and unit
-testing, probably by reference to an external document.
-}
+The STS will be developed using the Python programming language, and each of
+the functionalities contained within the system will be separated into separate
+Python modules. The code will follow the guidelines set in PEP-8, the coding
+style recommended by the Python developer community. Every public API contained
+within a module of the STS must contained an appropriate unit test either
+embedded within its documentation using the doctest framework, or in a separate
+Python file using the unittest module provided with the Python programming
+language.
 
 \subsection{Codeline organization}
 \label{sec:codel-organ}
 
-\instructions{
-Define the codeline structure (i.e. how the source code will be held
-as a directory hierarchy and how it will be built into deliverable
-software). Define the directory hierarchy, build tools and delivery
-tools (such as testing or continual integration tools) that will be
-used to deliver the software for testing and production.
-}
+Dependencies on third-party modules and libraries will be monitored using PIP,
+the Python package manager, and each discrete module in the STS must have a
+file named "requirements.txt" with an appropriately formatted list of modules
+and the minimum version number required for the proper functioning of the STS
+software. Deployment and version control will be managed through Git, and the
+deployment to Amazon EC2 will be handled through a centralized Git repository
+managed using Amazon Elastic Beanstalk.
+
+TODO: add directory structure for STS
 
 \section{Operational view}
 \label{sec:operational-view}
@@ -1143,6 +1138,15 @@ this will be done without disrupting existing systems, and the
 transition states required.
 }
 
+The installation of the STS will be handled through the Amazon Elastic Beanstalk
+platform. To install the STS, a new project must be created using the AWS
+control panel. Once Amazon creates a central Git repository for the project, the
+STS code will need to be configured with the appropriate authentication details
+for the AWS account being used, including the SimpleDB and RDS databases being
+used. After the STS code is configured, it can be installed by pushing to the
+master branch of the Elastic Beanstalk Git repository. All further deployments
+of the STS may be handled through Git.
+
 \subsection{Operational configuration management}
 \label{sec:oper-conf-manag}
 
@@ -1161,6 +1165,12 @@ administrators (in both routine and exceptional situations) and the
 facilities that the system will provide or rely on in the operational
 environment.
 }
+
+Amazon will provide all hardware-related systems administration, and EC2 
+provides a 99.95 percent uptime guarantee. Although hardware failure alone is
+unlikely, programmatic errors are possible, so systems administrators must
+maintain at minimum a daily backup of the STS data in the event of accidental
+data deletion or corruption. 
 
 \subsection{Provision of support}
 \label{sec:provision-support}
