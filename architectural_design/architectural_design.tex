@@ -1029,6 +1029,13 @@ Amazon's software and hardware infrastructure will ensure the correct
 deployment and scalability of the STS, as long as the code does not contain
 critical errors or bugs.
 
+The STS will use Ubuntu Server 12.04 images on Amazon EC2, and all server-side
+code will be written in Python. The standard CPython Python interpreter will be
+used to run the STS, and all HTTP-based communications will be handled using the
+Apache webserver. Since the STS will leverage Amazon's SimpleDB and RDS database
+platforms, no additional database software will be required on the EC2
+instances.
+
 \subsection{Runtime platform model}
 \label{sec:runt-platf-model}
 
