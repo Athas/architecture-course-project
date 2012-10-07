@@ -817,7 +817,7 @@ mechanism.
 \label{sec:data-structure}
 
 \begin{center}
-  \includegraphics[width=\textwidth]{figures/data_structure}\\
+  \includegraphics[width=\textwidth]{figures/Data_structure}\\
   \mycaption{System data structure}
 \end{center}
 
@@ -830,7 +830,7 @@ at that time. The truck store contains the truck data the system uses, which is 
 \label{sec:data-flow}
 
 \begin{center}
-  \includegraphics[width=0.5\textwidth]{figures/data_flow}\\
+  \includegraphics[width=0.5\textwidth]{figures/Data_flow}\\
   \mycaption{System data flow}
 \end{center}
 We import data from the truck registry to the truck store whenever a truck is updated. Transmitted positions are kept in the datastore, and a  client can access both via the API.
@@ -849,7 +849,7 @@ Currently known trucks & none & reader & none & writer & none & master \\\hline
 \label{sec:inform-lifecycl}
 
 \begin{center}
-  \includegraphics[width=\textwidth]{figures/information_lifecycle}\\
+  \includegraphics[width=\textwidth]{figures/Information_lifecycle}\\
   \mycaption{State diagram for a truck in the system}
 \end{center}
 
@@ -963,7 +963,7 @@ instances.
 
 
 \begin{center}
-  \includegraphics[width=\textwidth]{figures/runtime_platform_model}\\
+  \includegraphics[width=\textwidth]{figures/Runtime_platform_model}\\
   \mycaption{Deployment model}
 \end{center}
 
@@ -1011,6 +1011,11 @@ If network requirements are complex, include a network model that
 illustrates the nodes, links and network hardware that the system
 requires, making quality of service requirements clear.
 }
+
+The physical network model is automatically managed by the Amazon S3
+platform.  This implies that we cannot provide any guarantees beyond
+the SLA agreement, and further robustness must be implemented at the
+software level.
 
 \section{Development view}
 \label{sec:development-view}
