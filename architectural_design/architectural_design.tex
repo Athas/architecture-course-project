@@ -227,6 +227,7 @@ actual implementation has not yet begun.
     STS & Siberian Tracking System.  Refers both to the project as a whole, and to the software running on stationary servers (ie. excluding the software on truck transmitters). \\\hline
     STC & Siberian Tracking Company \\\hline
     Truck transmitter & The hardware unit on a truck.  Consists of a GPS receiver and an antenna for communications. \\\hline
+    AWS & Amazon Web Services - the cloud computing platform chosen for the STS. \\\hline
   \end{tabular}
 \end{center}
 
@@ -864,6 +865,18 @@ regularly, explain how timeliness and latency requirements will be
 addressed.
 }
 
+There are few explicit timeliness or latency requirements.  The
+unavoidable latency involved in communicating from trucks to the STS
+will dominate any other delays.
+
+The only exception is the case where a new truck is added to the truck
+register.  In that case, the knowledge that a truck has been added
+must be propagated before that truck starts sending location
+information, or it will be discarded.  This should not require any
+particular engineering effort in the system: it is no problem to add
+the truck ID via the truck register several days before the truck is
+actually put into service.
+
 \subsection{Archive and retention}
 \label{sec:archive-retention}
 
@@ -871,6 +884,10 @@ addressed.
 Explain how will archive and retention requirements will be met by the
 system.
 }
+
+Records are never removed from the data store.  No explicit archiving
+is necessary or performed, beyond that which is done automatically by
+the database provider (Amazon SimpleDB).
 
 \section{Concurrency view}
 \label{sec:concurrency-view}
