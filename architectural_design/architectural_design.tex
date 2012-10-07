@@ -1003,6 +1003,20 @@ at least version X of component B).
 This can usually be presented in tabular form.
 }
 
+\begin{center}
+\begin{tabular}{c|c|c}
+  \textbf{Dependency} & \textbf{Version} & \textbf{Depends on} \\\hline
+  Ubuntu & 12.04 & \\
+  Python & 2.7 & \\
+  Boto (interface to AWS) & 2.6.0 & Python 2.6 or 2.7 \\
+  PyCrypto & 2.6 & Python 2.x or 3.x
+\end{tabular}
+\end{center}
+
+Additionally, various non-runtime systems will be needed for
+deployment and development, such as Git and Pip.  The specifics of
+these are left at the discretion of the developers.
+
 \subsection{Network model}
 \label{sec:network-model}
 
