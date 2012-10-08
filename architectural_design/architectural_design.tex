@@ -1107,9 +1107,13 @@ file named "requirements.txt" with an appropriately formatted list of modules
 and the minimum version number required for the proper functioning of the STS
 software. Deployment and version control will be managed through Git, and the
 deployment to Amazon EC2 will be handled through a centralized Git repository
-managed using Amazon Elastic Beanstalk.
-
-TODO: add directory structure for STS
+managed using Amazon Elastic Beanstalk. The STS modules will be separated into
+three directories: "static," "src," "docs," and "libs." The "static" directory
+will contain any static files related to the STS system, the "src" directory
+will hold the Python modules of the STS (each module will be contained within
+its own subdirectory with an initialization file), the "docs" directory will
+contain all documentation associated with the STS, and the "libs" directory
+will contain all of the third-party Python modules necessary to run the STS.
 
 \section{Operational view}
 \label{sec:operational-view}
