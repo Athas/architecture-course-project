@@ -1156,6 +1156,14 @@ sets of values for them (e.g. batch and overnight sets) and explain
 how these groups will be managed in the production environment.
 }
 
+The configuration for the STS will be related to the implementation of AWS API's
+used by the system, including RDS, SimpleDB, EC2, and Elastic Beanstalk. The
+Python library Boto provides a simple interface for interacting with and
+configuring the AWS API's, so the configuration for the STS will be housed in a
+Python module named "configuration." This module should contain the relevant
+AWS API access keys and connection details for the SimpleDB and RDS database
+systems.
+
 \subsection{System administration}
 \label{sec:syst-admin}
 
