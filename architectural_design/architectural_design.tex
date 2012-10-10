@@ -1136,8 +1136,16 @@ applying this perspective.
     Requirement & How met \\
     \hline
     \hline
-    1. average user response time should be XX under load YY & refer
-    to performance modelling spreadsheet\\
+    1. average response time for the STS API should be less than 100ms under a
+    load of up to 20 requests per second & Amazon Elastic Beanstalk will
+    automatically start and stop additional EC2 instances according to the
+    level of load experienced by the STS. The configuration of Elastic
+    Beanstalk will ensure that the response time remains low. \\
+    2. average response time for the data aggregator should be less than 50ms
+    under a load of up to 200 requests per second & the implementation of
+    Amazon Elastic Beanstalk will mimic the implementation of the API, but
+    Elastic Beanstalk will be configured to suit the data aggregator and
+    produce a sub-50ms response time. \\
 
     \hline
  \end{tabular}
