@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.6.8)  10 OCT 2012 14:05
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.6.8)  10 OCT 2012 14:24
 entering extended mode
 **architectural_design.tex
 (C:\gitarch\architectural_design\architectural_design.tex
@@ -514,13 +514,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 756--756
 []|\OT1/phv/m/n/10.95 Interfaces -- out-
  []
 
-<figures/functional_scenario.pdf, id=414, 312.56775pt x 211.992pt>
+<figures/functional_scenario.pdf, id=414, 454.69875pt x 211.992pt>
 File: figures/functional_scenario.pdf Graphic file (type pdf)
 
 <use figures/functional_scenario.pdf>
 Package pdftex.def Info: figures/functional_scenario.pdf used on input line 766
 .
-(pdftex.def)             Requested size: 360.0pt x 244.16412pt.
+(pdftex.def)             Requested size: 360.0pt x 167.84383pt.
  [21]
 Missing character: There is no â in font phvr7t!
 Missing character: There is no € in font phvr7t!
@@ -536,14 +536,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 784--785
  []
 
 [22 <C:/gitarch/architectural_design/figures/functional_scenario.pdf>]
-<figures/Data_structure.pdf, id=435, 374.59952pt x 202.356pt>
+<figures/Data_structure.pdf, id=434, 374.59952pt x 202.356pt>
 File: figures/Data_structure.pdf Graphic file (type pdf)
 
 <use figures/Data_structure.pdf>
 Package pdftex.def Info: figures/Data_structure.pdf used on input line 822.
 (pdftex.def)             Requested size: 360.0pt x 194.46951pt.
 
-<figures/Data_flow.pdf, id=436, 246.32025pt x 240.9pt>
+<figures/Data_flow.pdf, id=435, 246.32025pt x 240.9pt>
 File: figures/Data_flow.pdf Graphic file (type pdf)
 
 <use figures/Data_flow.pdf>
@@ -554,7 +554,7 @@ Overfull \hbox (27.88298pt too wide) in paragraph at lines 846--852
 [] 
  []
 
-<figures/Information_lifecycle.pdf, id=451, 381.82649pt x 156.585pt>
+<figures/Information_lifecycle.pdf, id=450, 381.82649pt x 156.585pt>
 File: figures/Information_lifecycle.pdf Graphic file (type pdf)
 
 <use figures/Information_lifecycle.pdf>
@@ -563,14 +563,14 @@ Package pdftex.def Info: figures/Information_lifecycle.pdf used on input line 8
 (pdftex.def)             Requested size: 360.0pt x 147.6391pt.
  [24 <C:/gitarch/architectural_design/figures/Data_flow.pdf>] [25 <C:/gitarch/a
 rchitectural_design/figures/Information_lifecycle.pdf>]
-<figures/concurrency_model.pdf, id=481, 563.70598pt x 411.33673pt>
+<figures/concurrency_model.pdf, id=480, 563.70598pt x 411.33673pt>
 File: figures/concurrency_model.pdf Graphic file (type pdf)
 
 <use figures/concurrency_model.pdf>
 Package pdftex.def Info: figures/concurrency_model.pdf used on input line 910.
 (pdftex.def)             Requested size: 360.0pt x 262.696pt.
 
-<figures/state_model.pdf, id=482, 310.15875pt x 299.31827pt>
+<figures/state_model.pdf, id=481, 310.15875pt x 299.31827pt>
 File: figures/state_model.pdf Graphic file (type pdf)
 
 <use figures/state_model.pdf>
@@ -578,7 +578,7 @@ Package pdftex.def Info: figures/state_model.pdf used on input line 921.
 (pdftex.def)             Requested size: 251.9989pt x 243.19092pt.
  [26 <C:/gitarch/architectural_design/figures/concurrency_model.pdf>] [27 <C:/g
 itarch/architectural_design/figures/state_model.pdf>] <figures/Runtime_platform
-_model.pdf, id=508, 620.91972pt x 319.79475pt>
+_model.pdf, id=507, 620.91972pt x 319.79475pt>
 File: figures/Runtime_platform_model.pdf Graphic file (type pdf)
 
 <use figures/Runtime_platform_model.pdf>
@@ -586,7 +586,7 @@ Package pdftex.def Info: figures/Runtime_platform_model.pdf used on input line
 955.
 (pdftex.def)             Requested size: 360.0pt x 185.41277pt.
  [28 <C:/gitarch/architectural_design/figures/Runtime_platform_model.pdf>]
-<figures/module_structure.pdf, id=529, 301.125pt x 571.53528pt>
+<figures/module_structure.pdf, id=528, 301.125pt x 571.53528pt>
 File: figures/module_structure.pdf Graphic file (type pdf)
 
 <use figures/module_structure.pdf>
@@ -858,9 +858,9 @@ s (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files
 86)/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files (x86)/MiKT
 eX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/f
 onts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on architectural_design.pdf (44 pages, 1346180 bytes).
+Output written on architectural_design.pdf (44 pages, 1347278 bytes).
 PDF statistics:
- 701 PDF objects out of 1000 (max. 8388607)
+ 700 PDF objects out of 1000 (max. 8388607)
  123 named destinations out of 1000 (max. 500000)
  309 words of extra memory for PDF output out of 10000 (max. 10000000)
 
