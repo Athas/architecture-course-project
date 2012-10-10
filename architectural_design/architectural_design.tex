@@ -910,6 +910,7 @@ out the request.
   \mycaption{Concurrency model}
 \end{center}
 
+The truck transmitter is one process, that consists of the Data collectore and Data sender, which is placed on a physical device in the truck. Data is sent from the Data sender to the Data receiver. The Data receiver, Data processing instance and API instance all run on the server as individual processes. The Datastore and Truck store exists in a database process.
 
 \subsection{State model}
 \label{sec:state-model}
@@ -920,6 +921,7 @@ out the request.
   \mycaption{State model}
 \end{center}
 
+When the system is running, positions can be written to the database and queries can be processed.
 
 \section{Deployment view}
 \label{sec:deployment-view}
