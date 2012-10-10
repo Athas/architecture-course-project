@@ -36,27 +36,27 @@
 \contentsline {subsection}{\numberline {5.5.1}Runtime platform model}{28}{subsection.5.5.1}
 \contentsline {subsection}{\numberline {5.5.2}Software dependencies}{28}{subsection.5.5.2}
 \contentsline {subsection}{\numberline {5.5.3}Network model}{28}{subsection.5.5.3}
-\contentsline {section}{\numberline {5.6}Development view}{29}{section.5.6}
-\contentsline {subsection}{\numberline {5.6.1}Module structure}{29}{subsection.5.6.1}
-\contentsline {subsection}{\numberline {5.6.2}Common design}{30}{subsection.5.6.2}
-\contentsline {subsection}{\numberline {5.6.3}Standards for design, code, and test}{30}{subsection.5.6.3}
-\contentsline {subsection}{\numberline {5.6.4}Codeline organization}{30}{subsection.5.6.4}
-\contentsline {section}{\numberline {5.7}Operational view}{30}{section.5.7}
-\contentsline {subsection}{\numberline {5.7.1}Installation and migration}{30}{subsection.5.7.1}
-\contentsline {subsection}{\numberline {5.7.2}Operational configuration management}{31}{subsection.5.7.2}
-\contentsline {subsection}{\numberline {5.7.3}System administration}{31}{subsection.5.7.3}
-\contentsline {subsection}{\numberline {5.7.4}Provision of support}{31}{subsection.5.7.4}
-\contentsline {chapter}{\numberline {6}System qualities}{32}{chapter.6}
-\contentsline {section}{\numberline {6.1}Performance and scalability}{32}{section.6.1}
-\contentsline {section}{\numberline {6.2}Security}{33}{section.6.2}
-\contentsline {section}{\numberline {6.3}Availability and resilience}{33}{section.6.3}
-\contentsline {section}{\numberline {6.4}Evolution}{34}{section.6.4}
-\contentsline {section}{\numberline {6.5}Other qualities}{34}{section.6.5}
-\contentsline {subsection}{\numberline {6.5.1}Accessibility}{34}{subsection.6.5.1}
-\contentsline {subsection}{\numberline {6.5.2}Internationalisation}{34}{subsection.6.5.2}
-\contentsline {subsection}{\numberline {6.5.3}Location}{34}{subsection.6.5.3}
-\contentsline {subsection}{\numberline {6.5.4}Regulation}{34}{subsection.6.5.4}
-\contentsline {subsection}{\numberline {6.5.5}Usability}{35}{subsection.6.5.5}
-\contentsline {chapter}{\numberline {A}Architecture backlog}{36}{appendix.A}
-\contentsline {chapter}{\numberline {B}Architecture evaluation}{37}{appendix.B}
-\contentsline {chapter}{\numberline {C}Architecture skeleton}{38}{appendix.C}
+\contentsline {section}{\numberline {5.6}Development view}{30}{section.5.6}
+\contentsline {subsection}{\numberline {5.6.1}Module structure}{30}{subsection.5.6.1}
+\contentsline {subsection}{\numberline {5.6.2}Common design}{31}{subsection.5.6.2}
+\contentsline {subsection}{\numberline {5.6.3}Standards for design, code, and test}{31}{subsection.5.6.3}
+\contentsline {subsection}{\numberline {5.6.4}Codeline organization}{31}{subsection.5.6.4}
+\contentsline {section}{\numberline {5.7}Operational view}{31}{section.5.7}
+\contentsline {subsection}{\numberline {5.7.1}Installation and migration}{31}{subsection.5.7.1}
+\contentsline {subsection}{\numberline {5.7.2}Operational configuration management}{32}{subsection.5.7.2}
+\contentsline {subsection}{\numberline {5.7.3}System administration}{32}{subsection.5.7.3}
+\contentsline {subsection}{\numberline {5.7.4}Provision of support}{32}{subsection.5.7.4}
+\contentsline {chapter}{\numberline {6}System qualities}{34}{chapter.6}
+\contentsline {section}{\numberline {6.1}Performance and scalability}{34}{section.6.1}
+\contentsline {section}{\numberline {6.2}Security}{35}{section.6.2}
+\contentsline {section}{\numberline {6.3}Availability and resilience}{35}{section.6.3}
+\contentsline {section}{\numberline {6.4}Evolution}{36}{section.6.4}
+\contentsline {section}{\numberline {6.5}Other qualities}{36}{section.6.5}
+\contentsline {subsection}{\numberline {6.5.1}Accessibility}{36}{subsection.6.5.1}
+\contentsline {subsection}{\numberline {6.5.2}Internationalisation}{36}{subsection.6.5.2}
+\contentsline {subsection}{\numberline {6.5.3}Location}{36}{subsection.6.5.3}
+\contentsline {subsection}{\numberline {6.5.4}Regulation}{36}{subsection.6.5.4}
+\contentsline {subsection}{\numberline {6.5.5}Usability}{37}{subsection.6.5.5}
+\contentsline {chapter}{\numberline {A}Architecture backlog}{38}{appendix.A}
+\contentsline {chapter}{\numberline {B}Architecture evaluation}{39}{appendix.B}
+\contentsline {chapter}{\numberline {C}Architecture skeleton}{40}{appendix.C}
