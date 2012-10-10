@@ -859,11 +859,6 @@ Truck information is gathered from the truck registry, which means that this dia
 \subsection{Timeliness and latency}
 \label{sec:timeliness-latency}
 
-\instructions{
-If information needs to be copied around the system or is updated
-regularly, explain how timeliness and latency requirements will be
-addressed.
-}
 
 There are few explicit timeliness or latency requirements.  The
 unavoidable latency involved in communicating from trucks to the STS
@@ -880,11 +875,6 @@ actually put into service.
 \subsection{Archive and retention}
 \label{sec:archive-retention}
 
-\instructions{
-Explain how will archive and retention requirements will be met by the
-system.
-}
-
 Records are never removed from the data store.  No explicit archiving
 is necessary or performed, beyond that which is done automatically by
 the database provider (Amazon SimpleDB).
@@ -892,20 +882,6 @@ the database provider (Amazon SimpleDB).
 \section{Concurrency view}
 \label{sec:concurrency-view}
 
-\instructions{
-The Concurrency view of the system defines the set of runtime system
-elements (such as operating system processes) into which the system’s
-functional elements are packaged.
-
-If the concurrency structure is complicated or it isn’t obvious from
-the information in the other views, define how functional elements
-will be packaged into processes and threads and explain how they
-interact safely and reliably using suitable inter-process
-communication mechanisms. This can be achieved via a UML model (using
-stereotypes), by using a special purpose concurrency modelling
-language, or by creating an informal notation for the situation at
-hand.
-}
 
 Each physical truck runs a single truck transmitter instance, which
 contains three tasks: GPS reader, data collector and data sender.
@@ -945,16 +921,6 @@ out the request.
 \section{Deployment view}
 \label{sec:deployment-view}
 
-\instructions{
-The Deployment view of the system defines the important
-characteristics of the system’s operational deployment
-environment. This view includes the details of the processing nodes
-that the system requires for its installation (i.e. its runtime
-platform), the software dependencies on each node (such as required
-libraries) and details of the underlying network that the system will
-require.
-}
-
 The STS will utilize Amazon EC2 for its data aggregation and processing, and
 the datastore will be implemented using Amazon's SimpleDB nonrelational
 database technology. The truck register in the system will utilize the Amazon
@@ -984,41 +950,10 @@ instances.
   \mycaption{Deployment model}
 \end{center}
 
-\instructions{
-It is often useful to explicitly map the functional elements onto the
-nodes that they will be running on, particularly if the deployment
-model is complex or the mappings aren’t obvious.
-
-\begin{center}
-  \begin{tabular}[h!]{| p{0.4\textwidth} | p{0.5\textwidth} |}
-    \hline
-    \rowcolor{gray}
-    Functional element & Deployment node(s) \\
-    \hline
-    \hline
-    & \\
-    \hline
-    & \\
-    \hline
-  \end{tabular}
-\end{center}
-
-}
 
 \subsection{Software dependencies}
 \label{sec:softw-depend}
 
-\instructions{
-Define the software that will be required on the various types of node
-in the runtime platform model, in order to support the system (such as
-operating system , system software or library requirements). Where
-versions are known you should state these.
-
-Clearly state any known version dependencies (eg component A requires
-at least version X of component B).
-
-This can usually be presented in tabular form.
-}
 
 \begin{center}
 \begin{tabular}{c|c|c}
@@ -1037,11 +972,6 @@ these are left at the discretion of the developers.
 \subsection{Network model}
 \label{sec:network-model}
 
-\instructions{
-If network requirements are complex, include a network model that
-illustrates the nodes, links and network hardware that the system
-requires, making quality of service requirements clear.
-}
 
 The physical network model is automatically managed by the Amazon S3
 platform.  This implies that we cannot provide any guarantees beyond
@@ -1051,22 +981,6 @@ software level.
 \section{Development view}
 \label{sec:development-view}
 
-\instructions{
-The Development view of the system defines any constraints on the
-software development process that are required by the
-architecture. This includes the system’s module organisation, common
-processing that all modules must implement, any required
-standardisation of design, coding and testing and the organisation of
-the system’s codeline.
-
-Much of the information in this view is normally presented at a
-summary level, with more detail being available in other developer
-focused documents such as a development standards document. However
-you may still need to record some architecturally significant
-decisions at this stage, for example around choice of libraries or
-frameworks, or approach and tools for software deployment or
-configuration management.
-}
 
 \subsection{Module structure}
 \label{sec:module-structure}
@@ -1118,25 +1032,10 @@ will contain all of the third-party Python modules necessary to run the STS.
 \section{Operational view}
 \label{sec:operational-view}
 
-\instructions{
-The Operational view defines how the system will be installed into its
-production environment, how data and users will be migrated to it and
-how it will be configured, managed, monitored, controlled and
-supported once this is achieved. The aim of the information in this
-view is to show how the operational environment is to be created and
-maintained, rather than to define detailed instructions or procedures.
-}
+
 \subsection{Installation and migration}
 \label{sec:inst-migr}
 
-\instructions{
-Define the high-level steps required to install the system and any
-specific or unusual requirements for it.
-
-If parallel running of old and new systems is required, explain how
-this will be done without disrupting existing systems, and the
-transition states required.
-}
 
 The installation of the STS will be handled through the Amazon Elastic Beanstalk
 platform. To install the STS, a new project must be created using the AWS
@@ -1159,11 +1058,6 @@ while larger changes that require more testing can be re-integrated later.
 \subsection{Operational configuration management}
 \label{sec:oper-conf-manag}
 
-\instructions{
-Define the main groups of operational configuration items and common
-sets of values for them (e.g. batch and overnight sets) and explain
-how these groups will be managed in the production environment.
-}
 
 The configuration for the STS will be related to the implementation of AWS API's
 used by the system, including RDS, SimpleDB, EC2, and Elastic Beanstalk. The
@@ -1176,12 +1070,6 @@ systems.
 \subsection{System administration}
 \label{sec:syst-admin}
 
-\instructions{
-Explain the requirements the system places on the systems
-administrators (in both routine and exceptional situations) and the
-facilities that the system will provide or rely on in the operational
-environment.
-}
 
 Amazon will provide all hardware-related systems administration, and EC2 
 provides a 99.95 percent uptime guarantee. Although hardware failure alone is
@@ -1194,11 +1082,6 @@ using automated monitoring tools, such as New Relic.
 \subsection{Provision of support}
 \label{sec:provision-support}
 
-\instructions{
-Define the groups involved in providing support for the system and the
-roles and responsibilities of each (including escalation procedures if
-relevant).
-}
 
 The STC will have a team of IT professionals responsible for providing basic
 support for the STS. Any problems related to the general use of the system will
