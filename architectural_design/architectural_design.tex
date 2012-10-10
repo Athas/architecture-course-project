@@ -1151,6 +1151,7 @@ For each of the main, security requirements, explain how the system
 will meet the requirement. Define (or reference) the threat model,
 security policy and security design that have been used as part of
 applying this perspective.
+}
 
 \begin{center}
   \begin{tabular}[h!]{| p{0.4\textwidth} | p{0.5\textwidth} |}
@@ -1159,16 +1160,15 @@ applying this perspective.
     Requirement & How met \\
     \hline
     \hline
-    1. all users must be authenticated before being allowed to access
-    the system & access to all screens is via standard login screen
-    with passwords synchronised overnight to central LDAP service\\
-
+    Truck position information must be kept confidential. &
+    Position information must be encrypted whenever transmitted across unsafe networks (wireless meshes or the SMS network).
+    \\
+    \hline
+    Truck position information must not be forgeable. &
+    Position information must be signed with a private key known only to the truck. \\
     \hline
  \end{tabular}
 \end{center}
-
-}
-
 
 \section{Availability and resilience}
 \label{sec:avail-resil}
