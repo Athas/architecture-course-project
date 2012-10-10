@@ -1159,6 +1159,15 @@ applying this perspective.
     and API endpoints must be less than 5ms & AWS has latencies of
     approximately 1ms between different availability zones and less than 1ms
     when communicating within an individual availability zone. \\
+    6. although the STS will be ready to handle delayed SMS delivery, SMS
+    messages from the trucks should ideally arrive within 5 seconds of being
+    sent & the mobile operator or virtual network provider must guarantee a low
+    latency for SMS messages. It is assumed that the STC can negotiate an
+    appropriate contract. \\
+    7. although the STS can appropriately handle the event in which an SMS is
+    not delivered from a truck, SMS messages should have a minimum of a 99
+    percent delivery rate & it is assumed that the STC can negotiate an
+    appropriate contract with a network provider. \\
     \hline
  \end{tabular}
 \end{center}
