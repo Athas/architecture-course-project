@@ -834,7 +834,10 @@ at that time. The truck store contains the truck data the system uses, which is 
   \includegraphics[width=0.5\textwidth]{figures/Data_flow}\\
   \mycaption{System data flow}
 \end{center}
-We import data from the truck registry to the truck store whenever a truck is updated. Transmitted positions are kept in the datastore, and a  client can access both via the API.
+Whenever a truck notification event is received from the truck
+register (for example, that a truck ID is added or removed), the truck
+store is updated accordingly.  Transmitted positions are kept in the
+datastore, and a client can access both via the API.
 
 \subsection{Data ownership}
 \label{sec:data-ownership}
@@ -868,8 +871,8 @@ The only exception is the case where a new truck is added to the truck
 register.  In that case, the knowledge that a truck has been added
 must be propagated before that truck starts sending location
 information, or it will be discarded.  This should not require any
-particular engineering effort in the system: it is no problem to add
-the truck ID via the truck register several days before the truck is
+particular engineering effort in the system: the users can add the
+truck ID via the truck register several days before the truck is
 actually put into service.
 
 \subsection{Archive and retention}
@@ -975,8 +978,14 @@ these are left at the discretion of the developers.
 
 The physical network model is automatically managed by the Amazon S3
 platform.  This implies that we cannot provide any guarantees beyond
-the SLA agreement, and further robustness must be implemented at the
+the service level agreement, and further robustness must be implemented at the
 software level.
+
+Communication between trucks and the STS server is done through the
+mobile telephone network by sending SMS messages.
+
+Communication between trucks is done through a short-range radio
+transmitter, forming a mesh network.
 
 \section{Development view}
 \label{sec:development-view}
