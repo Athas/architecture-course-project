@@ -1046,6 +1046,15 @@ used. After the STS code is configured, it can be installed by pushing to the
 master branch of the Elastic Beanstalk Git repository. All further deployments
 of the STS may be handled through Git.
 
+To separate the ongoing version control of the STS with its deployment, the STS
+development team will be required to push changes to two separate Git
+repositories. The first repository, hosted externally on Github will contain
+potentially-unstable development code. Once the code in this repository matures
+and is thoroughly tested, the changes can be easily pushed to the second
+repository hosted by Amazon. Due to the simplified branching and merging
+available within Git, bug fixes can be quickly and efficiently deployed to EC2,
+while larger changes that require more testing can be re-integrated later.
+
 \subsection{Operational configuration management}
 \label{sec:oper-conf-manag}
 
