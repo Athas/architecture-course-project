@@ -834,7 +834,10 @@ at that time. The truck store contains the truck data the system uses, which is 
   \includegraphics[width=0.5\textwidth]{figures/Data_flow}\\
   \mycaption{System data flow}
 \end{center}
-We import data from the truck registry to the truck store whenever a truck is updated. Transmitted positions are kept in the datastore, and a  client can access both via the API.
+Whenever a truck notification event is received from the truck
+register (for example, that a truck ID is added or removed), the truck
+store is updated accordingly.  Transmitted positions are kept in the
+datastore, and a client can access both via the API.
 
 \subsection{Data ownership}
 \label{sec:data-ownership}
