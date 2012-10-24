@@ -140,14 +140,6 @@
 \label{cha:introduction}
 \thispagestyle{fancy}
 
-\instructions{Text typeset like this in an instruction on how to use
-  the template. They should (of course) be removed in an architectural
-  description. 
-
-  In the LaTeX file for the template, this can be done by renewing the
-  \texttt{{\textbackslash}instructions} command to output the empty string.
-}
-
 \section{Purpose and scope}
 \label{sec:purpose-scope}
 
@@ -209,13 +201,6 @@ actual implementation has not yet begun.
 
 \section{Architectural design approach}
 \label{sec:arch-design-appr}
-
-\instructions{
-  Explain the overall architectural approach used to describe and
-  develop the content of the document (e.g. explain viewpoints, views
-  and perspectives). If necessary explain the architectural views that
-  you’re using and why each is used.
-}
 
 \chapter{Glossary}
 \label{cha:glossary}
@@ -1106,22 +1091,9 @@ the development team will contact Amazon AWS support staff.
 \label{cha:system-qualities}
 \thispagestyle{fancy}
 
-\instructions{
-This section explains how the architecture presented
-  meets its each of its required system quality properties.
-
-While much of this information will be intrinsic to the views
-documented in the previous chapter, it is often useful to bring out
-some of it separately. In particular, if a quality property such as
-security or performance depends on features documented in several
-different views, then you should explain this here. For example,
-scalability may depend on optimisations in the data model (documented
-in the Information View) along with load balancing components
-(documented in the Deployment View).
-}
-
 \section{Performance and scalability}
 \label{sec:perf-scal}
+In this section we present a table of the performance requirements for the expected scale of the system and reason by what means the requirements can be met and why these requirements are possible to uphold.
 
 \begin{center}
   \begin{longtable}[h!]{| p{0.4\textwidth} | p{0.5\textwidth} |}
