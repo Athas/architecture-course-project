@@ -119,8 +119,10 @@
     4 & 2012-09-19 & TRH, SHB and JTK & Revised 3.1, clarified truck transmitter concept \\
     \hline
     5 & 2012-09-24 & TRH, SHB and JTM & added chapter 4 and 5.2\\
-    6 & ? \\
-    7 & 2012-10-10 & TRH, SHB and JTK & Added sections 6 and 6.1\\
+    \hline
+    6 & 2012-10-08 & TRH, SHB and JTM & added chapter 5 \\
+    \hline
+    7 & 2012-10-10 & TRH, SHB and JTM & Added sections 6 and 6.1\\
    \hline
   \end{tabular}
 \end{center}
@@ -779,12 +781,6 @@ The transmitters will often be out of reach for some network, therefore it is es
 \section{Information view}
 \label{cha:information-view}
 
-\instructions{
-The Information view of the system defines the structure of the
-system’s stored and transient information (e.g. databases and message
-schemas) and how related aspects such as information ownership, flow,
-currency, latency and retention will be addressed.
-}
 
 The GPS receiver transmits GPS coordinates along with a timestamp.
 This information is transmitted to the data collector, which filters
@@ -1437,6 +1433,19 @@ work performed as part of applying his perspective.
  \end{tabular}
 \end{center}
 }
+
+\begin{center}
+  \begin{tabular}[h!]{| p{0.45\textwidth} | c | c | c |}
+    \hline
+    \rowcolor{gray}
+    Requirement & Magnitude & Likelihood & Timescale \\
+    \hline
+    \hline
+    1. it must be possible to add other communication networks between trucks and server & H & M & L\\
+
+    \hline
+ \end{tabular}
+\end{center}
 
 \section{Other qualities}
 \label{sec:other-qualities}
