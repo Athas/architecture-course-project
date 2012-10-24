@@ -54,7 +54,7 @@
 \contentsline {section}{\numberline {6.3}Availability and resilience}{37}{section.6.3}
 \contentsline {subsection}{\numberline {6.3.1}Platform availability}{39}{subsection.6.3.1}
 \contentsline {subsection}{\numberline {6.3.2}Availability scenarios}{39}{subsection.6.3.2}
-\contentsline {section}{\numberline {6.4}Evolution}{41}{section.6.4}
+\contentsline {section}{\numberline {6.4}Evolution}{40}{section.6.4}
 \contentsline {section}{\numberline {6.5}Other qualities}{41}{section.6.5}
 \contentsline {subsection}{\numberline {6.5.1}Accessibility}{41}{subsection.6.5.1}
 \contentsline {subsection}{\numberline {6.5.2}Internationalisation}{42}{subsection.6.5.2}
