@@ -1407,6 +1407,27 @@ hours.
 \section{Evolution}
 \label{sec:evolution}
 
+\begin{center}
+  \begin{tabular}[h!]{| p{0.4\textwidth} | p{0.5\textwidth} |}
+    \hline
+    \rowcolor{gray}
+    Requirement & How met \\
+    \hline
+    \hline
+    1. It must be possible to add extra data processing and aggregation
+    algorithms to the system based on the needs of the STC in the future &
+    Data processing functionality will be separated into loosely coupled Python
+    modules such that additional modules may be easily integrated. \\
+    \hline
+    2. It must be possible to add new ways of querying the data should the need
+    arise & The datastore will have an index that can be updated to support more
+    complex queries as necessary. Updating the index may take a substantial amount
+    of time, but it will be easily extended. \\
+    \hline
+ \end{tabular}
+\end{center}
+
+
 \instructions{
 Explain the evolution requirements.
 
