@@ -1436,9 +1436,6 @@ running on virtual machine instances that become unreachable.
     complex queries as necessary. Updating the index may take a substantial amount
     of time. \\
     \hline
-    3. Trucks must be able to send more data to the server, such as fuel and oil levels. & Physical measurement devices must be engineered and installed in the trucks, which will increase the price. The datastore is extended to handle the new data entries for the trucks. \\
-    \hline
-  
  \end{tabular}
 \end{center}
 
@@ -1465,8 +1462,17 @@ work performed as part of applying his perspective.
     \hline
     The system must be extended for marketing as a generic truck tracking system, usable by other trucking companies as well. & H & M & L\\
     \hline
+    Support for non-Amazon deployment platforms must be added. & H & L & L\\
+    \hline
  \end{tabular}
 \end{center}
+
+The STS has a very simple architecture, meaning that extending its
+functionality is easy.  This was not an aim of the original design,
+however, but a fortunate consequence of its simplicity.  On the other
+hand, we explicitly decided to make heavy use of facilities provided
+by Amazon's cloud platform, making future porting efforts very
+difficult.
 
 \section{Other qualities}
 \label{sec:other-qualities}
