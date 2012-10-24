@@ -52,11 +52,12 @@
 \contentsline {subsection}{\numberline {6.2.1}Access control policy}{36}{subsection.6.2.1}
 \contentsline {subsection}{\numberline {6.2.2}Threat identification}{36}{subsection.6.2.2}
 \contentsline {section}{\numberline {6.3}Availability and resilience}{38}{section.6.3}
+\contentsline {subsection}{\numberline {6.3.1}Availability scenarios}{39}{subsection.6.3.1}
 \contentsline {section}{\numberline {6.4}Evolution}{39}{section.6.4}
-\contentsline {section}{\numberline {6.5}Other qualities}{39}{section.6.5}
-\contentsline {subsection}{\numberline {6.5.1}Accessibility}{39}{subsection.6.5.1}
-\contentsline {subsection}{\numberline {6.5.2}Internationalisation}{39}{subsection.6.5.2}
-\contentsline {subsection}{\numberline {6.5.3}Location}{39}{subsection.6.5.3}
+\contentsline {section}{\numberline {6.5}Other qualities}{40}{section.6.5}
+\contentsline {subsection}{\numberline {6.5.1}Accessibility}{40}{subsection.6.5.1}
+\contentsline {subsection}{\numberline {6.5.2}Internationalisation}{40}{subsection.6.5.2}
+\contentsline {subsection}{\numberline {6.5.3}Location}{40}{subsection.6.5.3}
 \contentsline {subsection}{\numberline {6.5.4}Regulation}{40}{subsection.6.5.4}
 \contentsline {subsection}{\numberline {6.5.5}Usability}{40}{subsection.6.5.5}
 \contentsline {chapter}{\numberline {A}Architecture backlog}{41}{appendix.A}
