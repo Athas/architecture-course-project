@@ -1324,24 +1324,20 @@ Explain how the system will meet the requirements, referring to
 practical testing, modelling and design work that has been performed
 as part of applying this perspective.
 
-\begin{center}
-  \begin{tabular}[h!]{| p{0.4\textwidth} | p{0.5\textwidth} |}
-    \hline
-    \rowcolor{gray}
-    Requirement & How met \\
-    \hline
-    \hline
-    1. There should be no single point of failure & all deployment
-    nodes are clustered or load-balanced; where nodes are clustered,
-    component failure is detected automatically and the passive node
-    is brought up automatically\\
-
-    \hline
- \end{tabular}
-\end{center}
-
 }
 
+There are three types of service, with associated service levels.
+
+\begin{description}
+\item[API requests: ] normal, no service.
+\item[Truck store: ] normal, read-only, no service.
+\item[Transmitting data from trucks: ] normal, STS down (trucks can
+  still send to each other).
+\end{description}
+
+The services do not function independently of each other.  If the
+truck store is down, data cannot be received from trucks to the STS,
+as the validity of truck positions cannot be verified.
 
 \section{Evolution}
 \label{sec:evolution}
