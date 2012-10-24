@@ -1292,10 +1292,12 @@ There are three types of service, with associated service levels.
   still send to each other).
 \end{description}
 
-The services do not function independently of each other.  If the
-truck store is down, data cannot be received from trucks to the STS,
-as the validity of truck positions cannot be verified.  The overall
-system defines the following service levels.
+The services do not always function independently of each other.  If
+the truck store is down, data cannot be received from trucks to the
+STS, as the validity of truck positions cannot be verified.  On the
+other hand, if we take care that data, once stored, cannot be lost,
+and let truck transmitters retain data until the STS is able to store
+it, we will not suffer information loss.
 
 The API requests only need to be under normal operation during 
 business hours of the STC (8am - 4pm on business days) with an
@@ -1310,6 +1312,7 @@ from any active STC trucks with a 99.9 percent availability between 5am and 8pm,
   \mycaption{Availability of STS}
 \end{center}
 
+The overall system defines the following service levels.
 
 \begin{description}
 \item[Normal operation: ] Data can be received from the trucks, new
@@ -1320,6 +1323,17 @@ from any active STC trucks with a 99.9 percent availability between 5am and 8pm,
   is stored, but old data can still be queried.
 \item[No service: ] No part of the system is reachable or functional.
 \end{description}
+
+\subsection{Platform availability}
+
+The STS is deployed on Amazon WS, using Amazon S3 for virtual machine
+instancs and Amazon EasyDB for data storage.  According to the Service
+Level Agreement\footnote{\url{http://aws.amazon.com/ec2-sla/}}, we can
+expect 99.95\% uptime per availability zone.  This does not cover
+the reliability of an individual instance, but only our ability to
+start new ones in case an existing instance crashes.  As a
+consequence, the STS must be able to automatically restart components
+running on virtual machine instances that become unreachable.
 
 \subsection{Availability scenarios}
 
@@ -1353,6 +1367,7 @@ from any active STC trucks with a 99.9 percent availability between 5am and 8pm,
     \hline
   \end{tabular}
 \end{center}
+
 \begin{center}
   \begin{tabular}[h!]{| >{\columncolor{gray}}p{0.28\textwidth} | p{0.65\textwidth} |}
     \hline
@@ -1369,6 +1384,37 @@ from any active STC trucks with a 99.9 percent availability between 5am and 8pm,
   \end{tabular}
 \end{center}
 
+\begin{center}
+  \begin{tabular}[h!]{| >{\columncolor{gray}}p{0.28\textwidth} | p{0.65\textwidth} |}
+    \hline
+    Scenario reference & AS4 \\
+    \hline
+    Overview & Able to restore data store from backup. \\
+    \hline
+    System environment & The data store is operating normally. \\
+    \hline
+    Environment change & The contents of the data store are lost due to a technical fault at Amazon. \\
+    \hline
+    Required system response & The data store must be manually recreated using an externally stored (and recent) backup.  Such a backup must hence exist. \\
+    \hline
+  \end{tabular}
+\end{center}
+
+\begin{center}
+  \begin{tabular}[h!]{| >{\columncolor{gray}}p{0.28\textwidth} | p{0.65\textwidth} |}
+    \hline
+    Scenario reference & AS5 \\
+    \hline
+    Overview & Able to recreate truck store from truck register. \\
+    \hline
+    System environment & The truck store is operating normally. \\
+    \hline
+    Environment change & The contents of the truck store are lost due to a technical fault at Amazon. \\
+    \hline
+    Required system response & The truck store is manually repopulated from the truck register. \\
+    \hline
+  \end{tabular}
+\end{center}
 
 \section{Evolution}
 \label{sec:evolution}
