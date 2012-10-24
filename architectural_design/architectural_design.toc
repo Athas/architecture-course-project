@@ -59,7 +59,7 @@
 \contentsline {subsection}{\numberline {6.5.2}Internationalisation}{40}{subsection.6.5.2}
 \contentsline {subsection}{\numberline {6.5.3}Location}{40}{subsection.6.5.3}
 \contentsline {subsection}{\numberline {6.5.4}Regulation}{40}{subsection.6.5.4}
-\contentsline {subsection}{\numberline {6.5.5}Usability}{40}{subsection.6.5.5}
-\contentsline {chapter}{\numberline {A}Architecture backlog}{41}{appendix.A}
-\contentsline {chapter}{\numberline {B}Architecture evaluation}{42}{appendix.B}
-\contentsline {chapter}{\numberline {C}Architecture skeleton}{43}{appendix.C}
+\contentsline {subsection}{\numberline {6.5.5}Usability}{41}{subsection.6.5.5}
+\contentsline {chapter}{\numberline {A}Architecture backlog}{42}{appendix.A}
+\contentsline {chapter}{\numberline {B}Architecture evaluation}{43}{appendix.B}
+\contentsline {chapter}{\numberline {C}Architecture skeleton}{44}{appendix.C}
