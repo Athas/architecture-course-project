@@ -1346,6 +1346,55 @@ system defines the following service levels.
 \item[No service: ] No part of the system is reachable or functional.
 \end{description}
 
+\subsection{Availability scenarios}
+
+\begin{center}
+  \begin{tabular}[h!]{| >{\columncolor{gray}}p{0.28\textwidth} | p{0.65\textwidth} |}
+    \hline
+    Scenario reference & AS1 \\
+    \hline
+    Overview & Availability of truck position processing. \\
+    \hline
+    System environment & The system is operating normally. \\
+    \hline
+    Environment change & A data processor task fails. \\
+    \hline
+    Required system response & A new data processor task must be started. \\
+    \hline
+  \end{tabular}
+\end{center}
+\begin{center}
+  \begin{tabular}[h!]{| >{\columncolor{gray}}p{0.28\textwidth} | p{0.65\textwidth} |}
+    \hline
+    Scenario reference & AS2 \\
+    \hline
+    Overview & Resilience in the face of truck store failure \\
+    \hline
+    System environment & The truck store is operating normally \\
+    \hline
+    Environment change & The truck store becomes unreachable \\
+    \hline
+    Required system response & Data processors for already known trucks must keep processing data received from truck transmitters. \\
+    \hline
+  \end{tabular}
+\end{center}
+\begin{center}
+  \begin{tabular}[h!]{| >{\columncolor{gray}}p{0.28\textwidth} | p{0.65\textwidth} |}
+    \hline
+    Scenario reference & AS3 \\
+    \hline
+    Overview & Resilience in the face of STS failure. \\
+    \hline
+    System environment & The STS is operating normally. \\
+    \hline
+    Environment change & The STS fails in such a way that truck transmitters cannot contact it. \\
+    \hline
+    Required system response & Truck transmitters must store data points locally, intelligently remove data points close in time, to preserve limited space.  As soon as the STS is once again accessible, the data must be transmitted.  \\
+    \hline
+  \end{tabular}
+\end{center}
+
+
 \section{Evolution}
 \label{sec:evolution}
 
