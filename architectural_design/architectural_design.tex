@@ -1283,17 +1283,6 @@ is particularly simple.
 \section{Availability and resilience}
 \label{sec:avail-resil}
 
-\instructions{
-Explain the A\&R requirements.
-
-Define the availability schedule(s) for the system.
-
-Explain how the system will meet the requirements, referring to
-practical testing, modelling and design work that has been performed
-as part of applying this perspective.
-
-}
-
 There are three types of service, with associated service levels.
 
 \begin{description}
@@ -1314,8 +1303,7 @@ availability of 99.9 percent. The truck store must maintain normal
 operation at least 95 percent of the time during business hours
 of the STC, and must maintain at least read-only access 99.9 percent
 of the time during business hours. The STS server must be able to receive data
-from any active STC strucks with a 99.9 percent availability during business
-hours. 
+from any active STC trucks with a 99.9 percent availability between 5am and 8pm, as it is expected, that most trucks will be operational in this period of time. 
 
 \begin{center}
   \includegraphics[width=1\textwidth]{figures/functional_availability}\\
