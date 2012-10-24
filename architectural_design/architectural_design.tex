@@ -1308,6 +1308,15 @@ truck store is down, data cannot be received from trucks to the STS,
 as the validity of truck positions cannot be verified.  The overall
 system defines the following service levels.
 
+The API requests only need to be under normal operation during 
+business hours of the STC (8am - 4pm on business days) with an
+availability of 99.9 percent. The truck store must maintain normal
+operation at least 95 percent of the time during business hours
+of the STC, and must maintain at least read-only access 99.9 percent
+of the time during business hours. Transmission of data from trucks
+must also be maintained with a 99.9 percent availability during business
+hours. 
+
 \begin{description}
 \item[Normal operation: ] Data can be received from the trucks, new
   trucks can be added.
@@ -1359,9 +1368,9 @@ system defines the following service levels.
     \hline
     System environment & The STS is operating normally. \\
     \hline
-    Environment change & The STS fails in such a way that truck transmitters cannot contact it. \\
+    Environment change & The STS becomes inaccessible to the truck transmitters. \\
     \hline
-    Required system response & Truck transmitters must store data points locally, intelligently remove data points close in time, to preserve limited space.  As soon as the STS is once again accessible, the data must be transmitted.  \\
+    Required system response & Truck transmitters must store data points locally, intelligently remove data points close in time, to conserve limited space.  As soon as the STS is once again accessible, the data must be transmitted.  \\
     \hline
   \end{tabular}
 \end{center}
