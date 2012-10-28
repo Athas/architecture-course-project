@@ -10,8 +10,10 @@ class Truckstore(SimpleDB):
         entry.save()
 
     def new_entries(self, truck_ids):
+        entries = {}
         for i in truck_ids:
-            self.new_entry(i)
+            entries[i] = {'active': "True"}
+        self.domain.batch_put_attributes(entries)
     
     def deactivate_truck(self, truck_id):
         entry = self.domain.get_item(str(truck_id))
