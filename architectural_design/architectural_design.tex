@@ -116,14 +116,14 @@
     \hline
     3 & 2012-09-17 & SHB and JTM & added chapter 3\\
     \hline
-    4 & 2012-09-19 & TRH, SHB and JTK & Revised 3.1, clarified truck transmitter concept \\
+    4 & 2012-09-19 & TRH, SHB and JTM & Revised 3.1, clarified truck transmitter concept \\
     \hline
     5 & 2012-09-24 & TRH, SHB and JTM & added chapter 4 and 5.2\\
     \hline
     6 & 2012-10-08 & TRH, SHB and JTM & added chapter 5 \\
     \hline
     7 & 2012-10-10 & TRH, SHB and JTM & Added sections 6 and 6.1\\
-    8 & 2012-10-24 & TRH, SHB and JTK & Added sections 6.3 and 6.4\\
+    8 & 2012-10-24 & TRH, SHB and JTM & Added sections 6.3 and 6.4\\
    \hline
   \end{tabular}
 \end{center}
@@ -1445,33 +1445,34 @@ STS.  Hence, we present few evolutionary perspectives.
     complex queries as necessary. Updating the index may take a substantial amount
     of time. \\
     \hline
+    3. It must be possible to add other communication networks between trucks and the server & To do this, another type of communication device has to be physical installed in the truck and the data receiver should be expanded to handle this new type of communication. One way would be to have a class for the connection type, that could easily be replaced. \\
+    \hline
+    4.  The system must be extended for marketing as a generic truck tracking system, usable by other trucking companies as well. & The STS needs to be system independent, so other companies can run the STS without having the same "Truck registry" as STC. Some company specific setup will probably still be required. \\
+    \hline
+    5. Support for non-Amazon deployment platforms must be added. & Many of the response-time and up-time reqirements will be difficult to uphold. The architecture needs to handle loadbalancing and multiple servers, to be able to uphold the requirements. \\
+    \hline
  \end{tabular}
 \end{center}
 
 
-\instructions{
-Explain the evolution requirements.
-
-Define the evolutionary dimensions that are relevant to the system.
-
-Explain  how the system will meet the requirements, taking into
-account the likelihood of each type of evolution occurring (explaining
-how the probabilities were arrived at) and referring to the design
-work performed as part of applying his perspective.
-}
-
 \begin{center}
-  \begin{tabular}[h!]{| p{0.45\textwidth} | c | c | c |}
+  \begin{tabular}[h!]{| p{0.3\textwidth} | c | c | c | c |}
     \hline
     \rowcolor{gray}
-    Requirement & Magnitude & Likelihood & Timescale \\
+    Requirement & Type & Magnitude & Likelihood & Timescale \\
     \hline
     \hline
-    It must be possible to add other communication networks between trucks and server. & M & M & L\\
+    It must be possible to add extra data processing and aggregation
+    algorithms to the system based on the needs of the STC in the future & Functional & M & H & H \\
     \hline
-    The system must be extended for marketing as a generic truck tracking system, usable by other trucking companies as well. & H & M & L\\
+     It must be possible to add new ways of querying the data should the need
+    arise & Functional & L & H & H \\
     \hline
-    Support for non-Amazon deployment platforms must be added. & H & L & L\\
+    It must be possible to add other communication networks between trucks and server. & Functional & M & M & L\\
+    \hline
+    The system must be extended for marketing as a generic truck tracking system, usable by other trucking companies as well. & Integration & H & M & L\\
+    \hline
+    Support for non-Amazon deployment platforms must be added. & Integration & H & L & L\\
     \hline
  \end{tabular}
 \end{center}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.6.8)  24 OCT 2012 15:00
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.6.8)  28 OCT 2012 13:05
 entering extended mode
 **architectural_design.tex
 (C:\arch\architectural_design\architectural_design.tex
@@ -342,7 +342,7 @@ Package natbib Warning: Citation `rozanski2011software' on page 1 undefined on
 input line 115.
 
 
-Overfull \hbox (106.60587pt too wide) in paragraph at lines 108--128
+Overfull \hbox (106.60587pt too wide) in paragraph at lines 108--129
  [] 
  []
 
@@ -350,7 +350,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.134 \tableofcontents
+l.135 \tableofcontents
                        [1
 
 ]
@@ -368,19 +368,19 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [3]
 Chapter 1.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 143.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 144.
 [4
 
 ]
-LaTeX Font Info:    Try loading font information for OMS+phv on input line 188.
+LaTeX Font Info:    Try loading font information for OMS+phv on input line 189.
 
  ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\omsphv.fd"
 File: omsphv.fd 
 )
 LaTeX Font Info:    Font shape `OMS/phv/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 188.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 189.
 
-Overfull \hbox (0.46109pt too wide) in paragraph at lines 190--192
+Overfull \hbox (0.46109pt too wide) in paragraph at lines 191--193
 []\OT1/phv/m/n/10.95 Truck main-te-nance de-part-ment rep-re-sen-ta-tives, to d
 e-ter-mine whether
  []
@@ -388,7 +388,7 @@ e-ter-mine whether
 [5]
 Chapter 2.
 
-Underfull \hbox (badness 10000) in paragraph at lines 216--216
+Underfull \hbox (badness 10000) in paragraph at lines 217--217
 []|\OT1/phv/m/n/10.95 Canonical
  []
 
@@ -400,35 +400,35 @@ Chapter 3.
 
 ]
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <12> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 292.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 293.
  [8] [9]
-Underfull \hbox (badness 10000) in paragraph at lines 382--382
+Underfull \hbox (badness 10000) in paragraph at lines 383--383
 []|\OT1/phv/m/n/10.95 Environment
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 407--407
+Underfull \hbox (badness 10000) in paragraph at lines 408--408
 []|\OT1/phv/m/n/10.95 Environment
  []
 
 [10]
-Underfull \hbox (badness 10000) in paragraph at lines 428--428
+Underfull \hbox (badness 10000) in paragraph at lines 429--429
 []|\OT1/phv/m/n/10.95 Environment
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 444--444
+Underfull \hbox (badness 10000) in paragraph at lines 445--445
 []|\OT1/phv/m/n/10.95 Environment
  []
 
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <10.95> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 446.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 447.
 [11] [12]
 Chapter 4.
 [13
 
 ] [14]
-Underfull \hbox (badness 1968) in paragraph at lines 554--555
+Underfull \hbox (badness 1968) in paragraph at lines 555--556
 \OT1/phv/m/n/10.95 trans-mit-ters, all com-mu-ni-ca-tions from trucks
  []
 
@@ -439,7 +439,7 @@ Chapter 5.
 File: figures/sts_context_view.pdf Graphic file (type pdf)
 
 <use figures/sts_context_view.pdf>
-Package pdftex.def Info: figures/sts_context_view.pdf used on input line 613.
+Package pdftex.def Info: figures/sts_context_view.pdf used on input line 614.
 (pdftex.def)             Requested size: 360.0pt x 371.82642pt.
  [17
 
@@ -449,7 +449,7 @@ File: figures/sts_formal_context_diagram.pdf Graphic file (type pdf)
 
 <use figures/sts_formal_context_diagram.pdf>
 Package pdftex.def Info: figures/sts_formal_context_diagram.pdf used on input l
-ine 621.
+ine 622.
 (pdftex.def)             Requested size: 360.0pt x 214.26738pt.
 
 <figures/interaction_scenario_1.pdf, id=368, 358.33875pt x 243.30899pt>
@@ -457,47 +457,47 @@ File: figures/interaction_scenario_1.pdf Graphic file (type pdf)
 
 <use figures/interaction_scenario_1.pdf>
 Package pdftex.def Info: figures/interaction_scenario_1.pdf used on input line 
-635.
+636.
 (pdftex.def)             Requested size: 360.0pt x 244.45186pt.
  [18 <C:/arch/architectural_design/figures/sts_formal_context_diagram.pdf>]
 <figures/functional_view.pdf, id=384, 563.70598pt x 407.121pt>
 File: figures/functional_view.pdf Graphic file (type pdf)
 
 <use figures/functional_view.pdf>
-Package pdftex.def Info: figures/functional_view.pdf used on input line 645.
+Package pdftex.def Info: figures/functional_view.pdf used on input line 646.
 (pdftex.def)             Requested size: 360.0pt x 260.00366pt.
  [19 <C:/arch/architectural_design/figures/interaction_scenario_1.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 662--662
+Underfull \hbox (badness 10000) in paragraph at lines 663--663
 []|\OT1/phv/m/n/10.95 Interfaces -- out-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 676--676
+Underfull \hbox (badness 10000) in paragraph at lines 677--677
 []|\OT1/phv/m/n/10.95 Interfaces -- out-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 690--690
+Underfull \hbox (badness 10000) in paragraph at lines 691--691
 []|\OT1/phv/m/n/10.95 Interfaces -- out-
  []
 
 [20 <C:/arch/architectural_design/figures/functional_view.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 704--704
+Underfull \hbox (badness 10000) in paragraph at lines 705--705
 []|\OT1/phv/m/n/10.95 Interfaces -- out-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 718--718
+Underfull \hbox (badness 10000) in paragraph at lines 719--719
 []|\OT1/phv/m/n/10.95 Interfaces -- out-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 732--732
+Underfull \hbox (badness 10000) in paragraph at lines 733--733
 []|\OT1/phv/m/n/10.95 Interfaces -- out-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 746--746
+Underfull \hbox (badness 10000) in paragraph at lines 747--747
 []|\OT1/phv/m/n/10.95 Interfaces -- out-
  []
 
@@ -505,7 +505,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 746--746
 File: figures/functional_scenario.pdf Graphic file (type pdf)
 
 <use figures/functional_scenario.pdf>
-Package pdftex.def Info: figures/functional_scenario.pdf used on input line 756
+Package pdftex.def Info: figures/functional_scenario.pdf used on input line 757
 .
 (pdftex.def)             Requested size: 360.0pt x 167.84383pt.
  [21] [22 <C:/arch/architectural_design/figures/functional_scenario.pdf>]
@@ -513,17 +513,17 @@ Package pdftex.def Info: figures/functional_scenario.pdf used on input line 756
 File: figures/Data_structure.pdf Graphic file (type pdf)
 
 <use figures/Data_structure.pdf>
-Package pdftex.def Info: figures/Data_structure.pdf used on input line 806.
+Package pdftex.def Info: figures/Data_structure.pdf used on input line 807.
 (pdftex.def)             Requested size: 360.0pt x 194.46951pt.
 
 <figures/Data_flow.pdf, id=434, 246.32025pt x 240.9pt>
 File: figures/Data_flow.pdf Graphic file (type pdf)
 
 <use figures/Data_flow.pdf>
-Package pdftex.def Info: figures/Data_flow.pdf used on input line 819.
+Package pdftex.def Info: figures/Data_flow.pdf used on input line 820.
 (pdftex.def)             Requested size: 180.0pt x 176.043pt.
  [23 <C:/arch/architectural_design/figures/Data_structure.pdf>]
-Overfull \hbox (27.88298pt too wide) in paragraph at lines 830--836
+Overfull \hbox (27.88298pt too wide) in paragraph at lines 831--837
 [] 
  []
 
@@ -532,7 +532,7 @@ File: figures/Information_lifecycle.pdf Graphic file (type pdf)
 
 <use figures/Information_lifecycle.pdf>
 Package pdftex.def Info: figures/Information_lifecycle.pdf used on input line 8
-41.
+42.
 (pdftex.def)             Requested size: 360.0pt x 147.6391pt.
  [24 <C:/arch/architectural_design/figures/Data_flow.pdf>] [25 <C:/arch/archite
 ctural_design/figures/Information_lifecycle.pdf>] <figures/concurrency_model.pd
@@ -540,14 +540,14 @@ f, id=480, 563.70598pt x 411.33673pt>
 File: figures/concurrency_model.pdf Graphic file (type pdf)
 
 <use figures/concurrency_model.pdf>
-Package pdftex.def Info: figures/concurrency_model.pdf used on input line 897.
+Package pdftex.def Info: figures/concurrency_model.pdf used on input line 898.
 (pdftex.def)             Requested size: 360.0pt x 262.696pt.
 
 <figures/state_model.pdf, id=481, 310.15875pt x 299.31827pt>
 File: figures/state_model.pdf Graphic file (type pdf)
 
 <use figures/state_model.pdf>
-Package pdftex.def Info: figures/state_model.pdf used on input line 908.
+Package pdftex.def Info: figures/state_model.pdf used on input line 909.
 (pdftex.def)             Requested size: 251.9989pt x 243.19092pt.
  [26 <C:/arch/architectural_design/figures/concurrency_model.pdf>] [27 <C:/arch
 /architectural_design/figures/state_model.pdf>]
@@ -556,116 +556,116 @@ File: figures/Runtime_platform_model.pdf Graphic file (type pdf)
 
 <use figures/Runtime_platform_model.pdf>
 Package pdftex.def Info: figures/Runtime_platform_model.pdf used on input line 
-942.
+943.
 (pdftex.def)             Requested size: 360.0pt x 185.41277pt.
  [28 <C:/arch/architectural_design/figures/Runtime_platform_model.pdf>]
 <figures/module_structure.pdf, id=528, 301.125pt x 571.53528pt>
 File: figures/module_structure.pdf Graphic file (type pdf)
 
 <use figures/module_structure.pdf>
-Package pdftex.def Info: figures/module_structure.pdf used on input line 989.
+Package pdftex.def Info: figures/module_structure.pdf used on input line 990.
 (pdftex.def)             Requested size: 251.9989pt x 478.31601pt.
  [29] [30 <C:/arch/architectural_design/figures/module_structure.pdf>] [31] [32
 ] [33]
 Chapter 6.
 
-Underfull \hbox (badness 1163) in paragraph at lines 1109--1113
+Underfull \hbox (badness 1163) in paragraph at lines 1110--1114
 []|\OT1/phv/m/n/10.95 Amazon Elas-tic Beanstalk will au-
  []
 
 
-Underfull \hbox (badness 2653) in paragraph at lines 1114--1115
+Underfull \hbox (badness 2653) in paragraph at lines 1115--1116
 \OT1/phv/m/n/10.95 data ag-gre-ga-tor should be
  []
 
 
-Underfull \hbox (badness 1931) in paragraph at lines 1115--1119
+Underfull \hbox (badness 1931) in paragraph at lines 1116--1120
 \OT1/phv/m/n/10.95 men-ta-tion of the API, but Elas-tic
  []
 
 
-Underfull \hbox (badness 1796) in paragraph at lines 1121--1125
+Underfull \hbox (badness 1796) in paragraph at lines 1122--1126
 \OT1/phv/m/n/10.95 top of Sim-pleDB, which has pre-
  []
 
 
-Underfull \hbox (badness 4954) in paragraph at lines 1131--1132
+Underfull \hbox (badness 4954) in paragraph at lines 1132--1133
 \OT1/phv/m/n/10.95 ag-gre-ga-tor, and API end-
  []
 
 
-Underfull \hbox (badness 4673) in paragraph at lines 1132--1135
+Underfull \hbox (badness 4673) in paragraph at lines 1133--1136
 \OT1/phv/m/n/10.95 1ms be-tween dif-fer-ent avail-abil-ity
  []
 
 
-Underfull \hbox (badness 3919) in paragraph at lines 1136--1138
+Underfull \hbox (badness 3919) in paragraph at lines 1137--1139
 []|\OT1/phv/m/n/10.95 Although the STS will be
  []
 
 
-Underfull \hbox (badness 4660) in paragraph at lines 1136--1138
+Underfull \hbox (badness 4660) in paragraph at lines 1137--1139
 \OT1/phv/m/n/10.95 ready oc-ca-sion-ally de-layed
  []
 
 
-Underfull \hbox (badness 6173) in paragraph at lines 1136--1138
+Underfull \hbox (badness 6173) in paragraph at lines 1137--1139
 \OT1/phv/m/n/10.95 SMS de-liv-ery, SMS mes-
  []
 
 
-Underfull \hbox (badness 1184) in paragraph at lines 1147--1148
+Underfull \hbox (badness 1184) in paragraph at lines 1148--1149
 []|\OT1/phv/m/n/10.95 The server in-fras-truc-ture of
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1151
+Underfull \vbox (badness 10000) detected at line 1152
  []
 
 [34
 
 ]
-Overfull \hbox (6.0pt too wide) in paragraph at lines 1163--1164
+Overfull \hbox (6.0pt too wide) in paragraph at lines 1164--1165
 [][][][][][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1163--1164
+Underfull \hbox (badness 10000) in paragraph at lines 1164--1165
 
  []
 
 [35]
-Underfull \hbox (badness 10000) in paragraph at lines 1179--1179
+Underfull \hbox (badness 10000) in paragraph at lines 1180--1180
 []|\OT1/phv/m/n/10.95 Truck po-si-tion in-for-ma-tion
  []
 
 
-Underfull \hbox (badness 3460) in paragraph at lines 1180--1182
+Underfull \hbox (badness 3460) in paragraph at lines 1181--1183
 []|\OT1/phv/m/n/10.95 Position in-for-ma-tion must be en-
  []
 
 
-Underfull \hbox (badness 6691) in paragraph at lines 1183--1183
+Underfull \hbox (badness 6691) in paragraph at lines 1184--1184
 []|\OT1/phv/m/n/10.95 Truck com-mu-ni-ca-tion must
  []
 
 
-Underfull \hbox (badness 1668) in paragraph at lines 1186--1186
+Underfull \hbox (badness 1668) in paragraph at lines 1187--1187
 []|\OT1/phv/m/n/10.95 Only au-tho-rised users may
  []
 
 
-Underfull \hbox (badness 1436) in paragraph at lines 1186--1186
+Underfull \hbox (badness 1436) in paragraph at lines 1187--1187
 \OT1/phv/m/n/10.95 ob-tain truck in-for-ma-tion via
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1209--1209
+Underfull \hbox (badness 10000) in paragraph at lines 1210--1210
 []|\OT1/phv/m/n/10.95 Truck ex-is-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1209--1210
+Underfull \hbox (badness 10000) in paragraph at lines 1210--1211
 []|\OT1/phv/m/n/10.95 Canonical
  []
 
@@ -675,104 +675,134 @@ File: figures/functional_availability.pdf Graphic file (type pdf)
 
 <use figures/functional_availability.pdf>
 Package pdftex.def Info: figures/functional_availability.pdf used on input line
- 1314.
+ 1315.
 (pdftex.def)             Requested size: 360.0pt x 253.0878pt.
  [38 <C:/arch/architectural_design/figures/functional_availability.pdf>]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 1334.
+(Font)              <9> on input line 1335.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 1334.
+(Font)              <5> on input line 1335.
 
-Underfull \hbox (badness 1024) in paragraph at lines 1383--1384
+Underfull \hbox (badness 1024) in paragraph at lines 1384--1385
 []|\OT1/phv/m/n/10.95 The STS be-comes in-ac-ces-si-ble to the truck
  []
 
 [39]
-Underfull \hbox (badness 1057) in paragraph at lines 1437--1438
+Underfull \hbox (badness 1057) in paragraph at lines 1438--1439
 []|\OT1/phv/m/n/10.95 1. It must be pos-si-ble to
  []
 
 
-Underfull \hbox (badness 6364) in paragraph at lines 1439--1441
+Underfull \hbox (badness 6364) in paragraph at lines 1440--1442
 []|\OT1/phv/m/n/10.95 Data pro-cess-ing func-tion-al-ity will
  []
 
 
-Underfull \hbox (badness 1275) in paragraph at lines 1439--1441
+Underfull \hbox (badness 1275) in paragraph at lines 1440--1442
 \OT1/phv/m/n/10.95 be sep-a-rated into loosely cou-pled
  []
 
+
+Underfull \hbox (badness 1057) in paragraph at lines 1448--1448
+[]|\OT1/phv/m/n/10.95 3. It must be pos-si-ble to
+ []
+
+
+Underfull \hbox (badness 2150) in paragraph at lines 1450--1450
+\OT1/phv/m/n/10.95 tended for mar-ket-ing as a
+ []
+
+
+Underfull \hbox (badness 4621) in paragraph at lines 1452--1452
+\OT1/phv/m/n/10.95 de-ploy-ment plat-forms must
+ []
+
+
+Underfull \hbox (badness 1895) in paragraph at lines 1452--1453
+\OT1/phv/m/n/10.95 han-dle load-bal-anc-ing and mul-ti-ple
+ []
+
 [40]
-Overfull \hbox (6.0pt too wide) in paragraph at lines 1460--1461
-[][][][][][]
+Underfull \hbox (badness 2486) in paragraph at lines 1465--1466
+\OT1/phv/m/n/10.95 add ex-tra data pro-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1460--1461
-
+Underfull \hbox (badness 3049) in paragraph at lines 1468--1469
+[]|\OT1/phv/m/n/10.95 It must be pos-si-ble
  []
 
 
-Underfull \hbox (badness 7047) in paragraph at lines 1469--1469
-[]|\OT1/phv/m/n/10.95 It must be pos-si-ble to add
+Underfull \hbox (badness 10000) in paragraph at lines 1468--1469
+\OT1/phv/m/n/10.95 query-ing the data
  []
 
 
-Underfull \hbox (badness 5189) in paragraph at lines 1469--1469
-\OT1/phv/m/n/10.95 other com-mu-ni-ca-tion net-works
+Underfull \hbox (badness 1924) in paragraph at lines 1473--1473
+\OT1/phv/m/n/10.95 track-ing sys-tem, us-
  []
 
 
-Underfull \hbox (badness 1014) in paragraph at lines 1471--1471
-[]|\OT1/phv/m/n/10.95 The sys-tem must be ex-tended
+Underfull \hbox (badness 10000) in paragraph at lines 1475--1475
+[]|\OT1/phv/m/n/10.95 Support for non-
  []
 
 
-Overfull \hbox (2.0889pt too wide) in paragraph at lines 1463--1476
+Underfull \hbox (badness 10000) in paragraph at lines 1475--1475
+\OT1/phv/m/n/10.95 Amazon de-ploy-ment
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1475--1475
+\OT1/phv/m/n/10.95 plat-forms must be
+ []
+
+
+Overfull \hbox (12.00998pt too wide) in paragraph at lines 1459--1478
  [] 
  []
 
-[41] [42]
+[41] [42] [43]
 Appendix A.
 
-Overfull \hbox (6.0pt too wide) in paragraph at lines 1529--1530
+Overfull \hbox (6.0pt too wide) in paragraph at lines 1531--1532
 [][][][][][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1529--1530
-
- []
-
-[43
-
-]
-Appendix B.
-
-Package natbib Warning: Citation `rozanski2011software' on page 44 undefined on
- input line 1539.
-
-
-Overfull \hbox (6.0pt too wide) in paragraph at lines 1539--1540
-[][][][][][]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1539--1540
+Underfull \hbox (badness 10000) in paragraph at lines 1531--1532
 
  []
 
 [44
 
 ]
-Appendix C.
+Appendix B.
 
-Overfull \hbox (6.0pt too wide) in paragraph at lines 1547--1548
+Package natbib Warning: Citation `rozanski2011software' on page 45 undefined on
+ input line 1541.
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 1541--1542
 [][][][][][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1547--1548
+Underfull \hbox (badness 10000) in paragraph at lines 1541--1542
+
+ []
+
+[45
+
+]
+Appendix C.
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 1549--1550
+[][][][][][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1549--1550
 
  []
 
@@ -782,21 +812,21 @@ Package natbib Warning: There were undefined citations.
 
 
 AED: lastpage setting LastPage
-[45
+[46
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1559.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1559.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1561.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1561.
  (C:\arch\architectural_design\architectural_design.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1559.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1559.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1561.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1561.
 
 Package rerunfilecheck Info: File `architectural_design.out' has not changed.
 (rerunfilecheck)             Checksum: A4C74BA8D8D061084DC3AC9802E9AF10;1902.
  ) 
 Here is how much of TeX's memory you used:
- 6420 strings out of 494045
- 92889 string characters out of 3145967
+ 6421 strings out of 494045
+ 92896 string characters out of 3145967
  190334 words of memory out of 3000000
  9505 multiletter control sequences out of 15000+200000
  29281 words of font info for 53 fonts, out of 3000000 for 9000
@@ -810,9 +840,9 @@ s (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files
 6)/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files (x86)/MiKTe
 X 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fo
 nts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on architectural_design.pdf (46 pages, 1453964 bytes).
+Output written on architectural_design.pdf (47 pages, 1455956 bytes).
 PDF statistics:
- 774 PDF objects out of 1000 (max. 8388607)
- 128 named destinations out of 1000 (max. 500000)
+ 779 PDF objects out of 1000 (max. 8388607)
+ 129 named destinations out of 1000 (max. 500000)
  314 words of extra memory for PDF output out of 10000 (max. 10000000)
 
