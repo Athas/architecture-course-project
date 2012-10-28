@@ -10,6 +10,14 @@ class TruckData(peewee.Model):
     timestamp = peewee.FloatField()
     latitude = peewee.FloatField()
     longitude = peewee.FloatField()
+    
+    def get_default_dict(self):
+        return {
+            'truck_id': self.truck_id,
+            'timestamp': self.timestamp,
+            'latitude': self.latitude,
+            'longitude': self.longitude
+        }
 
 database.connect()
 try:

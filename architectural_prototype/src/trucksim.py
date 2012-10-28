@@ -51,9 +51,9 @@ class Truck:
             self.ancient[frm] = added[frm]
 
     def offload(self):
-        print "sending", self.messages
+        print "sending", json.dumps(self.messages)
         conn = httplib.HTTPConnection(sts_host)
-        headers = {"Content-type": "application/x-www-form-urlencoded",
+        headers = {"Content-type": "application/json",
                    "Accept": "text/plain"}
         conn.request("POST", "/data", json.dumps(self.messages), headers)
         resp = conn.getresponse()

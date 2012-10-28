@@ -6,10 +6,9 @@ import datetime, json
 @app.route('/data', methods=['POST'])
 def recent_data():
     database.connect()
-    data = json.loads(request.data)
     collected = []
-    for truck, items in data:
-        for time, coords in items:
+    for truck, points in json.loads(request.data).iteritems():
+        for time, coords in points.iteritems():
             new = TruckData()
             new.timestamp = float(time)
             new.truck_id = int(truck)
@@ -17,8 +16,6 @@ def recent_data():
             new.longitude = float(coords[1])
             new.save()
             collected.append(new)
-            print json.dumps(new.get_default_dict())
-    return json.dumps([c.get_default_dict() for c in collected])
+
     database.close()
-
-
+    return "success"
