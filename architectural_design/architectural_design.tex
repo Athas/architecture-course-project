@@ -123,6 +123,7 @@
     6 & 2012-10-08 & TRH, SHB and JTM & added chapter 5 \\
     \hline
     7 & 2012-10-10 & TRH, SHB and JTM & Added sections 6 and 6.1\\
+    \hline
     8 & 2012-10-24 & TRH, SHB and JTM & Added sections 6.3 and 6.4\\
    \hline
   \end{tabular}
@@ -248,7 +249,7 @@ actual implementation has not yet begun.
     GPS units are assumed to already be installed on the STC's trucks.
   \item Support Staff: it is assumed that the STC has the appropriate IT staff
     for helping the end users of the STS in accomplishing their appropriate
-    business administration tasks.
+    business administration tasks. This staff also installs the physical equipment in the trucks.
   \item System Administrators: Amazon provides the appropriate hardware
     administration while the STC has a team of developers responsible for
     updating and maintaining the software environment of the EC2 instances.
@@ -324,7 +325,7 @@ actual implementation has not yet begun.
     \hline
     External stimulus & The user queries a specific truck, trucks within an area, and trucks that have not yet reached their deignated targets on time\\
     \hline
-    Required system response & The system shows the requested data as a list in the users GUI \\
+    Required system response & The system sends the requested data as a list via the API. \\
     \hline
   \end{tabular}
 \end{center}
