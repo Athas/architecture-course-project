@@ -461,10 +461,10 @@ actual implementation has not yet begun.
 \item[Business driver:] Trucking in Russia is mostly done using old and inefficient
   trucks with bad road conditions.  It is not feasible to replace the
   vehicles or the road system, so in order to remain competetive, the
-  STC must optimise its logistics intead.
+  STC must optimise its logistics instead.
 \item[Project goal:] The STC wishes to optimise its logistics by
   keeping a detailed log of truck movement.  By analysing the
-  information the log, more efficient transportation routes may be
+  information in the log, more efficient transportation routes may be
   designed.
 \item[Project goal:] In order to minimise truck idle time, the STC
   desires real-time information on truck locations, such that
@@ -739,6 +739,20 @@ actual implementation has not yet begun.
 \begin{center}
   \begin{tabular}[h!]{| >{\columncolor{gray}}p{0.28\textwidth} | p{0.65\textwidth} |}
     \hline
+    Element name & Truck store\\
+    \hline
+    Responsibilities & Cache of the trucks\\
+    \hline
+    Interfaces -- inbound & Truck register\\
+    \hline
+    Interfaces -- outbound & API instance\\
+   \hline
+  \end{tabular}
+\end{center}
+
+\begin{center}
+  \begin{tabular}[h!]{| >{\columncolor{gray}}p{0.28\textwidth} | p{0.65\textwidth} |}
+    \hline
     Element name & API instance\\
     \hline
     Responsibilities & Make data accessible for other external applications\\
@@ -900,7 +914,7 @@ out the request.
   \mycaption{Concurrency model}
 \end{center}
 
-The truck transmitter is one process, that consists of the Data collectore and Data sender, which is placed on a physical device in the truck. Data is sent from the Data sender to the Data receiver. The Data receiver, Data processing instance and API instance all run on the server as individual processes. The Datastore and Truck store exists in a database process.
+The truck transmitter is one process, that consists of the Data collector and Data sender, which is placed on a physical device in the truck. Data is sent from the Data sender to the Data receiver. The Data receiver, Data processing instance and API instance all run on the server as individual processes. The Datastore and Truck store exists in a database process.
 
 \subsection{State model}
 \label{sec:state-model}
@@ -911,7 +925,7 @@ The truck transmitter is one process, that consists of the Data collectore and D
   \mycaption{State model}
 \end{center}
 
-When the system is running, positions can be written to the database and queries can be processed.
+When the system is running, truck changes will be registered in the truck store, positions can be written to the database and queries can be processed.
 
 \section{Deployment view}
 \label{sec:deployment-view}
