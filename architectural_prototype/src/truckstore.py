@@ -23,3 +23,10 @@ class Truckstore(SimpleDB):
         entry['active'] = "True"
         entry.save()
 
+    def verify_truck_id(self, truck_id):
+        entry = self.domain.get_item(str(truck_id))
+        return entry and 'active' in entry and entry['active'] == "True"
+    
+    def get_active_trucks(self):
+        return [i.name for i in self.domain if i['active'] == "True"]
+        
