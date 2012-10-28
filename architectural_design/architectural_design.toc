@@ -55,10 +55,10 @@
 \contentsline {subsection}{\numberline {6.3.1}Platform availability}{39}{subsection.6.3.1}
 \contentsline {subsection}{\numberline {6.3.2}Availability scenarios}{39}{subsection.6.3.2}
 \contentsline {section}{\numberline {6.4}Evolution}{40}{section.6.4}
-\contentsline {section}{\numberline {6.5}Other qualities}{41}{section.6.5}
-\contentsline {subsection}{\numberline {6.5.1}Internationalisation}{41}{subsection.6.5.1}
-\contentsline {subsection}{\numberline {6.5.2}Location}{42}{subsection.6.5.2}
-\contentsline {subsection}{\numberline {6.5.3}Regulation}{42}{subsection.6.5.3}
-\contentsline {chapter}{\numberline {A}Architecture backlog}{43}{appendix.A}
-\contentsline {chapter}{\numberline {B}Architecture evaluation}{44}{appendix.B}
-\contentsline {chapter}{\numberline {C}Architecture skeleton}{45}{appendix.C}
+\contentsline {section}{\numberline {6.5}Other qualities}{42}{section.6.5}
+\contentsline {subsection}{\numberline {6.5.1}Internationalisation}{42}{subsection.6.5.1}
+\contentsline {subsection}{\numberline {6.5.2}Location}{43}{subsection.6.5.2}
+\contentsline {subsection}{\numberline {6.5.3}Regulation}{43}{subsection.6.5.3}
+\contentsline {chapter}{\numberline {A}Architecture backlog}{44}{appendix.A}
+\contentsline {chapter}{\numberline {B}Architecture evaluation}{45}{appendix.B}
+\contentsline {chapter}{\numberline {C}Architecture skeleton}{46}{appendix.C}
