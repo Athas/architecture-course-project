@@ -1,8 +1,8 @@
 import peewee
 
-database = peewee.SqliteDatabase('sqlite:///:memory:')
+database = peewee.SqliteDatabase('temp.db')
         
-class TruckData:
+class TruckData(peewee.Model):
     class Meta:
         database = database
     
