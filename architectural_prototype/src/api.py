@@ -2,7 +2,7 @@ from wsgi import app
 from datastore import TruckData, database
 import json
 
-@app.route('/data', methods=['GET'])
+@app.route('/data/all')
 def recent_data():
     database.connect()
     query = TruckData.select().order_by(TruckData.timestamp.desc())
@@ -10,7 +10,7 @@ def recent_data():
     return json.dumps(data)
     database.close()
 
-@app.route('/data/<truck_id>')
+@app.route('/data/truck/<truck_id>')
 def truck_data(truck_id):
     database.connect()
     query = TruckData.select()
@@ -20,7 +20,7 @@ def truck_data(truck_id):
     return json.dumps(data)
     database.close()
 
-@app.route('/data/<float:lat>/<float:lon>/<float:radius>')
+@app.route('/data/location/<float:lat>/<float:lon>/<float:radius>')
 def location_data(lat, lon, radius):
     database.connect()
     # NOTE: the "radius" is a square threshold, not circular
