@@ -7,9 +7,13 @@ class TruckData(peewee.Model):
         database = database
     
     truck_id = peewee.IntegerField()
-    timestamp = peewee.DateTimeField()
+    timestamp = peewee.FloatField()
     latitude = peewee.FloatField()
     longitude = peewee.FloatField()
 
 database.connect()
-TruckData.create_table()
+try:
+    TruckData.create_table()
+except:
+    print "TruckData table already exists!"
+database.close()
