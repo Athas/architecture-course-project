@@ -1548,6 +1548,36 @@ Describe the architectural evaluation that you performed, cf. Chapter
 your architecture design.
 }
 
+We have made a priority of our scenarios and compared them to our requirements. This is shown in the following table. As we can see, R5 is never handled in the scenarios, which means, that we should probably have one more scenario for showing how one or more positions would be sent to the server.
+
+
+\begin{center}
+  \begin{tabular}[h!]{| l | c | c | c | c | c | c |}
+    \hline
+    \rowcolor{gray}
+    Scenario & Priority & R1 & R2 & R3 & R4 & R5 \\
+    \hline
+    \hline
+    FS1 & High & Yes & No & No & Yes & No \\
+    \hline
+    FS2 & Low & Yes & No & No & No & No \\
+    \hline
+    FS3 & Low & Yes & No & No & No & No \\
+    \hline
+    FS4 & Medium & Yes & No & No & Yes & No \\
+    \hline
+    QS1 & Medium & No & Yes & No & No & No \\
+    \hline
+    QS2 & Low & No & No & No & Yes & No \\
+    \hline
+    QS3 & High & No & No & Yes & No & No \\
+    \hline
+    QS4 & Low & Yes & No & No & No & No \\
+    \hline
+
+ \end{tabular}
+\end{center}
+
 \chapter{Architecture skeleton}
 \label{cha:arch-prot}
 \thispagestyle{fancy}
