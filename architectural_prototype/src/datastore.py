@@ -2,7 +2,7 @@ import peewee
 
 database = peewee.SqliteDatabase('sqlite:///:memory:')
         
-class TruckData(BaseModel):
+class TruckData:
     class Meta:
         database = database
     
