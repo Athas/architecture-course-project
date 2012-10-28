@@ -21,40 +21,41 @@ class Truck:
         self.ancient = {} # The oldest acceptable timestamps from other trucks.
         self.gpsReading()
 
+    def addTruckPosition(self, truck, time, pos):
+        if truck in self.messages:
+            self.messages[truck][time] = pos
+        else:
+            self.messages[truck] = {time: pos}
+
     def gpsReading(self):
         with biglock:
             x,y = self.location
             self.location = (x + random.random(), y + random.random())
-            self.messages[(self.ident, time.time())] = self.location
+            self.addTruckPosition(self.ident, time.time(), self.location)
             threading.Timer(self.reading_interval, self.gpsReading).start()
 
     def meet(self, other):
         added = {}
-        for frm, time in other.messages:
-            if frm in self.ancient and self.ancient[frm] > time:
-                # That message is too old, discard it.
-                continue
-            if frm in added:
-                added[frm] = max(added[frm], time)
-            else:
-                added[frm] = time
-            self.messages[(frm,time)] = other.messages[(frm,time)]
+        for frm in other.messages:
+            for time in other.messages[frm]:
+                if frm in self.ancient and self.ancient[frm] > time:
+                    # That message is too old, discard it.
+                    continue
+                if frm in added:
+                    added[frm] = max(added[frm], time)
+                else:
+                    added[frm] = time
+                    self.addTruckPosition(frm, time, other.messages[frm][time])
         for frm in added:
             # Don't keep any messages older than the youngest message we just received.
             self.ancient[frm] = added[frm]
 
     def offload(self):
-        data = {}
-        for frm, time in self.messages:
-            if not frm in data:
-                data[frm] = {}
-            data[frm][time] = self.messages[(frm, time)]
-        print "sending", data
+        print "sending", self.messages
         conn = httplib.HTTPConnection(sts_host)
-        params = urllib.urlencode({'@number': 12524, '@type': 'issue', '@action': 'show'})
         headers = {"Content-type": "application/x-www-form-urlencoded",
                    "Accept": "text/plain"}
-        conn.request("POST", "/data", json.dumps(data), headers)
+        conn.request("POST", "/data", json.dumps(self.messages), headers)
         resp = conn.getresponse()
         if resp.status == httplib.OK:
             reply = resp.read()
