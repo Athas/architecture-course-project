@@ -10,7 +10,7 @@ def all_data():
     return json.dumps(data)
     database.close()
 
-@app.route('/api/truck/<truck_id>')
+@app.route('/api/truck/<int:truck_id>')
 def truck_data(truck_id):
     database.connect()
     query = TruckData.select()
