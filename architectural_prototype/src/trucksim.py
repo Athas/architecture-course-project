@@ -3,9 +3,14 @@
 import time
 import random
 import threading
+import httplib
+import json
+import urllib
 
 global biglock
 biglock = threading.RLock()
+global sts_host
+sts_host = "localhost:5000"
 
 class Truck:
     def __init__(self, ident):
@@ -39,14 +44,31 @@ class Truck:
             self.ancient[frm] = added[frm]
 
     def offload(self):
-        # Where does it go?  We need to transmit to the STS here.
+        data = {}
+        for frm, time in self.messages:
+            if not frm in data:
+                data[frm] = {}
+            data[frm][time] = self.messages[(frm, time)]
+        print "sending", data
+        conn = httplib.HTTPConnection(sts_host)
+        params = urllib.urlencode({'@number': 12524, '@type': 'issue', '@action': 'show'})
+        headers = {"Content-type": "application/x-www-form-urlencoded",
+                   "Accept": "text/plain"}
+        conn.request("POST", "/data", json.dumps(data), headers)
+        resp = conn.getresponse()
+        if resp.status == httplib.OK:
+            reply = resp.read()
+            print reply
+        else:
+            print "Got ", resp.status, resp.reason, "instead of OK"
+        conn.close()
         self.messages = {}
 
 class RoadNetwork:
     def __init__(self):
         self.trucks = []
         self.meeting_interval = 1.0
-        self.offload_interval = 10.0
+        self.offload_interval = 1.0
         self.arrangeMeeting()
         self.arrangeOffload()
 
