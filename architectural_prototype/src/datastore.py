@@ -1,8 +1,8 @@
 from db import SimpleDb
     
 class Datastore(SimpleDB):
-    def __init__(self, aws_key, aws_secret_key, domain="datastore"):
-        super(aws_key, aws_secret_key, domain)
+    def __init__(self, domain="datastore"):
+        super(domain)
         
     def new_entry(self, truck_id, timestamp, lat, lon):
         entry = self.domain.new_item(str(truck_id) + str(timestamp))
