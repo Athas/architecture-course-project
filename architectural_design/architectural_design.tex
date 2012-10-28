@@ -123,6 +123,7 @@
     6 & 2012-10-08 & TRH, SHB and JTM & added chapter 5 \\
     \hline
     7 & 2012-10-10 & TRH, SHB and JTM & Added sections 6 and 6.1\\
+    \hline
     8 & 2012-10-24 & TRH, SHB and JTM & Added sections 6.3 and 6.4\\
    \hline
   \end{tabular}
@@ -248,7 +249,7 @@ actual implementation has not yet begun.
     GPS units are assumed to already be installed on the STC's trucks.
   \item Support Staff: it is assumed that the STC has the appropriate IT staff
     for helping the end users of the STS in accomplishing their appropriate
-    business administration tasks.
+    business administration tasks. This staff also installs the physical equipment in the trucks.
   \item System Administrators: Amazon provides the appropriate hardware
     administration while the STC has a team of developers responsible for
     updating and maintaining the software environment of the EC2 instances.
@@ -324,7 +325,7 @@ actual implementation has not yet begun.
     \hline
     External stimulus & The user queries a specific truck, trucks within an area, and trucks that have not yet reached their deignated targets on time\\
     \hline
-    Required system response & The system shows the requested data as a list in the users GUI \\
+    Required system response & The system sends the requested data as a list via the API. \\
     \hline
   \end{tabular}
 \end{center}
@@ -460,10 +461,10 @@ actual implementation has not yet begun.
 \item[Business driver:] Trucking in Russia is mostly done using old and inefficient
   trucks with bad road conditions.  It is not feasible to replace the
   vehicles or the road system, so in order to remain competetive, the
-  STC must optimise its logistics intead.
+  STC must optimise its logistics instead.
 \item[Project goal:] The STC wishes to optimise its logistics by
   keeping a detailed log of truck movement.  By analysing the
-  information the log, more efficient transportation routes may be
+  information in the log, more efficient transportation routes may be
   designed.
 \item[Project goal:] In order to minimise truck idle time, the STC
   desires real-time information on truck locations, such that
@@ -738,6 +739,20 @@ actual implementation has not yet begun.
 \begin{center}
   \begin{tabular}[h!]{| >{\columncolor{gray}}p{0.28\textwidth} | p{0.65\textwidth} |}
     \hline
+    Element name & Truck store\\
+    \hline
+    Responsibilities & Cache of the trucks\\
+    \hline
+    Interfaces -- inbound & Truck register\\
+    \hline
+    Interfaces -- outbound & API instance\\
+   \hline
+  \end{tabular}
+\end{center}
+
+\begin{center}
+  \begin{tabular}[h!]{| >{\columncolor{gray}}p{0.28\textwidth} | p{0.65\textwidth} |}
+    \hline
     Element name & API instance\\
     \hline
     Responsibilities & Make data accessible for other external applications\\
@@ -899,7 +914,7 @@ out the request.
   \mycaption{Concurrency model}
 \end{center}
 
-The truck transmitter is one process, that consists of the Data collectore and Data sender, which is placed on a physical device in the truck. Data is sent from the Data sender to the Data receiver. The Data receiver, Data processing instance and API instance all run on the server as individual processes. The Datastore and Truck store exists in a database process.
+The truck transmitter is one process, that consists of the Data collector and Data sender, which is placed on a physical device in the truck. Data is sent from the Data sender to the Data receiver. The Data receiver, Data processing instance and API instance all run on the server as individual processes. The Datastore and Truck store exists in a database process.
 
 \subsection{State model}
 \label{sec:state-model}
@@ -910,7 +925,7 @@ The truck transmitter is one process, that consists of the Data collectore and D
   \mycaption{State model}
 \end{center}
 
-When the system is running, positions can be written to the database and queries can be processed.
+When the system is running, truck changes will be registered in the truck store, positions can be written to the database and queries can be processed.
 
 \section{Deployment view}
 \label{sec:deployment-view}
