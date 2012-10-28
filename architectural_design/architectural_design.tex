@@ -1140,11 +1140,11 @@ In this section we present a table of the performance requirements for the expec
     data in the database. \\
     \hline
     Verifying the existence of a truck in the truck store should require
-    less than 15ms of time & the truck register will act as a cache for the
-    truck store, and the truck register will be implemented on top of the
+    less than 15ms of time & the truck store will act as a cache for the
+    truck register, and the truck store will be implemented on top of the
     Amazon RDS platform with aggressive and distributed in-memory caching. \\
     \hline
-    Network latency between the datastore, truck register, data aggregator,
+    Network latency between the datastore, truck store, data aggregator,
     and API endpoints must be less than 5ms & AWS has latencies of
     approximately 1ms between different availability zones and less than 1ms
     when communicating within an individual availability zone. \\
@@ -1170,13 +1170,6 @@ In this section we present a table of the performance requirements for the expec
 
 \section{Security}
 \label{sec:security}
-
-\instructions{
-For each of the main, security requirements, explain how the system
-will meet the requirement. Define (or reference) the threat model,
-security policy and security design that have been used as part of
-applying this perspective.
-}
 
 Much of the internal security of the STS server is delegated to our
 deployment infrastructure (Amazon WS).  This section is mostly
