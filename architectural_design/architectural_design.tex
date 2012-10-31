@@ -1578,7 +1578,7 @@ We have made a priority of our scenarios and compared them to our requirements. 
  \end{tabular}
 \end{center}
 
-\chapter{Architecture skeleton}
+\chapter{Architecture prototype}
 \label{cha:arch-prot}
 \thispagestyle{fancy}
 \instructions{ 
@@ -1586,9 +1586,24 @@ Describe the architecture skeleton that you developed
   including how to download and run it.
 }
 
+\section{Running the prototype}
 
+Execute the following commands to run the STS prototype.
 
+\begin{verbatim}
+python src/runserver.py
+python src/trucksim.py
+\end{verbatim}
 
+API queries can then be made using curl, for example to list all truck
+positions within ten distance units of point (0,0):
+
+\begin{verbatim}
+curl localhost:5000/api/location/0.0/0.0/10.0
+\end{verbatim}
+
+You may have to wait about thirty seconds for the truck simulation to
+send data.
 
 % 
 % Bibliography
