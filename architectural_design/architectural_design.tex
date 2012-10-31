@@ -1548,7 +1548,7 @@ Describe the architectural evaluation that you performed, cf. Chapter
 your architecture design.
 }
 
-We have made a priority of our scenarios and compared them to our requirements. This is shown in the following table. As we can see, R5 is never handled in the scenarios, which means, that we should probably have one more scenario for showing how one or more positions would be sent to the server.
+We have made a priority of our scenarios and compared them to our requirements. This is shown in the following table. As we can see, R5 is never handled in the scenarios, which means, that we should probably have one more scenario for showing how one or more positions would be sent to the server. R5 is however still covered by the architecture.
 
 
 \begin{center}
@@ -1577,6 +1577,34 @@ We have made a priority of our scenarios and compared them to our requirements. 
 
  \end{tabular}
 \end{center}
+
+
+\begin{center}
+  \begin{tabular}[h!]{| l | p{0.84\textwidth} |}
+    \hline
+    \rowcolor{gray}
+    Scenario & Evaluation \\
+    \hline
+    \hline
+    FS1 & The scenario upholds the architecture. It is however not described, that positions will still be stored in the truck transmitter, if STS is down. \\
+    \hline
+    FS2 & The scenario is true for trucks, that have delivered data to the datastore, we cannot verify trucks within an area, if a truck in the area can't send its position. \\
+    \hline
+    FS3 & The scenario would uphold the architecture if "truck registry" is replaced with "truck store", as we query on the truck store and not the truck registry. \\
+    \hline
+    FS4 & In System enviroment, "truck registry" should be replaced with "datastore" \\
+    \hline
+    QS1 & The scenario is as described in the architecture \\
+    \hline
+    QS2 & Communication between trucks via mesh network is not described throughly enough in the architecture \\
+    \hline
+    QS3 & The scenario is described in the architecture \\
+    \hline
+    QS4 & The scenario works in the described architecture, it is however not specified how the information is sent or who recieves it. \\
+    \hline
+ \end{tabular}
+\end{center}
+
 
 \chapter{Architecture prototype}
 \label{cha:arch-prot}
