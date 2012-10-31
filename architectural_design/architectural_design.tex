@@ -1614,6 +1614,16 @@ Describe the architecture skeleton that you developed
   including how to download and run it.
 }
 
+We have implemented a protype in Python, consisting of a prototype STS
+and a small program for simulating a fleet of trucks that move around
+randomly and occasionally meet and exchange information.  We do not
+prototype the use of the cell phone network to exchange data, instead,
+the truck simulator uses an ad-hoc HTTP interface to send information
+to the STS.  Our prototype also does not include logic related to the
+truck register, nor does it employ cryptographic verification of data.
+Our prototype models how information flows from trucks, into the data
+store, and is then accessible via an API.
+
 \section{Running the prototype}
 
 Execute the following commands to run the STS prototype.
