@@ -337,9 +337,9 @@ actual implementation has not yet begun.
     \hline
     Overview & New trucks are imported to the system \\
     \hline
-    System state & New trucks are listed in the truck registry and a transmitter have been fitted into the new truck\\
+    System state & New trucks are listed in the truck store and a transmitter have been fitted into the new truck\\
     \hline
-    System environment & STS, the truck transmitter and the truck registry is operating normally\\
+    System environment & STS, the truck transmitter and the truck store are operating normally\\
     \hline
     External stimulus & An employee from the support staff have registered the truckID with the trucks transmitterID \\
     \hline
@@ -357,7 +357,7 @@ actual implementation has not yet begun.
     \hline
     System state & The truck is fitted with a truck transmitter and is currently driving\\
     \hline
-    System environment & The truck transmitter and the truck registry is operating normally, the truck is driving in an area without any connection\\
+    System environment & The truck transmitter and the datastore is operating normally, the truck is driving in an area without any connection\\
     \hline
     External stimulus & The truck transmitter has a new position that should be sent to the server \\
     \hline
@@ -1588,15 +1588,15 @@ We have made a priority of our scenarios and compared them to our requirements. 
     \hline
     FS1 & The scenario upholds the architecture. It is however not described, that positions will still be stored in the truck transmitter, if STS is down. \\
     \hline
-    FS2 & The scenario is true for trucks, that have delivered data to the datastore, we cannot verify trucks within an area, if a truck in the area can't send its position. \\
+    FS2 & The scenario is true for all the trucks, that have delivered their data to the datastore, but it will not be possible to verify trucks within a specific area, if a truck in the area can't send its position to the server. \\
     \hline
-    FS3 & The scenario would uphold the architecture if "truck registry" is replaced with "truck store", as we query on the truck store and not the truck registry. \\
+    FS3 & This scenario upholds the described architecture. \\
     \hline
-    FS4 & In System enviroment, "truck registry" should be replaced with "datastore" \\
+    FS4 & This scenario upholds the described architecture. \\
     \hline
-    QS1 & The scenario is as described in the architecture \\
+    QS1 & This scenario upholds the described architecture. \\
     \hline
-    QS2 & Communication between trucks via mesh network is not described throughly enough in the architecture \\
+    QS2 & Communication between trucks via mesh network is not described throughly enough in the architecture. More information about how data is synchronized, and how often trucks will contact each other is needed. \\
     \hline
     QS3 & The scenario is described in the architecture \\
     \hline
