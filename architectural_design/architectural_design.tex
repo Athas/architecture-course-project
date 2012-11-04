@@ -1626,7 +1626,11 @@ the truck simulator uses an ad-hoc HTTP interface to send information
 to the STS.  Our prototype also does not include logic related to the
 truck register, nor does it employ cryptographic verification of data.
 Our prototype models how information flows from trucks, into the data
-store, and is then accessible via an API.
+store, and is then accessible via an API. The prototype also includes
+an example implementation of the SimpleDB service as a backend for
+data storage, and the API is implemented on top of the Flask framework.
+As a result, the architectural prototype can also be used to evaluate
+the efficacy of the Amazon EC2 and SimpleDB infrastructure for the STS.
 
 \section{Running the prototype}
 
