@@ -205,7 +205,7 @@ actual implementation has not yet begun.
 
 \section{Architectural design approach}
 \label{sec:arch-design-appr}
-We are designing a system with little user interaction and no actual stakeholders to guide the design process. We will therefore focus the architecture on the technical difficulties of the system. The arcitecture consists of the following views:
+We are designing a system with little user interaction and no actual stakeholders to guide the design process. We will therefore focus the architecture on the technical difficulties of the system. The architecture consists of the following views:
 \begin{itemize}
   \item Functional view describes the elements needed in the program.
   \item Information view describes how data is generated, sent thrrough the system and how it is stored.
@@ -412,7 +412,7 @@ It is expected that some parts of the architecture will be redefined during the 
     Scenario reference & QS2. \\
     \hline
     Overview & If the cellular network is not available, the transmitter on the
-    truck will fall back to using a long-distance mesh network established
+    truck will fall back to using a short-distance mesh network established
     between the trucks. \\
     \hline
     System environment & This process will be handled
@@ -637,7 +637,7 @@ It is expected that some parts of the architecture will be redefined during the 
   \mycaption{Context diagram with information of externat and internal parts }
 
 \begin{itemize}
-\item The truck transmitters consist of a GPS unit, that gathers the trucks coordinates, and a sender unit, which will exchange coordinates with other truck transmitters through a mesh-network, or send the coordinates to our servers through mobile phone network. The hardware is a commodity-bought external system, but the software on the sender unit is internal.
+\item The truck transmitters consist of a GPS unit, that gathers the trucks coordinates, and a sender unit, which will exchange truck positions with other truck transmitters through a mesh-network, or send the coordinates to our servers through mobile phone network. The hardware (including firmware for doing the actual GPS readings) is a commodity-bought external system, but the software on the sender unit is internal.
 \item The truck register is a system in which the Siberian trucking company's trucks are registered.  All the trucks will already be registered in this system, so data is imported from here to STS.  In the scope of our project, the truck register is an external system.  The trucks register sends a message to STS whenever a truck is added to the fleet, removed from the fleet, or reaches one of STC's central depots.
 \end{itemize}
 
@@ -701,11 +701,11 @@ It is expected that some parts of the architecture will be redefined during the 
     \hline
     Element name & Data sender\\
     \hline
-    Responsibilities & send truck positions encrypted via SMS to the server and get confirmation from the data receiver\\
+    Responsibilities & send truck positions encrypted via SMS to the server and get confirmation from the Data Receiver\\
     \hline
-    Interfaces -- inbound & Data collector, Data sender (MESH), Data receiver (SMS)\\
+    Interfaces -- inbound & Data Collector, Data Sender (MESH), Data Receiver (SMS)\\
     \hline
-    Interfaces -- outbound & Data sender (MESH), Data receiver (SMS)\\
+    Interfaces -- outbound & Data Sender (MESH), Data Receiver (SMS)\\
    \hline
   \end{tabular}
 \end{center}
@@ -713,7 +713,7 @@ It is expected that some parts of the architecture will be redefined during the 
 \begin{center}
   \begin{tabular}[h!]{| >{\columncolor{gray}}p{0.28\textwidth} | p{0.65\textwidth} |}
     \hline
-    Element name & Data receiver\\
+    Element name & Data Receiver\\
     \hline
     Responsibilities & Gather the positions from all the trucks, decrypt the messages and send confirmations to the trucks, when the data is received\\
     \hline
@@ -731,7 +731,7 @@ It is expected that some parts of the architecture will be redefined during the 
     \hline
     Responsibilities & Send data to the datastore\\
     \hline
-    Interfaces -- inbound & Data receiver\\
+    Interfaces -- inbound & Data Receiver\\
     \hline
     Interfaces -- outbound & Datastore and Truck store\\
    \hline
@@ -806,11 +806,12 @@ The transmitters will often be out of reach for some network, therefore it is es
 
 The GPS receiver transmits GPS coordinates along with a timestamp.
 This information is transmitted to the data collector, which filters
-and aggregates the information, as well as tagging it with a truck ID.
-These aggregations are sent to other truck transmitters in range, or
-to the STS via the data sender if possible.  When the data has been
-successfully transmitted to the STS, it is deleted from the truck
-transmitter.
+and aggregates the information, as well as tagging it with a truck ID
+and signing it cryptographically (see the security viewpoint in
+\ref{sec:security}).  These aggregations are sent to other truck
+transmitters in range, or to the STS via the data sender if possible.
+When the data has been successfully transmitted to the STS, it is
+deleted from the truck transmitter.
 
 When truck position data is received by the STS, it becomes the
 property of the system.  If it is to be saved (that is, if
@@ -845,9 +846,10 @@ mechanism.
 \end{center}
 
 
-The data store contains an unorganised set of tuples.  Each tuple
+The data store contains an unstructured set of tuples.  Each tuple
 consists of a truck ID along with a timestamp and the trucks location
-at that time. The truck store contains the truck data the system uses, which is gathered from the truck registry
+at that time. The truck store contains the truck data the system uses,
+which is gathered from the truck registry.
 
 \subsection{Data flow}
 \label{sec:data-flow}
@@ -879,7 +881,11 @@ Currently known trucks & none & reader & none & writer & none & master \\\hline
   \mycaption{State diagram for a truck in the system}
 \end{center}
 
-Truck information is gathered from the truck registry, which means that this diagram isn't directly a part of our system, but a part of the external "truck registry". These state transitions will however impact on our system too, as changes to the truck in the truck registry will propagate to the "truck store" 
+Truck information is gathered from the truck registry, which means
+that this diagram isn't directly a part of our system, but a part of
+the external ``truck registry''. These state transitions will however
+impact on our system too, as changes to the truck in the truck
+registry will propagate to the ``truck store''.
 
 \subsection{Timeliness and latency}
 \label{sec:timeliness-latency}
@@ -902,7 +908,9 @@ actually put into service.
 
 Records are never removed from the data store.  No explicit archiving
 is necessary or performed, beyond that which is done automatically by
-the database provider (Amazon SimpleDB).
+the database provider (Amazon SimpleDB).  Backups must still be
+performed, however, in order to fulfill availability scenario 4 (see
+section \ref{sec:avail-resil}).
 
 \section{Concurrency view}
 \label{sec:concurrency-view}
@@ -914,12 +922,16 @@ contains three tasks: GPS reader, data collector and data sender.
 The data and truck stores is distributed across several different
 processes in order to provide redundancy and scability.
 
-There is a 1:1 relationship between trucks and data processor tasks.
-Each data processor is responsible for processing data from a single
-truck.
+There is a 1:1 relationship between trucks and Data Processor tasks.
+Each Data Processor is responsible for processing data from a single
+truck.  Note that a ``task'' in this sense is not necessarily a
+physical operating systems thread (or process), but may be implemented
+as a lightweight (``green'') thread.  If a Data Processor is
+unavailable (it may be crashed or the network may be down), the data
+receiver is responsible for starting up a replacement task.
 
-The data receiver consists of a small (fixed) number of processes that
-merely route truck data to the proper data processors.  If no task
+The Data Receiver consists of a small (fixed) number of processes that
+merely route truck data to the proper Data Processors.  If no task
 processor is running for the given truck, it must be started.  If it
 fails, it must be restarted.  See section \ref{sec:avail-resil} for
 more on availability.
@@ -951,18 +963,20 @@ When the system is running, truck changes will be registered in the truck store,
 \section{Deployment view}
 \label{sec:deployment-view}
 
-The STS will utilize Amazon EC2 for its data aggregation and processing, and
-the datastore will be implemented using Amazon's SimpleDB nonrelational
-database technology. The truck register in the system will utilize the Amazon
-RDS service to access its database. To simplify deployment, the STS will
-leverage the Amazon Elastic Beanstalk, an automated deployment utility that
-leverages Amazon's AWS services to provide an automatically load-balanced and
-scalable platform for development. The deployment will occur using a
-centralized Git repository hosted by Amazon, and new versions of the software
-will be automatically deployed when changes are pushed to this repository.
-Amazon's software and hardware infrastructure will ensure the correct
-deployment and scalability of the STS, as long as the code does not contain
-critical errors or bugs.
+The STS will utilize Amazon EC2 for its data aggregation and
+processing, and the datastore will be implemented using Amazon's
+SimpleDB nonrelational database technology. The truck register in the
+system will utilize the Amazon RDS service to access its database. To
+simplify deployment, the STS will leverage the Amazon Elastic
+Beanstalk, an automated deployment utility that leverages Amazon's AWS
+services to provide an automatically load-balanced and scalable
+platform for development. The deployment will occur using a
+centralized Git repository hosted by Amazon, and new versions of the
+software will be automatically deployed when changes are pushed to
+this repository.  Note that this is not the same as the
+\textit{development} Git repository.  Amazon's software and hardware
+infrastructure will ensure the correct deployment and scalability of
+the STS, as long as the code does not contain critical errors or bugs.
 
 The STS will use Ubuntu Server 12.04 images on Amazon EC2, and all server-side
 code will be written in Python. The standard CPython Python interpreter will be
@@ -1005,8 +1019,8 @@ these are left at the discretion of the developers.
 
 The physical network model is automatically managed by the Amazon WS
 platform.  This implies that we cannot provide any guarantees beyond
-the service level agreement, and further robustness must be
-implemented at the software level.
+the service level agreement (see section \ref{sec:platform-avail}),
+and further robustness must be implemented at the software level.
 
 Communication between trucks and the STS server is done through the
 mobile telephone network by sending SMS messages.
@@ -1053,12 +1067,12 @@ language.
 
 Dependencies on third-party modules and libraries will be monitored using PIP,
 the Python package manager, and each discrete module in the STS must have a
-file named "requirements.txt" with an appropriately formatted list of modules
+file named \texttt{requirements.txt} with an appropriately formatted list of modules
 and the minimum version number required for the proper functioning of the STS
 software. Deployment and version control will be managed through Git, and the
 deployment to Amazon EC2 will be handled through a centralized Git repository
 managed using Amazon Elastic Beanstalk. The STS modules will be separated into
-four directories: "static," "src," "docs," and "libs." The "static" directory
+four directories: \texttt{static}, \texttt{src}" \texttt{docs}" and \texttt{libs}. The \texttt{static} directory
 will contain any static files related to the STS system, the "src" directory
 will hold the Python modules of the STS (each module will be contained within
 its own subdirectory with an initialization file), the "docs" directory will
@@ -1119,13 +1133,17 @@ using automated monitoring tools, such as New Relic.
 \label{sec:provision-support}
 
 
-The STC will have a team of IT professionals responsible for providing basic
-support for the STS. Any problems related to the general use of the system will
-be handled by this IT department. If the problem is found to be an issue with 
-the STS itself, the issue will be escalated to the in-house development team of
-the STC, which is in charge of maintaining and administering the STS system. If
-the problem is then found to be related to the infrastructure of the system, 
-the development team will contact Amazon AWS support staff.
+The STC will have a team of IT professionals responsible for providing
+basic support for the STS. Any problems related to the general use of
+the system will be handled by this IT department. If the problem is
+found to be an issue with the STS itself, the issue will be escalated
+to the in-house development team of the STC, which is in charge of
+maintaining and administering the STS system. If the problem is then
+found to be related to the infrastructure of the system, the
+development team will contact Amazon AWS support staff.  In general,
+in accordance with the first constraint in section
+\ref{sec:constraints}, the STS is intended to be self-managing and
+require little manual intervention.
 
 \chapter{System qualities}
 \label{cha:system-qualities}
@@ -1148,10 +1166,10 @@ In this section we present a table of the performance requirements for the expec
     level of load experienced by the STS. The configuration of Elastic
     Beanstalk will ensure that the response time remains low. \\
     \hline
-    Average response time for the data aggregator should be less than 50ms
+    Average response time for the Data Receiver should be less than 50ms
     under a load of up to 200 requests per second & the implementation of
     Amazon Elastic Beanstalk will mimic the implementation of the API, but
-    Elastic Beanstalk will be configured to suit the data aggregator and
+    Elastic Beanstalk will be configured to suit the Data Receiver and
     produce a sub-50ms response time. \\
     \hline
     The datastore should respond to queries for up to 10,000 separate data
@@ -1165,7 +1183,7 @@ In this section we present a table of the performance requirements for the expec
     truck register, and the truck store will be implemented on top of the
     Amazon RDS platform with aggressive and distributed in-memory caching. \\
     \hline
-    Network latency between the datastore, truck store, data aggregator,
+    Network latency between the datastore, truck store, data receiver,
     and API endpoints must be less than 5ms & AWS has latencies of
     approximately 1ms between different availability zones and less than 1ms
     when communicating within an individual availability zone. \\
@@ -1358,6 +1376,7 @@ The overall system defines the following service levels.
 \end{description}
 
 \subsection{Platform availability}
+\label{sec:platform-avail}
 
 The STS is deployed on Amazon WS, using Amazon S3 for virtual machine
 instancs and Amazon EasyDB for data storage.  According to the Service
