@@ -69,7 +69,7 @@ class RoadNetwork:
     def __init__(self):
         self.trucks = []
         self.meeting_interval = 1.0
-        self.offload_interval = 1.0
+        self.offload_interval = 30.0
         self.arrangeMeeting()
         self.arrangeOffload()
 
