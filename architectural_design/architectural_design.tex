@@ -625,7 +625,7 @@ actual implementation has not yet begun.
   \mycaption{Context diagram with information of externat and internal parts }
 
 \begin{itemize}
-\item The truck transmitters consist of a GPS unit, that gathers the trucks coordinates, and a sender unit, which will send the coordinates to our servers through a mesh-network. The hardware is a commodity-bought external system, but the software on the sender unit is internal.
+\item The truck transmitters consist of a GPS unit, that gathers the trucks coordinates, and a sender unit, which will exchange coordinates with other truck transmitters through a mesh-network, or send the coordinates to our servers through mobile phone network. The hardware is a commodity-bought external system, but the software on the sender unit is internal.
 \item The truck register is a system in which the Siberian trucking company's trucks are registered.  All the trucks will already be registered in this system, so data is imported from here to STS.  In the scope of our project, the truck register is an external system.  The trucks register sends a message to STS whenever a truck is added to the fleet, removed from the fleet, or reaches one of STC's central depots.
 \end{itemize}
 
@@ -648,6 +648,10 @@ actual implementation has not yet begun.
   \mycaption{The figure shows the functional view for the truck transmitter and the Siberian Trucking System (STS) }
 \end{center}
 
+\begin{center}
+  \includegraphics[width=\textwidth]{figures/functional_view_mesh}\\
+  \mycaption{The figure shows the functional view for data transfer between two truck transmitters }
+\end{center}
 
 \subsection{Functional elements}
 \label{sec:functional-elements}
@@ -687,9 +691,9 @@ actual implementation has not yet begun.
     \hline
     Responsibilities & send truck positions encrypted via SMS to the server and get confirmation from the data receiver\\
     \hline
-    Interfaces -- inbound & Data collector, Data receiver\\
+    Interfaces -- inbound & Data collector, Data sender (MESH), Data receiver (SMS)\\
     \hline
-    Interfaces -- outbound & Data receiver\\
+    Interfaces -- outbound & Data sender (MESH), Data receiver (SMS)\\
    \hline
   \end{tabular}
 \end{center}
@@ -770,7 +774,12 @@ actual implementation has not yet begun.
 
 \begin{center}
   \includegraphics[width=\textwidth]{figures/functional_scenario}\\
-  \mycaption{Truck transmitters send positions to the server end gets a confirmation when the data is received}
+  \mycaption{Truck transmitters send positions to the server and gets a confirmation when the data is received}
+\end{center}
+
+\begin{center}
+  \includegraphics[width=\textwidth]{figures/functional_scenario_mesh}\\
+  \mycaption{Truck transmitters exchange positions with other truck transmitters via the mesh-network}
 \end{center}
 
 \subsection{System-wide processing}
@@ -1542,13 +1551,8 @@ Done
 \label{cha:arch-eval}
 \thispagestyle{fancy}
 
-\instructions{
-Describe the architectural evaluation that you performed, cf. Chapter
-14 of~\citet{rozanski2011software} including what you learned about
-your architecture design.
-}
-
-We have made a priority of our scenarios and compared them to our requirements. This is shown in the following table. As we can see, R5 is never handled in the scenarios, which means, that we should probably have one more scenario for showing how one or more positions would be sent to the server. R5 is however still covered by the architecture.
+The architecture evaluation is based on the requirements and scenarios from G2. 
+We have made a priority of our scenarios and compared them to our requirements. This is shown in the following table. As we can see, R5 is never handled in the scenarios, which means, that we should probably have one more scenario for showing how one or more positions would be sent to the server. R5 is however still covered by the architecture, as data is always sent as a list, and a list can contain just one position.
 
 
 \begin{center}
@@ -1588,7 +1592,7 @@ We have made a priority of our scenarios and compared them to our requirements. 
     \hline
     FS1 & The scenario upholds the architecture. It is however not described, that positions will still be stored in the truck transmitter, if STS is down. \\
     \hline
-    FS2 & The scenario is true for all the trucks, that have delivered their data to the datastore, but it will not be possible to verify trucks within a specific area, if a truck in the area can't send its position to the server. \\
+    FS2 & It should be clarified, that we can only find trucks in an area, if the trucks can send their positions. Other truck might be within the area, but are out of reach of our communication networks.  \\
     \hline
     FS3 & This scenario upholds the described architecture. \\
     \hline
@@ -1596,7 +1600,7 @@ We have made a priority of our scenarios and compared them to our requirements. 
     \hline
     QS1 & This scenario upholds the described architecture. \\
     \hline
-    QS2 & Communication between trucks via mesh network is not described throughly enough in the architecture. More information about how data is synchronized, and how often trucks will contact each other is needed. \\
+    QS2 & This scenario has changed, as trucks exchange position via the mesh-network and sends the positions when one of the trucks enters a cellular network. \\
     \hline
     QS3 & The scenario is described in the architecture \\
     \hline
