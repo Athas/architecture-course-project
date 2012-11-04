@@ -3,63 +3,62 @@
 \contentsline {section}{\numberline {1.2}Audience}{5}{section.1.2}
 \contentsline {section}{\numberline {1.3}Status}{5}{section.1.3}
 \contentsline {section}{\numberline {1.4}Architectural design approach}{5}{section.1.4}
-\contentsline {chapter}{\numberline {2}Glossary}{6}{chapter.2}
-\contentsline {chapter}{\numberline {3}System stakeholders and requirements}{7}{chapter.3}
-\contentsline {section}{\numberline {3.1}Stakeholders}{7}{section.3.1}
-\contentsline {section}{\numberline {3.2}Overview of requirements}{8}{section.3.2}
-\contentsline {section}{\numberline {3.3}System scenarios}{9}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}Functional scenarios}{9}{subsection.3.3.1}
-\contentsline {subsection}{\numberline {3.3.2}System quality scenarios}{10}{subsection.3.3.2}
-\contentsline {chapter}{\numberline {4}Architectural forces}{13}{chapter.4}
-\contentsline {section}{\numberline {4.1}Goals}{13}{section.4.1}
-\contentsline {section}{\numberline {4.2}Constraints}{13}{section.4.2}
-\contentsline {section}{\numberline {4.3}Architectural principles}{14}{section.4.3}
-\contentsline {chapter}{\numberline {5}Architectural views}{17}{chapter.5}
-\contentsline {section}{\numberline {5.1}Context view}{17}{section.5.1}
-\contentsline {subsection}{\numberline {5.1.1}Context diagram}{18}{subsection.5.1.1}
-\contentsline {subsection}{\numberline {5.1.2}Interaction scenarios}{19}{subsection.5.1.2}
-\contentsline {section}{\numberline {5.2}Functional view}{20}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}Functional elements}{21}{subsection.5.2.1}
-\contentsline {subsection}{\numberline {5.2.2}Functional scenarios}{22}{subsection.5.2.2}
-\contentsline {subsection}{\numberline {5.2.3}System-wide processing}{23}{subsection.5.2.3}
-\contentsline {section}{\numberline {5.3}Information view}{23}{section.5.3}
-\contentsline {subsection}{\numberline {5.3.1}Data structure}{24}{subsection.5.3.1}
+\contentsline {chapter}{\numberline {2}Glossary}{7}{chapter.2}
+\contentsline {chapter}{\numberline {3}System stakeholders and requirements}{8}{chapter.3}
+\contentsline {section}{\numberline {3.1}Stakeholders}{8}{section.3.1}
+\contentsline {section}{\numberline {3.2}Overview of requirements}{9}{section.3.2}
+\contentsline {section}{\numberline {3.3}System scenarios}{10}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Functional scenarios}{10}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}System quality scenarios}{11}{subsection.3.3.2}
+\contentsline {chapter}{\numberline {4}Architectural forces}{14}{chapter.4}
+\contentsline {section}{\numberline {4.1}Goals}{14}{section.4.1}
+\contentsline {section}{\numberline {4.2}Constraints}{14}{section.4.2}
+\contentsline {section}{\numberline {4.3}Architectural principles}{15}{section.4.3}
+\contentsline {chapter}{\numberline {5}Architectural views}{18}{chapter.5}
+\contentsline {section}{\numberline {5.1}Context view}{18}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Context diagram}{19}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}Interaction scenarios}{20}{subsection.5.1.2}
+\contentsline {section}{\numberline {5.2}Functional view}{21}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Functional elements}{22}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Functional scenarios}{23}{subsection.5.2.2}
+\contentsline {subsection}{\numberline {5.2.3}System-wide processing}{24}{subsection.5.2.3}
+\contentsline {section}{\numberline {5.3}Information view}{24}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Data structure}{25}{subsection.5.3.1}
 \contentsline {subsection}{\numberline {5.3.2}Data flow}{25}{subsection.5.3.2}
-\contentsline {subsection}{\numberline {5.3.3}Data ownership}{25}{subsection.5.3.3}
+\contentsline {subsection}{\numberline {5.3.3}Data ownership}{26}{subsection.5.3.3}
 \contentsline {subsection}{\numberline {5.3.4}Information lifecycles}{26}{subsection.5.3.4}
 \contentsline {subsection}{\numberline {5.3.5}Timeliness and latency}{26}{subsection.5.3.5}
-\contentsline {subsection}{\numberline {5.3.6}Archive and retention}{26}{subsection.5.3.6}
-\contentsline {section}{\numberline {5.4}Concurrency view}{26}{section.5.4}
-\contentsline {subsection}{\numberline {5.4.1}Concurrency model}{27}{subsection.5.4.1}
-\contentsline {subsection}{\numberline {5.4.2}State model}{28}{subsection.5.4.2}
-\contentsline {section}{\numberline {5.5}Deployment view}{28}{section.5.5}
-\contentsline {subsection}{\numberline {5.5.1}Runtime platform model}{29}{subsection.5.5.1}
-\contentsline {subsection}{\numberline {5.5.2}Software dependencies}{29}{subsection.5.5.2}
-\contentsline {subsection}{\numberline {5.5.3}Network model}{29}{subsection.5.5.3}
-\contentsline {section}{\numberline {5.6}Development view}{31}{section.5.6}
-\contentsline {subsection}{\numberline {5.6.1}Module structure}{31}{subsection.5.6.1}
-\contentsline {subsection}{\numberline {5.6.2}Common design}{32}{subsection.5.6.2}
-\contentsline {subsection}{\numberline {5.6.3}Standards for design, code, and test}{32}{subsection.5.6.3}
-\contentsline {subsection}{\numberline {5.6.4}Codeline organization}{32}{subsection.5.6.4}
-\contentsline {section}{\numberline {5.7}Operational view}{32}{section.5.7}
-\contentsline {subsection}{\numberline {5.7.1}Installation and migration}{32}{subsection.5.7.1}
-\contentsline {subsection}{\numberline {5.7.2}Operational configuration management}{33}{subsection.5.7.2}
-\contentsline {subsection}{\numberline {5.7.3}System administration}{33}{subsection.5.7.3}
-\contentsline {subsection}{\numberline {5.7.4}Provision of support}{33}{subsection.5.7.4}
-\contentsline {chapter}{\numberline {6}System qualities}{35}{chapter.6}
-\contentsline {section}{\numberline {6.1}Performance and scalability}{35}{section.6.1}
-\contentsline {section}{\numberline {6.2}Security}{36}{section.6.2}
-\contentsline {subsection}{\numberline {6.2.1}Access control policy}{37}{subsection.6.2.1}
-\contentsline {subsection}{\numberline {6.2.2}Threat identification}{37}{subsection.6.2.2}
-\contentsline {section}{\numberline {6.3}Availability and resilience}{38}{section.6.3}
-\contentsline {subsection}{\numberline {6.3.1}Platform availability}{40}{subsection.6.3.1}
-\contentsline {subsection}{\numberline {6.3.2}Availability scenarios}{40}{subsection.6.3.2}
-\contentsline {section}{\numberline {6.4}Evolution}{41}{section.6.4}
-\contentsline {section}{\numberline {6.5}Other qualities}{43}{section.6.5}
-\contentsline {subsection}{\numberline {6.5.1}Internationalisation}{43}{subsection.6.5.1}
-\contentsline {subsection}{\numberline {6.5.2}Location}{44}{subsection.6.5.2}
-\contentsline {subsection}{\numberline {6.5.3}Regulation}{44}{subsection.6.5.3}
-\contentsline {chapter}{\numberline {A}Architecture backlog}{45}{appendix.A}
-\contentsline {chapter}{\numberline {B}Architecture evaluation}{46}{appendix.B}
-\contentsline {chapter}{\numberline {C}Architecture prototype}{48}{appendix.C}
-\contentsline {section}{\numberline {C.1}Running the prototype}{48}{section.C.1}
+\contentsline {subsection}{\numberline {5.3.6}Archive and retention}{27}{subsection.5.3.6}
+\contentsline {section}{\numberline {5.4}Concurrency view}{27}{section.5.4}
+\contentsline {subsection}{\numberline {5.4.1}Concurrency model}{28}{subsection.5.4.1}
+\contentsline {subsection}{\numberline {5.4.2}State model}{29}{subsection.5.4.2}
+\contentsline {section}{\numberline {5.5}Deployment view}{29}{section.5.5}
+\contentsline {subsection}{\numberline {5.5.1}Runtime platform model}{30}{subsection.5.5.1}
+\contentsline {subsection}{\numberline {5.5.2}Software dependencies}{30}{subsection.5.5.2}
+\contentsline {subsection}{\numberline {5.5.3}Network model}{30}{subsection.5.5.3}
+\contentsline {section}{\numberline {5.6}Development view}{32}{section.5.6}
+\contentsline {subsection}{\numberline {5.6.1}Module structure}{32}{subsection.5.6.1}
+\contentsline {subsection}{\numberline {5.6.2}Common design}{33}{subsection.5.6.2}
+\contentsline {subsection}{\numberline {5.6.3}Standards for design, code, and test}{33}{subsection.5.6.3}
+\contentsline {subsection}{\numberline {5.6.4}Codeline organization}{33}{subsection.5.6.4}
+\contentsline {section}{\numberline {5.7}Operational view}{33}{section.5.7}
+\contentsline {subsection}{\numberline {5.7.1}Installation and migration}{33}{subsection.5.7.1}
+\contentsline {subsection}{\numberline {5.7.2}Operational configuration management}{34}{subsection.5.7.2}
+\contentsline {subsection}{\numberline {5.7.3}System administration}{34}{subsection.5.7.3}
+\contentsline {subsection}{\numberline {5.7.4}Provision of support}{34}{subsection.5.7.4}
+\contentsline {chapter}{\numberline {6}System qualities}{36}{chapter.6}
+\contentsline {section}{\numberline {6.1}Performance and scalability}{36}{section.6.1}
+\contentsline {section}{\numberline {6.2}Security}{37}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}Access control policy}{38}{subsection.6.2.1}
+\contentsline {subsection}{\numberline {6.2.2}Threat identification}{38}{subsection.6.2.2}
+\contentsline {section}{\numberline {6.3}Availability and resilience}{39}{section.6.3}
+\contentsline {subsection}{\numberline {6.3.1}Platform availability}{41}{subsection.6.3.1}
+\contentsline {subsection}{\numberline {6.3.2}Availability scenarios}{41}{subsection.6.3.2}
+\contentsline {section}{\numberline {6.4}Evolution}{42}{section.6.4}
+\contentsline {section}{\numberline {6.5}Other qualities}{44}{section.6.5}
+\contentsline {subsection}{\numberline {6.5.1}Internationalisation}{44}{subsection.6.5.1}
+\contentsline {subsection}{\numberline {6.5.2}Location}{45}{subsection.6.5.2}
+\contentsline {subsection}{\numberline {6.5.3}Regulation}{45}{subsection.6.5.3}
+\contentsline {chapter}{\numberline {A}Architecture evaluation}{46}{appendix.A}
+\contentsline {chapter}{\numberline {B}Architecture prototype}{48}{appendix.B}
+\contentsline {section}{\numberline {B.1}Running the prototype}{48}{section.B.1}

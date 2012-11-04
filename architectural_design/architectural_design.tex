@@ -105,7 +105,7 @@
 \chapter*{Version history}
 
 \begin{center}
-  \begin{tabular}[h!]{| l | l | l | p{8 cm} |}
+  \begin{tabular}[h!]{| l | l | l | p{5 cm} |}
     \hline
     \rowcolor{gray}
     Version & Date & Author & Comments \\
@@ -125,6 +125,8 @@
     7 & 2012-10-10 & TRH, SHB and JTM & Added sections 6 and 6.1\\
     \hline
     8 & 2012-10-24 & TRH, SHB and JTM & Added sections 6.3 and 6.4\\
+   \hline
+    9 & 2012-11-04 & TRH, SHB and JTM & Added appendix A and B\\
    \hline
   \end{tabular}
 \end{center}
@@ -203,6 +205,16 @@ actual implementation has not yet begun.
 
 \section{Architectural design approach}
 \label{sec:arch-design-appr}
+We are designing a system with little user interaction and no actual stakeholders to guide the design process. We will therefore focus the architecture on the technical difficulties of the system. The arcitecture consists of the following views:
+\begin{itemize}
+  \item Functional view describes the elements needed in the program.
+  \item Information view describes how data is generated, sent thrrough the system and how it is stored.
+  \item Concurrency view describes how the elements work together in a runtime enviroment.
+  \item Deployment view describes in which enviroment the system is deployed and executed
+  \item Development view decribes different programming design choises, such as code standard and testing approaches.
+  \item Operational view describes how the system is deployed and who handles administration and support of the system.
+\end{itemize}
+It is expected that some parts of the architecture will be redefined during the project period, as more insight in the problem to be solved is gathered.
 
 \chapter{Glossary}
 \label{cha:glossary}
@@ -1518,34 +1530,6 @@ Our system is built for transportation in locations with very limited data conne
 Although we have not included this as a requirement for the system, the STS can be used to check if drivers comply to "driving/resting time" regulations for truck drivers in a given country. These data could be queried using the API and warnings could be given to drivers not complying with the regulation.
 
 \appendix
-
-\chapter{Architecture backlog}
-\label{cha:architecture-backlog}
-\thispagestyle{fancy}
-
-\instructions{ Maintain a \emph{backlog} listing needs you have,
-  issues and problems you have to solve, ideas for future design
-  decisions etc. Note actions that you need to take and update the
-  backlog as actions are completed:
-
-\bigskip
-Actions
-
-\begin{itemize}
-\item Decide on which Android version to target
-\item ...
-\end{itemize}
-
-Done
-
-\begin{itemize}
-\item Create an architectural prototype using java.nio for increased
-  scalability
-
-\end{itemize}
-
-
-}
 
 \chapter{Architecture evaluation}
 \label{cha:arch-eval}
